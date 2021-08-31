@@ -1,0 +1,233 @@
+@extends('base.base')
+
+@section('title', 'Listar empresa')
+
+@section('breadcrumb')
+    {!! Breadcrumbs::render('empresa') !!}
+@endsection
+
+@section('content')
+
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <h5>
+                        Empresas
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            {!! Form::open(['route' => 'empresa.destroy']) !!}
+            {!! Form::close() !!}
+
+
+            <table class="table table-bordered table-hover" style="font-size: smaller" id="empresa">
+                <thead>
+                    <tr>
+                        <th>Editar</th>
+                        <th>Razón Social </th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th>Documentación</th>
+                        <th>Cuit</th>
+                        <th>Categoria</th>
+                        <th>Ciudad</th>
+                        <th>Desbloquear</th>
+                        <th>Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+@endsection
+
+@section('js')
+
+    <script>
+        var table = $('#empresa').DataTable({
+            lengthMenu: [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "Todos"]
+            ],
+            dom: '<"wrapper"Brflit>',
+            buttons: ['copy', 'excel', 'pdf', 'colvis'],
+            order: [
+                [1, "asc"]
+            ],
+            stateSave: true,
+            processing: true,
+            serverSide: true,
+            language: {
+                "url": "{{ url('public/DataTables/spanish.json') }}"
+            },
+            ajax: "{{ route('empresaEmpleo.indexAdmin') }}",
+            columns: [{
+                    data: 'id',
+                    name: 'id',
+                    orderable: false,
+                    searchable: false,
+                    class: "text-center"
+                },
+                {
+                    data: 'razon_social',
+                    name: 'razon_social',
+                    orderable: true,
+                    searchable: true,
+                },
+                {
+                    data: 'titular',
+                    name: 'titular',
+                    orderable: true,
+                    searchable: true,
+                },
+                {
+                    data: 'estado',
+                    name: 'estado',
+                    orderable: true,
+                    searchable: true,
+                    class: "text-center"
+                },
+
+                {
+                    data: 'documentacion',
+                    name: 'documentacion',
+                    orderable: true,
+                    searchable: true,
+                    class: "text-center"
+                },
+                {
+                    data: 'cuit',
+                    name: 'cuit',
+                    orderable: false,
+                    searchable: true,
+                    class: "text-center"
+                },
+                {
+                    data: 'categoria',
+                    name: 'categoria',
+                    orderable: true,
+                    searchable: false,
+                },
+                {
+                    data: 'ciudad',
+                    name: 'ciudad',
+                    orderable: true,
+                    searchable: true,
+                },
+                {
+                    data: 'habilitar',
+                    name: 'habilitar',
+                    orderable: false,
+                    searchable: false,
+                    class: "text-center"
+                },
+                {
+                    data: 'borrar',
+                    name: 'borrar',
+                    orderable: false,
+                    searchable: false,
+                    class: "text-center"
+                }
+
+            ]
+        });
+
+
+        $('#empresa').on("click", ".borrar", function() {
+
+            var texto = '&nbsp; Confirma eliminar ? &nbsp;';
+            var id = this.id;
+
+            ymz.jq_confirm({
+                title: texto,
+                text: "",
+                no_btn: "Cancelar",
+                yes_btn: "Confirma",
+                no_fn: function() {
+                    return false;
+                },
+                yes_fn: function() {
+
+                    var token = $('input[name=_token]').val();
+
+                    $.ajax({
+
+                        url: "{{ route('empresaEmpleo.destroy') }}",
+                        type: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': token
+                        },
+                        dataType: 'json',
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                            table.ajax.reload();
+                            toastr.options = {
+                                "progressBar": true,
+                                "showDuration": "300",
+                                "timeOut": "1000"
+                            };
+                            toastr.success("&nbsp;", "Empresa eliminada ... ");
+                        }
+                    });
+                }
+            });
+        })
+
+
+
+        $('#empresa').on("click", ".habilitar", function() {
+
+            var texto = '&nbsp; Permite que la empresa modifique sus datos ? &nbsp;';
+            var id = this.id;
+
+            ymz.jq_confirm({
+                title: texto,
+                text: "",
+                no_btn: "Cancelar",
+                yes_btn: "Confirma",
+                no_fn: function() {
+                    return false;
+                },
+                yes_fn: function() {
+
+                    var token = $('input[name=_token]').val();
+
+                    $.ajax({
+
+                        url: "{{ route('empresaEmpleo.habilitar') }}",
+                        type: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': token
+                        },
+                        dataType: 'json',
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                            table.ajax.reload();
+                            toastr.options = {
+                                "progressBar": true,
+                                "showDuration": "300",
+                                "timeOut": "1000"
+                            };
+                            toastr.success("&nbsp;", "Empresa habilitada ... ");
+                        }
+                    });
+                }
+            });
+        })
+    </script>
+
+@endsection

@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'DINPro-Regular';
+    src: local('DINPro-Regular'), url('../font/dinpro/DINPro-Regular_13937.woff') format('woff');
+}
+
+@font-face {
+    font-family:'Avenir Next';
+    src: local('Avenir'), url('../font/Avenir_95_Black.ttf');
+}
+
+body {
+    font-family: 'DINPro-Regular' !important;
+    padding-top: 70px;
+}
+
+.favenir {
+    font-family: 'Avenir Next' !important;;
+    font-style: normal;
+}
+
+.dinopro {
+    font-family: 'DINPro-Regular' !important;
+    font-style: normal;
+}
+
+.help-block{
+    color: rgb(179, 98, 98);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 2%;
+    width: 100%;
+
+}
+
+.dropdown-menu {
+    color: #777 !important;
+    background-color: #343a40;
+}
+
+.dropdown-item {
+    color: #777 !important;
+    background-color: #343a40;
+}
+.dropdown-menu :hover {
+  background-color: #343a40;
+  color: whitesmoke !important;
+}
+
+.nav-opacity{
+    opacity: 0.85 !important;;
+}
+
+.img-medium{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.empty {
+    background: #F9F0E5;
+}
+
+.error{
+    color: red;
+} 
+
+/* Quitar flechitas a los campos numericos */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
