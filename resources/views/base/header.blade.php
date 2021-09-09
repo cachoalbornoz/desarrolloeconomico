@@ -40,7 +40,7 @@
                                 PROGRAMA FEDERAL DE FORTALECIMIENTO DE LA REACTIVACION PRODUCTIVA
                             </a>
                             <a class="dropdown-item" href={{ route('pafinanciera') }}>
-                                ASISTENCIA FINANCIERA PARA EL SOSTENIMIENTO ECONOMICO
+                                ASISTENCIA FINANCIERA PARA EL SOSTENIMIENTO PRODUCTIVO
                             </a>
                             <a class="dropdown-item" href={{ route('patecnica') }}>
                                 ASISTENCIA TECNICA PARA EL FORTALECIMIENTO MIPyME
