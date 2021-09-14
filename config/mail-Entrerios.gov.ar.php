@@ -13,16 +13,16 @@ return [
     */
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-    'port' => env('MAIL_PORT', 465),
+    'host' => env('MAIL_HOST', 'smtpinterno.entrerios.gov.ar'),
+    'port' => env('MAIL_PORT', 587),
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'economicoemprendedorer@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'desarrolloemprendedor@entrerios.gov.ar'),
         'name' => env('MAIL_FROM_NAME', 'Secretaria de Desarrollo Emprendedor'),
     ],
 
-    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
-    'username' => env('MAIL_USERNAME', 'economicoemprendedorer@gmail.com'),
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'username' => env('MAIL_USERNAME', 'pedrogebhart@entrerios.gov.ar'),
     'password' => env('MAIL_PASSWORD', 'cervantes69'),
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => [
@@ -34,7 +34,6 @@ return [
     ],
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
-
 
     'stream' => [
         'ssl' => [
