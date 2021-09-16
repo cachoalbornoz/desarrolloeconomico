@@ -48,6 +48,10 @@ class EmpresaController extends Controller
 
                         return (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
                     })
+                    ->addColumn('actividad', function ($empresa) {
+
+                        return (isset($empresa->actividad1)) ? substr($empresa->actividad1,0,25) : null;
+                    })
                     ->addColumn('interes', function ($empresa) {
 
                         $interes = EmpresaInteres::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->with(['interes'])->first();
@@ -82,7 +86,7 @@ class EmpresaController extends Controller
 
                         return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
                     })
-                    ->rawColumns(['id', 'razon_social', 'interes', 'novedad', 'titular', 'usuario', 'seguimiento', 'categoria', 'borrar'])
+                    ->rawColumns(['id', 'razon_social', 'actividad', 'interes', 'novedad', 'titular', 'usuario', 'seguimiento', 'categoria', 'borrar'])
                     ->make(true);
             } else {
 
