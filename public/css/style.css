@@ -136,9 +136,10 @@ td.rowspanning div {
 }
 
 div.dataTables_wrapper div.dataTables_processing {
-  top: 0;
+  top: 150;
+  left: 250;
   padding: 5px !important;
-  background: #f5f8fa !important;
+  background-color: #f5f8fa !important;
   color: blue !important;
   border: 1px dotted darkgrey;
   border-radius: 1px !important;

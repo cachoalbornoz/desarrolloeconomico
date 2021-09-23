@@ -50,7 +50,7 @@ class EmpresaController extends Controller
                     })
                     ->addColumn('actividad', function ($empresa) {
 
-                        return (isset($empresa->actividad1)) ? $empresa->actividad1 : null;
+                        return (isset($empresa->actividad1)) ? '<div class="rowspanning">'.$empresa->actividad1.'</div>' : null;
                     })
                     ->addColumn('interes', function ($empresa) {
 
