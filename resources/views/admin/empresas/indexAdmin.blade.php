@@ -99,6 +99,7 @@
                     name: 'actividad',
                     orderable: true,
                     searchable: true,
+                    class: "rowspanning",
                 },
                 {
                     data: 'interes',

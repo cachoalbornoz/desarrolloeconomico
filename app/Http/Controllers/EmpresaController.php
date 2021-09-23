@@ -50,7 +50,7 @@ class EmpresaController extends Controller
                     })
                     ->addColumn('actividad', function ($empresa) {
 
-                        return (isset($empresa->actividad1)) ? substr($empresa->actividad1,0,25) : null;
+                        return (isset($empresa->actividad1)) ? $empresa->actividad1 : null;
                     })
                     ->addColumn('interes', function ($empresa) {
 
