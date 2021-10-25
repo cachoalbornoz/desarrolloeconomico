@@ -34,83 +34,83 @@
         <tr>
             <td colspan="2">&nbsp;</td>
         </tr>
-        <tr> 
+        <tr>
             <td colspan="2" style="font-weight: bold;">
-{{ strtoupper($evaluacion->Proyecto->Titular->nombrecompleto) }} ::
-                {{ strtoupper($evaluacion->Proyecto->Empresa->razon_social) }} 
+                {{ strtoupper($evaluacion->Proyecto->Titular->nombrecompleto) }} ::
+                {{ strtoupper($evaluacion->Proyecto->Empresa->razon_social) }}
 
             </td>
         </tr>
         <tr>
-<td colspan="2">
-    &nbsp;
-</td>
+            <td colspan="2">
+                &nbsp;
+            </td>
         </tr>
     </table>
 
     <table style="width: 100%; margin-bottom: 15px;">
         <tr style=" background-color:#CCC">
-            <td style="width: 10%; text-align: center">#</td>
-            <td style="width: 40%">Criterio</td>
-            <td style="width: 10%; text-align: center">Puntaje</td>
-            <td style="width: 40%">Observación</td>
+            <td style="text-align: center">#</td>
+            <td style=""> Criterio</td>
+            <td style="text-align: center">Puntaje</td>
+            <td style="">Observación</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">1</td>
-            <td style="width: 40%; text-align: justify">El impacto que la declaración nacional y provincial del aislamiento
+            <td style=" text-align: center">1</td>
+            <td style="text-align: justify">El impacto que la declaración nacional y provincial del aislamiento
                 social, preventivo y obligatorio tuvo sobre el sector al que la MiPyME pertenece</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje1 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion1 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje1 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion1 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">2</td>
-            <td style="width: 40%; text-align: justify">La contribución al sostenimiento del sector productivo al que
+            <td style="text-align: center">2</td>
+            <td style="text-align: justify">La contribución al sostenimiento del sector productivo al que
                 pertenece la empresa solicitante mediante el aporte requerido</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje2 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion2 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje2 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion2 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">3</td>
-            <td style="width: 40%; text-align: justify">La capacidad económica, financiera y operativa del solicitante para
+            <td style="text-align: center">3</td>
+            <td style="text-align: justify">La capacidad económica, financiera y operativa del solicitante para
                 desarrollar las actividades propuestas</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje3 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion3 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje3 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion3 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">4</td>
-            <td style="width: 40%; text-align: justify">La facturación de la empresa en el año anterior, en referencia al
+            <td style="text-align: center">4</td>
+            <td style="text-align: justify">La facturación de la empresa en el año anterior, en referencia al
                 requisito de la línea por el cual no puede solicitarse en carácter de crédito más del 50% del total de la
                 misma</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje4 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion4 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje4 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion4 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">5</td>
-            <td style="width: 40%; text-align: justify">La adecuación del proyecto a la perspectiva de sostenibilidad
+            <td style="text-align: center">5</td>
+            <td style="text-align: justify">La adecuación del proyecto a la perspectiva de sostenibilidad
                 económica que presenta el solicitante</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje5 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion5 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje5 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion5 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">6</td>
-            <td style="width: 40%; text-align: justify">La contribución a la preservación de las fuentes laborales
+            <td style="text-align: center">6</td>
+            <td style="text-align: justify">La contribución a la preservación de las fuentes laborales
                 dependientes de la MiPyME</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje6 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion6 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje6 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion6 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">7</td>
-            <td style="width: 40%; text-align: justify">La incorporación de perspectiva de sustentabilidad ambiental, social
+            <td style="text-align: center">7</td>
+            <td style="text-align: justify">La incorporación de perspectiva de sustentabilidad ambiental, social
                 y de género por parte de la MiPyME</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje7 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion7 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje7 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion7 }}</td>
         </tr>
         <tr>
-            <td style="width: 10%; text-align: center">8</td>
-            <td style="width: 40%; text-align: justify">El encuadramiento del destino del financiamiento solicitado a los
+            <td style="text-align: center">8</td>
+            <td style="text-align: justify">El encuadramiento del destino del financiamiento solicitado a los
                 términos previstos en la presente Resolución y normas complementarias</td>
-            <td style="width: 10%; text-align: center">{{ $evaluacion->puntaje8 }}</td>
-            <td style="width: 40%; text-align: justify">{{ $evaluacion->observacion8 }}</td>
+            <td style="text-align: center">{{ $evaluacion->puntaje8 }}</td>
+            <td style="text-align: justify">{{ $evaluacion->observacion8 }}</td>
         </tr>
         <tr>
             <td colspan="4">&nbsp;</td>
@@ -132,15 +132,9 @@
         <tr>
             <th style="text-align: justify">{{ $evaluacion->comentario }}</th>
         </tr>
-        <tr>
-            <td colspan="2">&nbsp;</td>
-        </tr>
     </table>
 
     <table style="width: 100%">
-        <tr>
-            <td colspan="2">&nbsp;</td>
-        </tr>
         <tr>
             <td>Lugar -------------------------------------------</td>
             <td style="text-align: center">Firma responsable de la evaluación</td>

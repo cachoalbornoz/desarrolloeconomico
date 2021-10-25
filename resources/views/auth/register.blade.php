@@ -176,7 +176,7 @@
                             <div class="radio mb-2">
                                 <label>
                                     <input type="radio" name="verprograma" onclick="ver_financia()" checked="true">
-                                    Asistencia Financiera para el Sostenimiento Productivo
+                                    Asistencia Financiera para la Consolidación Productiva
                                 </label>
                             </div>
                             <div class="radio mb-2">

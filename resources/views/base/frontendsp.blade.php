@@ -42,7 +42,7 @@
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <a class="text-dark" href={{ route('pafinanciera') }}>
                     <h5 class="favenir mb-3">
-                        PROGRAMA DE ASISTENCIA FINANCIERA PARA EL SOSTENIMIENTO PRODUCTIVO
+                        PROGRAMA DE ASISTENCIA FINANCIERA PARA LA CONSOLIDACIÓN PRODUCTIVA
                     </h5>
                     <img src="{{ asset('public/images/frontend/prog_financ.png') }}" class=" img-fluid" />
                 </a>
@@ -63,7 +63,8 @@
                     <h5 class="favenir mb-3">
                         PROGRAMA DE FINANCIAMIENTO PARA COOPERATIVAS DE TRABAJO
                     </h5>
-                    <img src="{{ asset('public/images/frontend/prog_financ_cooperativas.png') }}" class=" img-fluid" />
+                    <img src="{{ asset('public/images/frontend/prog_financ_cooperativas.png') }}"
+                        class=" img-fluid" />
                 </a>
             </div>
             <div class="col-xs-12 col-md-6 col-lg-6">
