@@ -83,7 +83,7 @@
             <div class="col-xs-12 col-sm-12 col-lg-12">
                 <h4 class="mt-3 mb-5">Financiamiento</h4>
 
-                <p class=" p-2">Créditos de hasta <strong> $1.400.000</strong> (PESOS UN MILLÓN CUATROCIENTOS MIL)
+                <p class=" p-2">Créditos de hasta <strong> $2.000.000</strong> (PESOS DOS MILLONES)
                     para
                     capital de
                     trabajo o inversión y capital de trabajo asociado. Se financiará hasta el CIEN POR CIENTO (100%) del
