@@ -56,61 +56,63 @@
             <td style="">Observación</td>
         </tr>
         <tr>
-            <td style=" text-align: center">1</td>
-            <td style="text-align: justify">El impacto que la declaración nacional y provincial del aislamiento
-                social, preventivo y obligatorio tuvo sobre el sector al que la MiPyME pertenece</td>
+            <td style=" text-align: center">a</td>
+            <td style="text-align: justify">
+                Las perspectivas de consolidación o escalamiento de la empresa solicitante, en sus distintas facetas,
+                mediante el aporte requerido
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje1 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion1 }}</td>
         </tr>
         <tr>
-            <td style="text-align: center">2</td>
-            <td style="text-align: justify">La contribución al sostenimiento del sector productivo al que
-                pertenece la empresa solicitante mediante el aporte requerido</td>
+            <td style="text-align: center">b</td>
+            <td style="text-align: justify">
+                La capacidad económica, financiera y operativa del solicitante para desarrollar las actividades propuestas
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje2 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion2 }}</td>
         </tr>
         <tr>
-            <td style="text-align: center">3</td>
-            <td style="text-align: justify">La capacidad económica, financiera y operativa del solicitante para
-                desarrollar las actividades propuestas</td>
+            <td style="text-align: center">c</td>
+            <td style="text-align: justify">
+                La facturación de la empresa en el año anterior, en referencia al requisito de la línea por el cual no puede
+                solicitarse en carácter de crédito más del 50% del total de la misma
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje3 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion3 }}</td>
         </tr>
         <tr>
-            <td style="text-align: center">4</td>
-            <td style="text-align: justify">La facturación de la empresa en el año anterior, en referencia al
-                requisito de la línea por el cual no puede solicitarse en carácter de crédito más del 50% del total de la
-                misma</td>
+            <td style="text-align: center">d</td>
+            <td style="text-align: justify">
+                La adecuación del proyecto a la perspectiva de sostenibilidad económica que presenta el solicitante
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje4 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion4 }}</td>
         </tr>
         <tr>
-            <td style="text-align: center">5</td>
-            <td style="text-align: justify">La adecuación del proyecto a la perspectiva de sostenibilidad
-                económica que presenta el solicitante</td>
+            <td style="text-align: center">e</td>
+            <td style="text-align: justify">
+                La contribución a la preservación de las fuentes laborales dependientes de la MiPyME
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje5 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion5 }}</td>
         </tr>
         <tr>
-            <td style="text-align: center">6</td>
-            <td style="text-align: justify">La contribución a la preservación de las fuentes laborales
-                dependientes de la MiPyME</td>
+            <td style="text-align: center">f</td>
+            <td style="text-align: justify">
+                La incorporación de perspectiva de sustentabilidad ambiental, social y de género por parte de la MiPyME
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje6 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion6 }}</td>
         </tr>
         <tr>
-            <td style="text-align: center">7</td>
-            <td style="text-align: justify">La incorporación de perspectiva de sustentabilidad ambiental, social
-                y de género por parte de la MiPyME</td>
+            <td style="text-align: center">g</td>
+            <td style="text-align: justify">
+                El encuadramiento del destino del financiamiento solicitado a los términos previstos en la presente
+                Resolución y normas complementarias
+            </td>
             <td style="text-align: center">{{ $evaluacion->puntaje7 }}</td>
             <td style="text-align: justify">{{ $evaluacion->observacion7 }}</td>
-        </tr>
-        <tr>
-            <td style="text-align: center">8</td>
-            <td style="text-align: justify">El encuadramiento del destino del financiamiento solicitado a los
-                términos previstos en la presente Resolución y normas complementarias</td>
-            <td style="text-align: center">{{ $evaluacion->puntaje8 }}</td>
-            <td style="text-align: justify">{{ $evaluacion->observacion8 }}</td>
         </tr>
         <tr>
             <td colspan="4">&nbsp;</td>

@@ -17,8 +17,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-9 col-lg-9">
                     <h5>
-                        {{ $evaluacion->Proyecto->Empresa->razon_social}} -
-                        ({{ $evaluacion->Proyecto->Titular->apellido}}, {{ $evaluacion->Proyecto->Titular->nombre}})
+                        {{ $evaluacion->Proyecto->Empresa->razon_social }} -
+                        ({{ $evaluacion->Proyecto->Titular->apellido }}, {{ $evaluacion->Proyecto->Titular->nombre }})
                     </h5>
                 </div>
 
@@ -63,30 +63,10 @@
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
                         {!! Form::textarea('observacion1', null, ['autofocus' => true, 'class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion1', '1 - El impacto que la declaración nacional y provincial del aislamiento social, preventivo y obligatorio tuvo sobre el sector al que la MiPyME pertenece') !!}
+                        {!! Form::label('observacion1', 'a - Las perspectivas de consolidación o escalamiento de la empresa solicitante, en sus distintas facetas, mediante el aporte requerido') !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje1', null, ['class' => 'form-control mb-3 text-center',  'required', 'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)' ]) !!}
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-xs-12 col-md-10 col-lg-10">
-                        <small>Máx 500 caracteres</small>
-                    </div>
-                    <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        <small>Máx 10</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-5 bg-light">
-                <div class="row p-3">
-                    <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
-                        {!! Form::textarea('observacion2', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion2', '2 - La contribución al sostenimiento del sector productivo al que pertenece la empresa solicitante mediante el aporte requerido') !!}
-                    </div>
-                    <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje2', null, ['class' => 'form-control mb-3 text-center',  'required', 'required', 'min' => 0, 'max' => '15', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                        {!! Form::number('puntaje1', null, ['class' => 'form-control mb-3 text-center', 'required', 'required', 'min' => 0, 'max' => '15', 'onkeyup' => 'imposeMinMax(this)']) !!}
                     </div>
                 </div>
                 <div class="row m-3">
@@ -102,11 +82,31 @@
             <div class="card mb-5 bg-light">
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
-                        {!! Form::textarea('observacion3', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion3', '3 - La capacidad económica, financiera y operativa del solicitante para desarrollar las actividades propuestas') !!}
+                        {!! Form::textarea('observacion2', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
+                        {!! Form::label('observacion2', 'b - La capacidad económica, financiera y operativa del solicitante para desarrollar las actividades propuestas') !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje3', null, ['class' => 'form-control mb-3 text-center',  'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                        {!! Form::number('puntaje2', null, ['class' => 'form-control mb-3 text-center', 'required', 'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col-xs-12 col-md-10 col-lg-10">
+                        <small>Máx 500 caracteres</small>
+                    </div>
+                    <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
+                        <small>Máx 10</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-5 bg-light">
+                <div class="row p-3">
+                    <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
+                        {!! Form::textarea('observacion3', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
+                        {!! Form::label('observacion3', 'c - La facturación de la empresa en el año anterior, en referencia al requisito de la línea por el cual no puede solicitarse en carácter de crédito más del 50% del total de la misma') !!}
+                    </div>
+                    <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
+                        {!! Form::number('puntaje3', null, ['class' => 'form-control mb-3 text-center', 'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
                     </div>
                 </div>
                 <div class="row m-3">
@@ -123,10 +123,10 @@
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
                         {!! Form::textarea('observacion4', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion4', '4 - La facturación de la empresa en el año anterior, en referencia al requisito de la línea por el cual no puede solicitarse en carácter de crédito más del 50% del total de la misma') !!}
+                        {!! Form::label('observacion4', 'd - La adecuación del proyecto a la perspectiva de sostenibilidad económica que presenta el solicitante') !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje4', null, ['class' => 'form-control mb-3 text-center',  'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                        {!! Form::number('puntaje4', null, ['class' => 'form-control mb-3 text-center', 'required', 'min' => 0, 'max' => '20', 'onkeyup' => 'imposeMinMax(this)']) !!}
                     </div>
                 </div>
                 <div class="row m-3">
@@ -134,7 +134,7 @@
                         <small>Máx 500 caracteres</small>
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        <small>Máx 10</small>
+                        <small>Máx 20</small>
                     </div>
                 </div>
             </div>
@@ -143,10 +143,10 @@
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
                         {!! Form::textarea('observacion5', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion5', '5 - La adecuación del proyecto a la perspectiva de sostenibilidad económica que presenta el solicitante') !!}
+                        {!! Form::label('observacion5', 'e - La contribución a la preservación de las fuentes laborales dependientes de la MiPyME') !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje5', null, ['class' => 'form-control mb-3 text-center',  'required', 'min' => 0, 'max' => '20', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                        {!! Form::number('puntaje5', null, ['class' => 'form-control mb-3 text-center', 'required', 'min' => 0, 'max' => '20', 'onkeyup' => 'imposeMinMax(this)']) !!}
                     </div>
                 </div>
                 <div class="row m-3">
@@ -163,10 +163,10 @@
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
                         {!! Form::textarea('observacion6', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion6', '6 - La contribución a la preservación de las fuentes laborales dependientes de la MiPyME') !!}
+                        {!! Form::label('observacion6', 'f - La incorporación de perspectiva de sustentabilidad ambiental, social y de género por parte de la MiPyME') !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje6', null, ['class' => 'form-control mb-3 text-center',  'required', 'min' => 0, 'max' => '15', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                        {!! Form::number('puntaje6', null, ['class' => 'form-control mb-3 text-center', 'required', 'min' => 0, 'max' => '15', 'onkeyup' => 'imposeMinMax(this)']) !!}
                     </div>
                 </div>
                 <div class="row m-3">
@@ -183,10 +183,10 @@
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
                         {!! Form::textarea('observacion7', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion7', '7 - La incorporación de perspectiva de sustentabilidad ambiental, social y de género por parte de la MiPyME') !!}
+                        {!! Form::label('observacion7', 'g - El encuadramiento del destino del financiamiento solicitado a los términos previstos en la presente Resolución y normas complementarias') !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje7', null, ['class' => 'form-control mb-3 text-center',  'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                        {!! Form::number('puntaje7', null, ['class' => 'form-control mb-3 text-center', 'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
                     </div>
                 </div>
                 <div class="row m-3">
@@ -202,19 +202,10 @@
             <div class="card mb-5 bg-light">
                 <div class="row p-3">
                     <div class="col-xs-12 col-md-10 col-lg-10 mb-2">
-                        {!! Form::textarea('observacion8', null, ['class' => 'form-control mb-3', 'rows' => '2', 'placeholder' => 'Si desea, ingrese una observación']) !!}
-                        {!! Form::label('observacion8', '8 - El encuadramiento del destino del financiamiento solicitado a los términos previstos en la presente Resolución y normas complementarias') !!}
+                        {!! Form::hidden('observacion8', null, ['class' => 'form-control mb-3']) !!}
                     </div>
                     <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        {!! Form::number('puntaje8', null, ['class' => 'form-control mb-3 text-center',  'required', 'min' => 0, 'max' => '10', 'onkeyup' => 'imposeMinMax(this)']) !!}
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-xs-12 col-md-10 col-lg-10">
-                        <small>Máx 500 caracteres</small>
-                    </div>
-                    <div class="col-xs-12 col-md-2 col-lg-2 mb-2 text-center">
-                        <small>Máx 10</small>
+                        {!! Form::hidden('puntaje8', 0) !!}
                     </div>
                 </div>
             </div>
@@ -244,7 +235,7 @@
 
         </div>
 
-        {!! Form::close()  !!}
+        {!! Form::close() !!}
     </div>
 
 
@@ -252,35 +243,41 @@
 
 @section('js')
 
-<script>
-    $('.anular').on('click', function(){
-        var proyecto = {{$evaluacion->Proyecto->id}};
+    <script>
+        $('.anular').on('click', function() {
+            var proyecto = {{ $evaluacion->Proyecto->id }};
 
-        ymz.jq_confirm({
-            title   : '<div class="text-center m-3">Confirma anular la evaluación ?</div>',
-            text    : "<br>",
-            no_btn  : "No",
-            yes_btn : "Si",
-            no_fn:function(){
+            ymz.jq_confirm({
+                title: '<div class="text-center m-3">Confirma anular la evaluación ?</div>',
+                text: "<br>",
+                no_btn: "No",
+                yes_btn: "Si",
+                no_fn: function() {
 
-                return false;
-            },
-            yes_fn:function(){
+                    return false;
+                },
+                yes_fn: function() {
 
-                $.ajax({
+                    $.ajax({
 
-                    url 	: '{{ route('proyecto.cambioestado')}}',
-                    type 	: 'POST',
-                    data    : {id: proyecto, estado:20 },
-                });
+                        url: '{{ route('proyecto.cambioestado') }}',
+                        type: 'POST',
+                        data: {
+                            id: proyecto,
+                            estado: 20
+                        },
+                    });
 
-                window.location.href='{{route('proyecto.index')}}';
-                toastr.options = { "progressBar": true, "showDuration": "300", "timeOut": "1000" };
-                toastr.success("&nbsp;", "Proyecto rehabilitado para la carga ... ");
-            }
+                    window.location.href = '{{ route('proyecto.index') }}';
+                    toastr.options = {
+                        "progressBar": true,
+                        "showDuration": "300",
+                        "timeOut": "1000"
+                    };
+                    toastr.success("&nbsp;", "Proyecto rehabilitado para la carga ... ");
+                }
+            })
         })
-    })
-</script>
+    </script>
 
 @endsection
-
