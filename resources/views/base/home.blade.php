@@ -16,8 +16,8 @@
 
                 <div class="card-group">
                     <div class="card mr-3 mb-3">
-                        <div class="card-header badge-info text-center">Programa Federal de Fortalecimiento de
-                            la Reactivación Productiva
+                        <div class="card-header badge-info text-center">
+                            Programa de Asistencia Financiera para la Consolidación Productiva
                         </div>
                         <div class="card-body">
                             <h5 class="card-text">
@@ -46,9 +46,8 @@
                             </h5>
                         </div>
                         <div class=" card-footer">
-                            Crédito de hasta $1.400.000 y a tasa subsidiada para MiPyMEs entrerrianas en marcha, destinados
-                            a
-                            capital de trabajo o proyectos de inversión y capital de trabajo asociado.
+                            Crédito de hasta $2.000.000 y a tasa subsidiada para MiPyMEs entrerrianas en marcha, destinados
+                            a capital de trabajo o proyectos de inversión y capital de trabajo asociado.
                             </br>
                             &nbsp;
                         </div>
