@@ -43,7 +43,7 @@ class DocumentacionController extends Controller
                         return ($documentacion->Proyecto->titular) ? $documentacion->Proyecto->Titular->apellido . ' ' . $documentacion->Proyecto->Titular->nombre : null;
                     })
                     ->addColumn('denominacion', function ($documentacion) {
-                        $denominacion = substr($documentacion->Proyecto->denominacion, 0, 35);
+                        $denominacion = $documentacion->Proyecto->denominacion;
                         return ($documentacion->canEdit()) ? '<a href= "' . route('documentacion.edit', $documentacion->id) . '">' . $denominacion . '</a>' : $denominacion;
                     })
 

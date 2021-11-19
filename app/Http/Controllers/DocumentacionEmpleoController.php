@@ -45,7 +45,7 @@ class DocumentacionEmpleoController extends Controller
                         return $documentacion->Proyecto->Titular->apellido . ' ' . $documentacion->Proyecto->Titular->nombre;
                     })
                     ->addColumn('denominacion', function ($documentacion) {
-                        $denominacion = substr($documentacion->Proyecto->denominacion, 0, 35);
+                        $denominacion =$documentacion->Proyecto->denominacion;
                         return ($documentacion->canEdit()) ? '<a href= "' . route('documentacion.edit', $documentacion->id) . '">' . $denominacion . '</a>' : $denominacion;
                     })
 
