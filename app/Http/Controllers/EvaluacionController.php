@@ -24,43 +24,32 @@ class EvaluacionController extends Controller
         if ($request->ajax()) {
 
             if (Auth::user()->hasRole(['superadmin', 'admin'])) {
-
                 // Traer los proyectos con estado ENVIADO = 24
                 $evaluacion = Evaluacion::all();
             } else {
-
                 $evaluacion = Evaluacion::whereHas('proyecto', function ($query) {
                     $query->where('titular', '=', Auth::user()->id);
                 })->get();
             }
 
             if ($evaluacion) {
-
                 return Datatables::of($evaluacion)
                     ->addIndexColumn()
                     ->addColumn('denominacion', function ($evaluacion) {
-
-                        $denominacion = substr($evaluacion->Proyecto->denominacion, 0, 35);
-
+                        $denominacion = $evaluacion->Proyecto->denominacion;
                         if (Auth::user()->hasRole(['superadmin', 'admin'])) {
-
                             $edit   = route('evaluacion.edit', $evaluacion->id);
-
                             $edit   = '<a href= "' . $edit . '">' . $denominacion . '</a>';
                         } else {
-
                             $edit  = $denominacion;
                         }
-
                         return $edit;
                     })
                     ->addColumn('titular', function ($evaluacion) {
-
-                        return substr($evaluacion->Proyecto->Titular->nombre_completo, 0, 35);
+                        return $evaluacion->Proyecto->Titular->nombre_completo;
                     })
                     ->addColumn('razonsocial', function ($evaluacion) {
-
-                        return substr($evaluacion->Proyecto->Empresa->razon_social, 0, 35);
+                        return $evaluacion->Proyecto->Empresa->razon_social;
                     })
                     ->editColumn('estado', function ($evaluacion) {
 
@@ -71,26 +60,20 @@ class EvaluacionController extends Controller
                         }
                     })
                     ->editColumn('resultado', function ($evaluacion) {
-
                         if (Auth::user()->hasRole(['superadmin', 'admin'])) {
-
                             return $evaluacion->resultado;
                         } else {
-
                             return ($evaluacion->estado == 26) ? $evaluacion->resultado : null;
                         }
                     })
                     ->editColumn('evaluador', function ($evaluacion) {
-
                         return ($evaluacion->evaluador) ? $evaluacion->Evaluador->nombre_completo : null;
                     })
                     ->addColumn('print', function ($evaluacion) {
 
                         if (Auth::user()->hasRole(['superadmin', 'admin'])) {
-
                             return  '<a href="' . route('print.evaluacion', $evaluacion->id) . '" title="Imprime evaluación del proyecto"><i class="fas fa-print text-primary"></i></a>';
                         } else {
-
                             return ($evaluacion->estado == 26) ? '<a href="' . route('print.evaluacion', $evaluacion->id) . '" title="Imprime evaluación del proyecto"><i class="fas fa-print text-primary"></i></a>' : null;
                         }
                     })
