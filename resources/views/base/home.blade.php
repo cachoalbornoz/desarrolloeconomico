@@ -17,7 +17,7 @@
                 <div class="card-group">
                     <div class="card mr-3 mb-3">
                         <div class="card-header badge-info text-center">
-                            Programa de Asistencia Financiera para la Consolidación Productiva
+                            PROGRAMA FEDERAL DE FORTALECIMIENTO DE LA REACTIVACIÓN PRODUCTIVA
                         </div>
                         <div class="card-body">
                             <h5 class="card-text">
@@ -30,13 +30,12 @@
                             Contrata trabajadores o trabajadoras que vayan a desempeñar sus tareas en la Provincia de ENTRE
                             RÍOS, por tiempo indeterminado y jornada completa, y recibí un Aporte No Reembolsable (ANR)
                             mensual y por el plazo máximo de TREINTA Y SEIS (36) cuotas.
-
                         </div>
                     </div>
 
                     <div class="card mr-3 mb-3">
-                        <div class="card-header bg-success text-center">Programa de Asistencia Técnica para el Sostenimiento
-                            Productivo
+                        <div class="card-header bg-success text-center">
+                            PROGRAMA DE ASISTENCIA FINANCIERA PARA LA CONSOLIDACION PRODUCTIVA
                         </div>
                         <div class="card-body">
                             <h5 class="card-text">
