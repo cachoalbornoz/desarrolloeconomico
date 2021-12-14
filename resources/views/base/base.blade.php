@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('/public/images/frontend/favicon.ico') }}">
 
     <meta name="Keywords"
-        content="secretaria, produccion, creditos, mipyme, desarrollo, economico, registro, gobierno,entre rios, financiacion" />
-    <meta name="description" content="Sistema de registro de emprendimientos productivos" />
+        content="Gobierno Entre Ríos Desarrollo Económico Emprendedor Financiamiento Jóvenes Emprendedores MiPyMEs PyMEs" />
+    <meta name="description" content="Gobierno Entre Ríos Desarrollo Económico Emprendedor Financiamiento" />
     <meta name="robots" content="index,follow">
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
