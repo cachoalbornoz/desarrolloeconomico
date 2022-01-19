@@ -1,5 +1,7 @@
 <?php
 
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+
 Breadcrumbs::for('inicio', function ($trail) {
     $trail->push('Inicio', route('home'));
 });
@@ -8,6 +10,12 @@ Breadcrumbs::for('inicio', function ($trail) {
 Breadcrumbs::for('cuota', function ($trail, $expediente) {
     $trail->parent('inicio');
     $trail->push('Forma pago', route('cuota.index', $expediente->id));
+});
+
+//// NOTICIAS
+Breadcrumbs::for('noticia', function ($trail) {
+    $trail->parent('inicio');
+    $trail->push('Noticias', route('noticias.index'));
 });
 
 //// PAGO
