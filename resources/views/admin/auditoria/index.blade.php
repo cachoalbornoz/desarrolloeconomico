@@ -3,21 +3,21 @@
 @section('title', 'Listar auditorias')
 
 @section('breadcrumb')
-    {!! Breadcrumbs::render('inicio') !!}
+{!! Breadcrumbs::render('inicio') !!}
 @endsection
 
 @section('content')
 
 <div class="row">
-	<div class="col-xs-12 col-sm-12 col-lg-12">
-		<div class="card">
-			<div class="card-header">
-				<h5>
+    <div class="col-xs-12 col-sm-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>
                     Auditoria del Sistema
                 </h5>
             </div>
 
-			<div class="card-body">
+            <div class="card-body">
 
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-sm" style="font-size: smaller" id="auditorias">
@@ -35,17 +35,16 @@
                 </div>
 
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
 @endsection
 
 @section('js')
 
-	<script>
-
-        var table = $('#auditorias').DataTable({
+<script>
+    var table = $('#auditorias').DataTable({
             scrollCollapse  : true, //Esto sirve que se auto ajuste la tabla al aplicar un filtro
             lengthMenu      : [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
             dom             : '<"wrapper"Brflit>',
@@ -89,7 +88,6 @@
                         dataType: 'json',
                         data 	: {accion: 'borrar', id: id},
                         success: function(){
-
                             table.ajax.reload();
                         }
                     });
@@ -97,6 +95,6 @@
             });
         });
 
-	</script>
+</script>
 
 @endsection

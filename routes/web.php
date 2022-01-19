@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 Route::group(['middleware' => 'preventBackHistory'], function () {
 
     Route::get('password-reset', 'PasswordController@showForm');
@@ -46,6 +49,15 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
 
         //////////// HOME
         Route::get('/home', ['uses' => 'InicioController@index', 'as' => 'home']);
+
+        //////////// NOTICIAS
+        Route::get('/noticias/{id?}', 'NoticiaController@index')->name('noticias.index');
+        Route::get('/noticias/create/{id?}', 'NoticiaController@create')->name('noticias.create');
+        Route::post('/noticias/store', 'NoticiaController@store')->name('noticias.store');
+        Route::get('/noticias/edit/{id}', 'NoticiaController@edit')->name('noticias.edit');
+        Route::put('/noticias/update/{id}', 'NoticiaController@update')->name('noticias.update');
+        Route::post('/noticias/destroy', 'NoticiaController@destroy')->name('noticias.destroy');
+        Route::post('/noticias/accion', 'NoticiaController@accion')->name('noticias.accion');
 
         //////////// CUOTAS
         Route::get('/cuota/{id?}', 'CuotaController@index')->name('cuota.index');
@@ -105,7 +117,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/ubicacion/destroy', 'UbicacionController@destroy')->name('ubicacion.destroy');
 
         //////////// EXPEDIENTES
-        Route::get('/expediente/', 'ExpedienteController@index')->name('expediente.index');
+        Route::get('/expediente', 'ExpedienteController@index')->name('expediente.index');
         Route::get('/expediente/create', 'ExpedienteController@create')->name('expediente.create');
         Route::post('/expediente/store', 'ExpedienteController@store')->name('expediente.store');
         Route::get('/expediente/edit/{id}', 'ExpedienteController@edit')->name('expediente.edit');
@@ -113,12 +125,12 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/expediente/destroy', 'ExpedienteController@destroy')->name('expediente.destroy');
 
         //////////// EMISOR
-        Route::get('/emisor/', 'TipoEmisorController@index')->name('emisor.index');
+        Route::get('/emisor', 'TipoEmisorController@index')->name('emisor.index');
         Route::get('/emisor/edit/{id?}', 'TipoEmisorController@edit')->name('emisor.edit');
         Route::post('/emisor/accion', 'TipoEmisorController@accion')->name('emisor.accion');
 
         //////////// ORIGEN
-        Route::get('/origen/', 'TipoOrigenController@index')->name('origen.index');
+        Route::get('/origen', 'TipoOrigenController@index')->name('origen.index');
         Route::get('/origen/edit/{id?}', 'TipoOrigenController@edit')->name('origen.edit');
         Route::post('/origen/accion', 'TipoOrigenController@accion')->name('origen.accion');
 
@@ -127,12 +139,12 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/auditoria/accion', 'AuditoriaController@accion')->name('auditoria.accion');
 
         //////////// FINANCIAMIENTO
-        Route::get('/financiamiento/', 'TipoFinanciamientoController@index')->name('financiamiento.index');
+        Route::get('/financiamiento', 'TipoFinanciamientoController@index')->name('financiamiento.index');
         Route::get('/financiamiento/edit/{id?}', 'TipoFinanciamientoController@edit')->name('financiamiento.edit');
         Route::post('/financiamiento/accion', 'TipoFinanciamientoController@accion')->name('financiamiento.accion');
 
         //////////// CATEGORIA
-        Route::get('/categoria/', 'TipoCategoriaController@index')->name('categoria.index');
+        Route::get('/categoria', 'TipoCategoriaController@index')->name('categoria.index');
         Route::get('/categoria/edit/{id?}', 'TipoCategoriaController@edit')->name('categoria.edit');
         Route::post('/categoria/accion', 'TipoCategoriaController@accion')->name('categoria.accion');
 
@@ -249,7 +261,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
 
         Route::get('documentacionempleo/edit/{documentacion}', 'DocumentacionEmpleoController@edit')->name('documentacione.edit');
         Route::get('documentacionempleo/', 'DocumentacionEmpleoController@index')->name('documentacione.index');
-        
+
 
         //////////  EMPRESA
 
