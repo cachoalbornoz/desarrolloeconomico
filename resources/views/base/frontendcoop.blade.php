@@ -62,7 +62,7 @@
     <div class="row mb-3">
         <div class="col-xs-12 col-sm-12 col-lg-12">
             <p class="mb-2 font-weight-bolder">Monto a financiar</p>
-            Crédito hasta $800.000 (PESOS OCHOCIENTOS MIL). El monto máximo a solicitar en ningún caso podrá superar el
+            Crédito hasta <strong> $3.000.000</strong> (PESOS TRES MILLONES). El monto máximo a solicitar en ningún caso podrá superar el
             50% del total de facturación de la cooperativa correspondiente al año anterior
         </div>
     </div>

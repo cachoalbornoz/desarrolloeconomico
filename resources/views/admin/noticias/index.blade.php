@@ -29,8 +29,11 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Fecha</th>
                                 <th>Titulo</th>
                                 <th>Subtitulo</th>
+                                <th>Publicada</th>
+                                <th>Editar</th>
                                 <th>Borrar</th>
                             </tr>
                         </thead>
@@ -55,7 +58,7 @@
             lengthMenu      : [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
             dom             : '<"wrapper"Brflit>',
             buttons         : ['copy', 'excel', 'pdf', 'colvis'],
-            order           : [[ 1, "asc" ]],
+            ordering        : false,
             stateSave       : true,
             processing      : true,
             serverSide      : true,
@@ -63,9 +66,12 @@
             ajax: "{{ route('noticias.index') }}",
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', class:"text-center"},
-                {data: 'titulo', name: 'titulo'},
-                {data: 'subtitulo', name: 'subtitulo'},
-                {data: 'borrar', name: 'borrar', orderable: false, searchable: false, class:"text-center"},
+                {data: 'fecha', searchable: false, class:"col-1 text-center"},
+                {data: 'titulo'},
+                {data: 'subtitulo'},
+                {data: 'estado',searchable: false, class:"text-center"},
+                {data: 'editar',searchable: false, class:"text-center"},
+                {data: 'borrar',searchable: false, class:"text-center"},
             ]
         });
     })
@@ -89,7 +95,8 @@
                     url 	: "{{ route('auditoria.accion') }}",
                     type 	: 'POST',
                     dataType: 'json',
-                    data 	: {accion: 'borrar', id: id},
+                    data 	: {accion: 'editar'},
+                    data 	: {accion: 'borrar'},
                     success: function(){
                         table.ajax.reload();
                     }

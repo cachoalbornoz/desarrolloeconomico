@@ -2,121 +2,120 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoticiaRequest;
+use App\Models\Noticia;
+
+use App\Models\NoticiaCategoria;
 use Illuminate\Http\Request;
-
-use App\Models\Noticia,
-    App\Models\NoticiaCategoria;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Yajra\DataTables\Facades\DataTables;
 
 class NoticiaController extends Controller
 {
-
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
-            $noticia = Noticia::all();
+            $noticia = Noticia::all()->sortByDesc('fecha_publicacion')->sortByDesc('id');
 
             return Datatables::of($noticia)
                 ->addIndexColumn()
-                ->addColumn('borrar', function ($noticia) {
-                    $btn    = '<a href="javascript:void(0)" title="Elimina noticia"><i class="fas fa-trash text-danger borrar" id="' . $noticia['id'] . '"></i></a>';
-                    return $btn;
+                ->addColumn('fecha', function ($noticia) {
+                    return (isset($noticia->fecha_publicacion)) ? date('d-m-Y', strtotime($noticia->fecha_publicacion)) : date('d-m-Y', strtotime(now()));
                 })
-                ->rawColumns(['titulo', 'borrar'])
+                ->addColumn('estado', function ($noticia) {
+                    return ($noticia->active == 1) ? '<i class="fa fa-check-circle text-success"></i>' : '<i class="fa fa-ban text-danger"></i>';
+                })
+                ->addColumn('editar', function ($noticia) {
+                    return '<a href="' . route('noticias.edit', ['id' => $noticia->id]) . '" title="Modifica noticia">Editar</a>';
+                })
+                ->addColumn('borrar', function ($noticia) {
+                    return '<a href="' . route('noticias.destroy', ['id' => $noticia->id]) . '" title="Elimina noticia">Borrar</a>';
+                })
+                ->rawColumns(['fecha', 'titulo', 'estado', 'editar', 'borrar'])
                 ->make(true);
         }
         return view('admin.noticias.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('admin.noticias.create');
+        $noticia    = null;
+        $categorias = NoticiaCategoria::orderBy('categoria')->pluck('categoria', 'id');
+        return view('admin.noticias.form', compact('noticia', 'categorias'));
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(NoticiaRequest $request)
     {
-        $noticia = Noticia::create($request->all());
+        $noticia = Noticia::create($request->except('imagen'));
 
-        $notification = array(
-            'message' => 'Noticia creado !',
-            'alert-type' => 'success'
-        );
+        $nombre = null;
 
+        if ($request->file()) {
+            $path      = public_path() . '/images/upload/noticias';
+            $file      = $request->file('imagen');
+            $extension = $file->getClientOriginalExtension();
+            $nombre    = $noticia->id . 'noticia.' . $extension;
+            $request->file('imagen')->move($path, $nombre);
+        }
+
+        $noticia->active = ($request->exists('active')) ? 1 : 0;
+        $noticia->imagen = $nombre;
+        $noticia->save();
+
+        $notification = [
+            'message'    => 'Noticia creado !',
+            'alert-type' => 'success',
+        ];
         return redirect()->route('noticias.index')->with($notification);
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit(Request $request)
     {
-        $noticia = Noticia::find($id);
-        return view('admin.noticias.show', compact('noticia'));
+        $noticia    = Noticia::find($request->id);
+        $categorias = NoticiaCategoria::orderBy('categoria')->pluck('categoria', 'id');
+        return view('admin.noticias.form', compact('noticia', 'categorias'));
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(NoticiaRequest $request)
     {
-        $noticia       = Noticia::find($id);
-        return view('admin.noticias.edit', compact('noticia'));
+        $noticia = Noticia::find($request->noticia_id);
+
+        if ($request->file()) {
+            $path = public_path() . '/images/upload/noticias';
+            if (File::exists($path . $noticia->imagen)) {
+                File::delete($path . $noticia->imagen);
+            }
+            $file      = $request->file('imagen');
+            $extension = $file->getClientOriginalExtension();
+            $nombre    = $noticia->id . 'noticia.' . $extension;
+            $request->file('imagen')->move(public_path('images/upload/noticias'), $nombre);
+        } else {
+            $nombre = $noticia->imagen;
+        }
+
+        $noticia->fill($request->all());
+        $noticia->active = ($request->exists('active')) ? 1 : 0;
+        $noticia->imagen = $nombre;
+        $noticia->save();
+
+        $notification = [
+            'message'    => 'Noticia actualizado !',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('noticias.index', $noticia->id)->with($notification);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $noticia = Noticia::find($id);
-        $noticia->update($request->all());
-
-        $notification = array(
-            'message' => 'Noticia actualizado !',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('noticias.edit', $noticia->id)->with($notification);
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         Noticia::find($request->id)->delete();
-
         return response()->json();
+    }
+
+    public function publicacion()
+    {
+        $noticias = DB::table('noticia')->take(3)->orderByDesc('id')->get();
+        return view('base.frontendnoticias', compact('noticias'));
     }
 }

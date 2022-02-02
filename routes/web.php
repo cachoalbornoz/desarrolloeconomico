@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'preventBackHistory'], function () {
-
     Route::get('password-reset', 'PasswordController@showForm');
     Route::post('password-reset', 'PasswordController@sendPasswordResetToken')->name('password-reset');
     Route::get('reset-password/{token}', 'PasswordController@showPasswordResetForm');
@@ -22,7 +21,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
     Route::get('/patecnica', 'InicioController@patecnica')->name('patecnica');
     Route::get('/lineasbancarias', 'InicioController@pcapitalTrabajo')->name('pcapitalTrabajo');
     Route::get('/pcooperativas', 'InicioController@pcooperativas')->name('pcooperativas');
-
+    Route::get('/noticias', 'NoticiaController@publicacion')->name('noticias.publicacion');
 
     Route::get('/desarrollo', ['uses' => 'InicioController@desarrollo', 'as' => 'desarrollo']);
 
@@ -33,7 +32,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
 
     Route::get('/somos', ['uses' => 'InicioController@somos', 'as' => 'somos']);
 
-    Route::get('/verificaDni/', ['uses' => 'InicioController@verificaDni', 'as' => 'verificaDni']);
+    Route::get('/verificaDni', ['uses' => 'InicioController@verificaDni', 'as' => 'verificaDni']);
 
     //////////// CIUDAD
     Route::get('/ciudad/buscarciudad/{id}', 'CiudadController@buscarciudad')->name('ciudad.buscar');
@@ -51,13 +50,12 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::get('/home', ['uses' => 'InicioController@index', 'as' => 'home']);
 
         //////////// NOTICIAS
-        Route::get('/noticias/{id?}', 'NoticiaController@index')->name('noticias.index');
-        Route::get('/noticias/create/{id?}', 'NoticiaController@create')->name('noticias.create');
+        Route::get('/noticias/list', 'NoticiaController@index')->name('noticias.index');
+        Route::get('/noticias/create', 'NoticiaController@create')->name('noticias.create');
         Route::post('/noticias/store', 'NoticiaController@store')->name('noticias.store');
-        Route::get('/noticias/edit/{id}', 'NoticiaController@edit')->name('noticias.edit');
-        Route::put('/noticias/update/{id}', 'NoticiaController@update')->name('noticias.update');
+        Route::get('/noticias/edit', 'NoticiaController@edit')->name('noticias.edit');
+        Route::put('/noticias/update', 'NoticiaController@update')->name('noticias.update');
         Route::post('/noticias/destroy', 'NoticiaController@destroy')->name('noticias.destroy');
-        Route::post('/noticias/accion', 'NoticiaController@accion')->name('noticias.accion');
 
         //////////// CUOTAS
         Route::get('/cuota/{id?}', 'CuotaController@index')->name('cuota.index');
@@ -228,7 +226,6 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::put('seguimiento/{id}', 'SeguimientoController@update')->name('seguimiento.update');
         Route::post('seguimiento/destroy', 'SeguimientoController@destroy')->name('seguimiento.destroy');
 
-
         // EMPRESA EMPLEO
         Route::get('empresa-empleo/indexAdmin', 'EmpresaEmpleoController@indexAdmin')->name('empresaEmpleo.indexAdmin');
         Route::get('empresa-empleo/vincular', 'EmpresaEmpleoController@vincular')->name('empresa.vincular');
@@ -261,7 +258,6 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
 
         Route::get('documentacionempleo/edit/{documentacion}', 'DocumentacionEmpleoController@edit')->name('documentacione.edit');
         Route::get('documentacionempleo/', 'DocumentacionEmpleoController@index')->name('documentacione.index');
-
 
         //////////  EMPRESA
 

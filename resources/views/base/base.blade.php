@@ -8,8 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/x-icon" href="{{ asset('/public/images/frontend/favicon.ico') }}">
 
-    <meta name="Keywords"
-        content="Gobierno Entre Ríos Desarrollo Económico Emprendedor Financiamiento Jóvenes Emprendedores MiPyMEs PyMEs" />
+    <meta name="Keywords" content="Gobierno Entre Ríos Desarrollo Económico Emprendedor Financiamiento Jóvenes Emprendedores MiPyMEs PyMEs" />
     <meta name="description" content="Gobierno Entre Ríos Desarrollo Económico Emprendedor Financiamiento" />
     <meta name="robots" content="index,follow">
 
@@ -21,24 +20,22 @@
 
     @if (Auth::user())
 
-        <link rel="stylesheet" href="{{ asset('/public/DataTables/datatables.min.css') }}">
-        <link rel="stylesheet"
-            href="{{ asset('/public/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
-        <link rel="stylesheet"
-            href="{{ asset('/public/DataTables/FixedHeader-3.1.6/css/fixedHeader.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/DataTables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/DataTables/FixedHeader-3.1.6/css/fixedHeader.bootstrap.min.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('/public/select2/dist/css/select2.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/public/file-input/css/fileinput.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/public/toastr/toastr.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/public/ymzAlert/ymz_box.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/file-input/css/fileinput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/ymzAlert/ymz_box.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('/public/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css/style.css') }}">
 
     @else
 
-        {!! htmlScriptTagJsApi() !!}
+    {!! htmlScriptTagJsApi() !!}
 
-        <link rel="stylesheet" href="{{ asset('/public/css/styleFront.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css/styleFront.css') }}">
 
     @endif
 
@@ -73,23 +70,23 @@
 
     @if (Auth::user())
 
-        <!-- DataTable / DataTable Buttons / DataTable Fixed Header / DataTable Moment -->
-        <script src="{{ asset('/public/DataTables/datatables.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/buttons.flash.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/JSZip-2.5.0/jszip.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/pdfmake-0.1.36/pdfmake.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/pdfmake-0.1.36/vfs_fonts.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/buttons.print.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/buttons.html5.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/FixedHeader-3.1.6/js/dataTables.fixedHeader.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/moment.min.js') }}"></script>
-        <script src="{{ asset('/public/DataTables/datetime.js') }}"></script>
+    <!-- DataTable / DataTable Buttons / DataTable Fixed Header / DataTable Moment -->
+    <script src="{{ asset('/public/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/JSZip-2.5.0/jszip.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/pdfmake-0.1.36/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/pdfmake-0.1.36/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/Buttons-1.6.1/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/FixedHeader-3.1.6/js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/moment.min.js') }}"></script>
+    <script src="{{ asset('/public/DataTables/datetime.js') }}"></script>
 
-        <script src="{{ asset('/public/select2/dist/js/select2.min.js') }}"> </script>
+    <script src="{{ asset('/public/select2/dist/js/select2.min.js') }}"> </script>
 
 
-        <script src="{{ asset('/public/jquery-tabledit-1.2.3/mindmup-editabletable.js') }}"> </script>
+    <script src="{{ asset('/public/jquery-tabledit-1.2.3/mindmup-editabletable.js') }}"> </script>
 
     @endif
 

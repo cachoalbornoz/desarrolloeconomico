@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class NoticiaCategoria extends Model
 {
     public $timestamps = false;
-    protected $table = 'noticia_categoria';
+    protected $table = 'tipo_noticia';
     protected $fillable = ['id', 'categoria', 'active'];
 }
