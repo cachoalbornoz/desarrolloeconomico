@@ -26,8 +26,7 @@ class NoticiaRequest extends FormRequest
         return [
 
             'titulo' => 'max:255',
-            'subtitulo' => 'max:255',
-            'imagen' => 'mimes:png,jpg,jpeg|max:10000',
+            'imagen' => 'mimes:png,jpg,jpeg|max:5000',
         ];
     }
 }
