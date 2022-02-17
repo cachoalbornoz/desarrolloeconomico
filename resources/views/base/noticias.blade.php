@@ -6,18 +6,30 @@
     </div>
 </section>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        @foreach ($noticias as $noticia)
-        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-            <a href="{{ route('noticias.publicacion') }}">
-                <img src="/economicoemprendedor/images/upload/noticias/{{ $noticia->imagen }}" class="d-block w-100 h-100">
-                <div class="carousel-caption visible-lg visible-md visible-sm hidden-xs">
-                    <h4 class=" text-center">{{ $noticia->titulo }}</h4>
+
+<div class="offset-2 col-8">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($noticias as $noticia)
+            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                <div class="card  shadow-lg mb-3 bg-white rounded">
+                    <a href="{{ route('noticias.publicacion') }}">
+                        <img src="/economicoemprendedor/images/upload/noticias/{{ $noticia->imagen }}" style=" width: auto; height: 500px; max-height: 500px;">
+                        <div class="carousel-caption visible-lg visible-md visible-sm hidden-xs">
+                            <p class=" text-center">{{ $noticia->titulo }}</p>
+                        </div>
+                    </a>
                 </div>
-            </a>
+            </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        &nbsp;
+    </div>
+</div>
+
 @endif

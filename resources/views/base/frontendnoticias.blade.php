@@ -31,7 +31,7 @@
         <div class="col-md-7">
             <p> {{ $noticia->fecha_publicacion }} ({{  \Carbon::parse($noticia->fecha_publicacion)->diffForHumans() }})</p>
             <h5 class=" text-muted"> <i class=" fa fa-arrow-alt-circle-right"></i> {{ $noticia->titulo }} </h5>
-            <p class=" text-muted"> {{ $noticia->cuerpo }} </p>
+            <p class=" text-muted"> {!! $noticia->cuerpo !!} </p>
         </div>
     </div>
     @endforeach
