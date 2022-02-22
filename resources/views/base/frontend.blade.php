@@ -70,7 +70,7 @@
 
                 <div class="card-body">
                     <a href="{{ route('programasp') }}">
-                        <img src="{{ asset('public/images/frontend/portadae.png') }}" class=" img-fluid img-medium" />
+                        <img src="{{ asset('public/images/frontend/portadapymes.png') }}" class=" img-fluid img-medium" />
                     </a>
                 </div>
 
