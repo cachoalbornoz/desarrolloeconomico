@@ -82,9 +82,7 @@
 
                         <div class="row mb-3">
                             <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <a class=" text-black-50" href="{{ url('/password/reset') }}">
-                                    Olvidaste tu clave ?
-                                </a>
+                                
                             </div>
                         </div>
 
