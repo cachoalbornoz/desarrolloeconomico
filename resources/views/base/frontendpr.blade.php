@@ -7,13 +7,13 @@
     <div class="container">
 
         <div class="row pb-3">
-            <div class="col-xs-5 col-md-5 col-lg-5 text-center">
+            <div class="col-xs-4 col-md-3 col-lg-3 text-center">
                 <img src="{{ asset('public/images/frontend/portada-min-nacion.png') }}" class=" img-fluid" />
             </div>
-            <div class="col-xs-2 col-md-2 col-lg-2">
+            <div class="col-xs-4 col-md-6 col-lg-6">
                 &nbsp;
             </div>
-            <div class="col-xs-5 col-md-5 col-lg-5 text-center">
+            <div class="col-xs-4 col-md-3 col-lg-3 text-center">
                 <img src="{{ asset('public/images/frontend/portada-min-provincia.png') }}" class=" img-fluid" />
             </div>
         </div>

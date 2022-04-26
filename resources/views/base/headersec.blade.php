@@ -1,10 +1,10 @@
 <div class="container">
 
     <div class="row pb-3">
-        <div class="col-xs-5 col-md-5 col-lg-5 text-center">
+        <div class="col-xs-4 col-md-3 col-lg-3 text-center">
             <img class=" img-fluid" src="{{ asset('images/frontend/cabecera.png')}}" alt="Desarrollo Económico" />
         </div>
-        <div class="col-xs-8 col-md-7 col-lg-7 text-center">
+        <div class="col-xs-8 col-md-9 col-lg-9 text-center">
         </div>
     </div>
 
