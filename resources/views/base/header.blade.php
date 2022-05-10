@@ -27,6 +27,11 @@
                         INICIO
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('noticias.publicacion') }}" class="nav-link">
+                        NOTICIAS
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         PROGRAMAS

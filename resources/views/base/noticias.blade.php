@@ -12,9 +12,9 @@
         <div class="carousel-inner">
             @foreach ($noticias as $noticia)
             <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                <div class="card  shadow-lg mb-3 bg-white rounded">
+                <div class="card shadow-lg mb-3 bg-white rounded">
                     <a href="{{ route('noticias.publicacion') }}">
-                        <img src="/economicoemprendedor/images/upload/noticias/{{ $noticia->imagen }}" style=" width: auto; height: 500px; max-height: 500px;">
+                        <img src="/economicoemprendedor/images/upload/noticias/{{ $noticia->imagen }}" style=" width: auto; height: 600px; max-height: 600px;">
                         <div class="carousel-caption visible-lg visible-md visible-sm hidden-xs">
                             <p class=" text-center">{{ $noticia->titulo }}</p>
                         </div>
