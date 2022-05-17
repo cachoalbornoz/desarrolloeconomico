@@ -20,6 +20,8 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
     Route::get('/pafinanciera', 'InicioController@pafinanciera')->name('pafinanciera');
     Route::get('/patecnica', 'InicioController@patecnica')->name('patecnica');
     Route::get('/lineasbancarias', 'InicioController@pcapitalTrabajo')->name('pcapitalTrabajo');
+    Route::get('/lineas/proyectos-estrategicos', 'InicioController@pEstrategicos')->name('pestrategicos');
+
     Route::get('/pcooperativas', 'InicioController@pcooperativas')->name('pcooperativas');
     Route::get('/noticias', 'NoticiaController@publicacion')->name('noticias.publicacion');
 

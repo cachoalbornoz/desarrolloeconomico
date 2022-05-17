@@ -14,7 +14,7 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-12">
-            <img src="{{ asset('public/images/frontend/prog_financ_cooperativas_grande.png') }}" class=" img-fluid" />
+            <img src="{{ asset('public/images/frontend/prog_financ_cooperativas_grande.jpeg') }}" class=" img-fluid" />
         </div>
     </div>
 

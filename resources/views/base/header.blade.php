@@ -53,6 +53,10 @@
                         <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
                             LÍNEAS DE CRÉDITO A TASA SUBSIDIADA JUNTO AL BANCO DE ENTRE RÍOS
                         </a>
+                        <a class="dropdown-item" href="{{ route('pestrategicos') }}">
+                            LÍNEAS DE CRÉDITOS PARA PROYECTOS ESTRATÉGICOS
+                        </a>
+
                     </div>
                 </li>
 

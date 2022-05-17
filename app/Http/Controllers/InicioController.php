@@ -119,6 +119,11 @@ class InicioController extends Controller
         return view('base.frontendcapital_trabajo');
     }
 
+    public function pEstrategicos()
+    {
+        return view('base.proyecto_estrategico');
+    }
+
     public function pcooperativas()
     {
         return view('base.frontendcoop');
