@@ -94,14 +94,11 @@
                 {!! Form::label('provincia', 'Provincia') !!}
                 {!! Form::select('provincia', $provincia, null, ['id' => 'provincia', 'class' => 'form-control', 'placeholder' => 'Seleccione provincia', 'required' => 'true']) !!}
             </div>
-            <div class="col-xs-12 col-sm-2 col-lg-2 mb-2">
+            <div class="col-xs-12 col-sm-4 col-lg-4 mb-2">
                 {!! Form::label('ciudad', 'Ciudad') !!}
                 {!! Form::select('ciudad', $ciudad, null, ['class' => 'form-control', 'placeholder' => 'Seleccione ciudad', 'required' => 'true']) !!}
             </div>
-            <div class="col-xs-12 col-sm-2 col-lg-2 mb-2">
-                <label>Cod Postal</label>
-                {!! Form::text('cp', null, ['class' => 'form-control', 'required', 'maxlength' => '5']) !!}
-            </div>
+
         </div>
 
         <div class="row  mb-2">

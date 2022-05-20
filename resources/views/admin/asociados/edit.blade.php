@@ -92,13 +92,9 @@
                 <label>Provincia</label>
                 {!! Form::select('provincia', $provincia, $idprovincia, ['id' => 'provincia', 'class' => 'form-control', 'placeholder' => 'Seleccione provincia', 'required' => 'true']) !!}
             </div>
-            <div class="col-xs-12 col-sm-2 col-lg-2 mb-2">
+            <div class="col-xs-12 col-sm-4 col-lg-4 mb-2">
                 <label>Ciudad</label>
                 {!! Form::select('ciudad', $ciudad, null, ['class' => 'form-control', 'placeholder' => 'Seleccione ciudad', 'required' => 'true']) !!}
-            </div>
-            <div class="col-xs-12 col-sm-2 col-lg-2 mb-2">
-                <label>Cod Postal</label>
-                {!! Form::text('cp', null, ['class' => 'form-control', 'required']) !!}
             </div>
         </div>
 
@@ -131,7 +127,7 @@
                     <div class="col-xs-12 col-sm-6 col-lg-6">
                         {!! Form::select('tipo_programa', $programa, $idprograma, ['class' => 'form-control']) !!}
                     </div>
-                </div>                                  
+                </div>
 
             </div>
             <div class="col-xs-12 col-sm-6 col-lg-4 d-none @if(Auth::user()->hasRole(['superadmin', 'admin'])) d-block @endif">

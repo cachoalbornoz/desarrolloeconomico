@@ -121,37 +121,6 @@
 
             <div class="row mb-3">
                 <div class="col-xs-12 col-md-3 col-lg-3 mb-2">
-                    {!! Form::label('categoria2', 'Actividad secundaria') !!}
-                    {!! Form::select('categoria2', $categoria, null, ['class' => 'form-control']) !!}
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3 mb-2">
-                    {!! Form::label('codigoafip2', 'CódAfip') !!}
-                    {!! Form::text('codigoafip2', null, ['class' => 'form-control', 'maxlength' => '10']) !!}
-                </div>
-                <div class="col-xs-12 col-md-6 col-lg-6 mb-2">
-                    <label>Detalle actividad secundaria</label>
-                    {!! Form::textarea('actividad2', null, ['class' => 'form-control', 'rows' => '2']) !!}
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-xs-12 col-md-3 col-lg-3 mb-2">
-                    <label>
-                        Fecha inscripción en Registro Público
-                    </label>
-                    <div class="input-group">
-                        <div class=" input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="far fa-calendar-alt"></i>
-                            </span>
-                        </div>
-                        {!! Form::date('fecha_inscripcion', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-xs-12 col-md-3 col-lg-3 mb-2">
                     <div class="form-group">
                         <label>
                             Fecha inicio de las actividades
@@ -163,74 +132,6 @@
                                 </span>
                             </div>
                             {!! Form::date('fecha_inicio', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-xs-12 col-md-12 col-lg-12 mb-2">
-                <div class="card border border-primary">
-                    <div class="card-header">
-                        Lugar dónde se realiza la actividad principal
-                    </div>
-                    <div class="card-body">
-                        <div class="row mb-5">
-                            <div class="col-xs-12 col-md-8 col-lg-8 mb-2">
-                                <div class="form-group">
-                                    {!! Form::label('direccion_actividad', 'Dirección') !!}
-                                    {!! Form::text('direccion_actividad', null, ['class' => 'form-control']) !!}
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-md-4 col-lg-4 mb-2">
-                                {!! Form::label('ciudad_actividad', 'Ciudad') !!}
-                                {!! Form::select('ciudad_actividad', $ciudad, null, ['class' => 'form-control', 'placeholder' => 'Seleccione ciudad']) !!}
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-xs-12 col-md-12 col-lg-12 mb-2">
-                <div class="card border border-secondary">
-                    <div class="card-header">
-                        Datos adicionales
-                    </div>
-                    <div class="card-body">
-                        <div class="row mb-5">
-                            <div class="col-xs-12 col-md-12 col-lg-12 mb-2">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class=" input-group-prepend">
-                                            <span class="input-group-text">
-                                                Web / Url &nbsp; <i class="fas fa-globe-americas"></i>
-                                            </span>
-                                        </div>
-                                        {!! Form::text('url', null, ['class' => 'form-control']) !!}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-5">
-                            <div class="col-xs-12 col-md-12 col-lg-12 mb-2">
-                                <div class="form-group">
-                                    {!! Form::label('representante', 'Apellido y nombres del representante legal') !!}
-                                    {!! Form::text('representante', null, ['class' => 'form-control']) !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-5">
-                            <div class="col-xs-12 col-md-12 col-lg-12 mb-2">
-                                <div class="form-group">
-                                    {!! Form::label('observaciones', 'Observaciones') !!}
-                                    {!! Form::text('observaciones', null, ['class' => 'form-control']) !!}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
