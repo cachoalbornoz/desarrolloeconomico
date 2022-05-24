@@ -4,17 +4,17 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmpresaStoreRequest extends FormRequest{
+class EmpresaStoreRequest extends FormRequest
+{
 
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules(){
-
+    public function rules()
+    {
         return [
-
             'cuit' => ['required', 'string', 'min:11', 'max:11', 'unique:empresa'],
         ];
     }
