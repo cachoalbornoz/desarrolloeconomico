@@ -200,9 +200,9 @@ function eliminarRegistro(id, ruta) {
 // check if the element is empty or not
 function checkEmpty(elem) {
     if (elem.val() === '') {
-        elem.addClass('empty border-danger');
+        elem.addClass('empty border-info');
     } else {
-        elem.removeClass('empty border-danger');
+        elem.removeClass('empty border-info');
     }
 }
 

@@ -292,7 +292,7 @@
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     <small>
-                        {{ Auth::user()->nombre }} {{ Auth::user()->apellido }} (<i class="fa fa-circle text-success"></i> {{ Auth::user()->tieneRol() }} )
+                        {{ Auth::user()->nombre }} {{ Auth::user()->apellido }} ({{ Auth::user()->tieneRol()}})
                     </small>
                 </a>
                 <ul class="dropdown-menu">

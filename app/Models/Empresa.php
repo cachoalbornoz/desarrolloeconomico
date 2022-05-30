@@ -15,6 +15,7 @@ class Empresa extends Model
         'titular',
         'estado',
         'cuit',
+        'email',
         'tipo_sociedad',
         'tipopyme',
         'categoria1',

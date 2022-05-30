@@ -38,7 +38,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $mensaje    =   'Tu sesión ha finalizado !';
-        $class      =   'alert-success';
+        $class      =   'alert-info';
         $type       =   'success';
         Session::flash('message', $mensaje);
         Session::flash('alert-class', $class);

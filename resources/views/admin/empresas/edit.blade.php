@@ -44,7 +44,7 @@
         </div>
 
         <div class="row mt-5 mb-5">
-            <div class="col-xs-12 col-md-8 col-lg-8 mb-2">
+            <div class="col-xs-12 col-md-6 col-lg-6 mb-2">
                 <div class="input-group">
                     <div class=" input-group-prepend">
                         <span class="input-group-text">
@@ -54,7 +54,7 @@
                     {!! Form::text('razon_social', null, ['autofocus' => 'true', 'class' => 'form-control', 'required', 'placeholder' => 'Razón social de la empresa']) !!}
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-lg-6">
                 <div class="input-group">
                     <div class=" input-group-prepend">
                         <span class="input-group-text">
@@ -63,6 +63,21 @@
                     </div>
                     {!! Form::select('titular', $usuario, null, ['class' => 'form-control', 'required' => 'true']) !!}
                 </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5">
+            <div class="col-xs-12 col-md-4 col-lg-4 mb-2">
+                <div class="input-group">
+                    <div class=" input-group-prepend">
+                        <span class="input-group-text">
+                            Email
+                        </span>
+                    </div>
+                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-lg-4">
             </div>
         </div>
 
