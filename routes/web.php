@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', 'InicioController@frontend')->name('inicio');
+Route::get('index', 'InicioController@frontend')->name('inicio');
+
 Route::group(['middleware' => 'preventBackHistory'], function () {
     Route::get('password-reset', 'PasswordController@showForm');
     Route::post('password-reset', 'PasswordController@sendPasswordResetToken')->name('password-reset');
@@ -10,8 +13,6 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
     Route::post('reset-password/', 'PasswordController@resetPassword')->name('reset-password');
 
     Auth::routes();
-
-    Route::get('/', 'InicioController@frontend')->name('inicio');
 
     Route::get('/registro', 'InicioController@registro')->name('registro');
 
