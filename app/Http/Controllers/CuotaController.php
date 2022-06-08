@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\User,
-    App\Models\Expediente,
-    App\Models\ExpedienteCuota;
+use App\User;
+use App\Models\Expediente;
+use App\Models\ExpedienteCuota;
 
 use Illuminate\Http\Request;
 
-use Carbon,
-    Yajra\DataTables\Facades\DataTables;
+use Carbon;
+use Yajra\DataTables\Facades\DataTables;
 
 class CuotaController extends Controller
 {
-
     public function index(Request $request)
     {
         $expediente = Expediente::find($request->id);
@@ -29,17 +28,16 @@ class CuotaController extends Controller
     public function store(Request $request)
     {
         if ($request->cuotas == 1) {
-
             $expedienteCuota = ExpedienteCuota::create($request->all());
-        } else if ($request->cuotas == 18) {
-
+        } elseif ($request->cuotas == 18) {
             $fechaOtorgamiento  = $request->fecha;
 
             $deuda              = $request->monto;
             $importe            = $request->monto / $request->cuotas;
+            $periodo_gracia     = $request->pgracia;
 
-            $fecha = date('Y-m-d', strtotime("$request->fecha + " . 6 . " months"));
-            $fecha = date('Y-m-d', strtotime("$fecha + " . 1 . " months"));
+            $fecha = date('Y-m-d', strtotime("$request->fecha + " . $periodo_gracia . " months"));
+            //$fecha = date('Y-m-d', strtotime("$fecha + " . 1 . " months"));
             $fecha = explode('-', $fecha);
 
             $mes = $fecha[1];
@@ -64,12 +62,10 @@ class CuotaController extends Controller
             $mes++;
 
             for ($i = 2; $i <= $request->cuotas; $i++) {
-
                 $fecha = date('Y-m-d', strtotime("$fecha + " . 1 . " months"));
                 $fecha = date("Y-m-d", strtotime($fecha));
 
                 ExpedienteCuota::create([
-
                     'expediente' => $request->expediente,
                     'nroCuota'  => $i,
                     'fechaVcto' => $fecha,

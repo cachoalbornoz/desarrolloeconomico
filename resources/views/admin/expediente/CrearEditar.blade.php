@@ -102,10 +102,12 @@
                             Monto $
                         </span>
                     </div>
-                    {!! Form::number('monto', null, ['id' =>'monto', 'required', 'class' => 'form-control text-center', 'min' => 0, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)', 'step'=>'any']) !!}
+                    {!! Form::number('monto', null, ['id' =>'monto', 'required', 'class' => 'form-control text-center', 'min' => 0, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
                 </div>
             </div>
             <div class="col-xs-12 col-md-4 col-lg-4">
+
+                @if (isset($expediente))
                 <div class="input-group">
                     <div class=" input-group-prepend">
                         <span class="input-group-text text-danger">
@@ -114,6 +116,7 @@
                     </div>
                     {!! Form::number('saldo', null, ['id' =>'saldo', 'required', 'class' => 'form-control text-center', 'min' => 0, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)', 'step'=>'any']) !!}
                 </div>
+                @endif
             </div>
             <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="input-group">
