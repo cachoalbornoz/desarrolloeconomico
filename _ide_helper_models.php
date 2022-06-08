@@ -859,13 +859,13 @@ namespace App\Models{
  * App\Models\Noticia
  *
  * @property int $id
- * @property string|null $fecha_publicacion
  * @property string|null $titulo
  * @property string|null $subtitulo
  * @property string|null $cuerpo
  * @property string|null $autor
  * @property string|null $imagen
  * @property \App\Models\NoticiaCategoria|null $categoria
+ * @property string|null $fecha_publicacion
  * @property int $active
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia newQuery()
@@ -887,13 +887,9 @@ namespace App\Models{
 /**
  * App\Models\NoticiaCategoria
  *
- * @property int $id
- * @property string|null $categoria
  * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria query()
- * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria whereCategoria($value)
- * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria whereId($value)
  */
 	class NoticiaCategoria extends \Eloquent {}
 }

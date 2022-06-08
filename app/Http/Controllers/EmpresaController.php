@@ -27,8 +27,12 @@ class EmpresaController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
+        // $empresa = Empresa::whereId(1115)->select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->first();
+        // $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
+        // return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
+
         if ($request->ajax()) {
-            $empresa = Empresa::all();
+            $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->get();
 
             if ($empresa) {
                 return Datatables::of($empresa)
@@ -47,18 +51,15 @@ class EmpresaController extends Controller
                     })
                     ->addColumn('interes', function ($empresa) {
                         $interes = EmpresaInteres::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->with(['interes'])->first();
-
                         return (isset($interes->interes)) ? $interes->Interes->interes : null;
                     })
                     ->addColumn('novedad', function ($empresa) {
                         $novedad = EmpresaSeguimiento::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->first();
-
                         return (isset($novedad->estadoTipo)) ? $novedad->EstadoTipo->estado : null;
                     })
-                    ->addColumn('usuario', function ($empresa) {
-                        $novedad = EmpresaSeguimiento::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->first();
-
-                        return (isset($novedad->usuario)) ? $novedad->Usuario->nombre : null;
+                    ->addColumn('emisor', function ($empresa) {
+                        $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
+                        return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
                     })
                     ->addColumn('seguimiento', function ($empresa) {
                         return '<a href= "' . route('seguimiento.index', $empresa->id) . '"><span class="fa fa-eye"></span></a>';
@@ -72,7 +73,7 @@ class EmpresaController extends Controller
                     ->addColumn('borrar', function ($empresa) {
                         return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
                     })
-                    ->rawColumns(['id', 'razon_social', 'actividad', 'interes', 'novedad', 'titular', 'usuario', 'seguimiento', 'categoria', 'borrar'])
+                    ->rawColumns(['id', 'razon_social', 'actividad', 'interes', 'novedad', 'titular', 'emisor', 'seguimiento', 'categoria', 'borrar'])
                     ->make(true);
             } else {
                 return Datatables::of($empresa)

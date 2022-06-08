@@ -35,7 +35,7 @@
                             <th>Actividad</th>
                             <th>Interés</th>
                             <th>Estado</th>
-                            <th>Usuario</th>
+                            <th>Emisor</th>
                             <th>Seg.</th>
                             <th>Cuit</th>
                             <th>Categoria</th>
@@ -76,80 +76,68 @@
             ajax: "{{ route('empresa.indexAdmin') }}",
             columns: [{
                     data: 'id',
-                    name: 'id',
                     orderable: false,
                     searchable: false,
                     class: "text-center"
                 },
                 {
                     data: 'razon_social',
-                    name: 'razon_social',
                     orderable: true,
                     searchable: true,
                 },
                 {
                     data: 'titular',
-                    name: 'titular',
                     orderable: true,
                     searchable: true,
                 },
 
                 {
                     data: 'actividad',
-                    name: 'actividad',
                     orderable: true,
                     searchable: true,
                     class: "w-25"
                 },
                 {
                     data: 'interes',
-                    name: 'interes',
-                    orderable: true,
+                    orderable: false,
                     searchable: false,
                 },
                 {
                     data: 'novedad',
-                    name: 'novedad',
                     orderable: false,
                     searchable: false,
                     class: "text-center"
                 },
                 {
-                    data: 'usuario',
-                    name: 'usuario',
+                    data: 'emisor',
                     orderable: true,
                     searchable: true,
                     class: "text-center"
                 },
                 {
                     data: 'seguimiento',
-                    name: 'seguimiento',
                     orderable: false,
                     searchable: false,
                     class: "text-center"
                 },
                 {
                     data: 'cuit',
-                    name: 'cuit',
                     orderable: false,
                     searchable: true,
                     class: "text-center"
                 },
                 {
                     data: 'categoria1',
-                    name: 'categoria1',
                     orderable: true,
                     searchable: false,
                 },
                 {
                     data: 'ciudad',
-                    name: 'ciudad',
                     orderable: true,
                     searchable: true,
                 },
                 {
                     data: 'borrar',
-                    name: 'borrar',
                     orderable: false,
                     searchable: false,
                     class: "text-center"
@@ -158,8 +146,6 @@
         });
 
         $('#empresa').on("click", ".borrar", function() {
-
-
             var texto = '&nbsp; Elimina empresa? &nbsp;';
             var id = this.id;
 

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User,
-    App\Models\Expediente,
-    App\Models\Proyecto,
-    App\Models\ExpedienteUbicacion,
-    App\Models\ExpedienteEstado,
-    App\Models\CiudadAll,
-    App\Models\Provincia,
-    App\Models\TipoRubro;
+use App\User;
+use App\Models\Expediente;
+use App\Models\Proyecto;
+use App\Models\ExpedienteUbicacion;
+use App\Models\ExpedienteEstado;
+use App\Models\CiudadAll;
+use App\Models\Provincia;
+use App\Models\TipoRubro;
 
 use DB;
 
@@ -19,28 +19,21 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ExpedienteController extends Controller
 {
-
     public function index(Request $request)
     {
-
         if ($request->ajax()) {
-
             $expediente    = expediente::all();
 
             if ($expediente) {
-
                 return Datatables::of($expediente)
                     ->addIndexColumn()
                     ->addColumn('id', function ($expediente) {
-
                         return '<a href= "' . route('expediente.edit', $expediente->id) . '">' . $expediente->id . '</a>';
                     })
                     ->addColumn('titular', function ($expediente) {
-
                         return $expediente->Titular->NombreCompleto;
                     })
                     ->addColumn('dni', function ($expediente) {
-
                         return ($expediente->Titular->dni);
                     })
                     ->addColumn('icono', function ($expediente) {
@@ -54,21 +47,19 @@ class ExpedienteController extends Controller
                         return $date;
                     })
                     ->editColumn('rubro', function ($expediente) {
-                        return ($expediente->rubro) ? $expediente->Rubro->rubro : null;;
+                        return ($expediente->rubro) ? $expediente->Rubro->rubro : null;
+                        ;
                     })
                     ->editColumn('ciudad', function ($expediente) {
-
                         return ($expediente->ciudad) ? $expediente->Ciudad->nombre : null;
                     })
                     ->addColumn('borrar', function ($expediente) {
-
                         return '<a href="javascript:void(0)" title="Elimina expediente"><i class="fas fa-trash text-danger borrar" id="' . $expediente['id'] . '"></i></a>';
                     })
 
                     ->rawColumns(['id', 'titular', 'icono', 'estado', 'fecha_otorgamiento', 'rubro', 'ciudad', 'borrar'])
                     ->make(true);
             } else {
-
                 return Datatables::of($expediente)
                     ->addIndexColumn()
                     ->make(true);
@@ -83,17 +74,14 @@ class ExpedienteController extends Controller
         $expediente     = null;
         $idprovincia    = null;
 
-        $estados        = ['24'];
+        $estados        = ['19', '20', '24'];
         $usuarios       = User::whereHas('proyectos', static function ($query) use ($estados) {
-            return $query->where('estado', '=', $estados);
+            return $query->whereIn('estado', $estados);
         })->orderBy('apellido')->get()->pluck('nombrecompleto', 'id');
 
-        //$proyectos      = Proyecto::where('estado', 24)->get()->pluck('DenominacionCompleta', 'id');
-
         $proyectos      =    DB::table('proyecto as p')
-            ->where('p.estado', '=', 24)
+            ->whereIn('p.estado', $estados)
             ->join('users as u', 'p.titular', '=', 'u.id')
-            ->orderBy('u.apellido', 'ASC')
             ->selectRaw('p.id, CONCAT(u.apellido," ",u.nombre, " (", p.denominacion,")") as DenominacionCompleta')
             ->get()
             ->pluck('DenominacionCompleta', 'id');
@@ -178,7 +166,6 @@ class ExpedienteController extends Controller
 
     public function destroy(Request $request)
     {
-
         $expediente = Expediente::find($request->id);
         $expediente->delete();
 
