@@ -122,6 +122,7 @@ class SeguimientoController extends Controller
     {
 
         $seguimiento = EmpresaSeguimiento::find($id);
+
         $seguimiento->update($request->all());
 
         Session::flash('message', 'Seguimiento actualizado');

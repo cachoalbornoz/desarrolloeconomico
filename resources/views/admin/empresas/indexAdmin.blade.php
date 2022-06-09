@@ -62,7 +62,8 @@
                 [5, 10, 25, 50, -1],
                 [5, 10, 25, 50, "Todos"]
             ],
-            dom: '<"wrapper"Brflit>',
+            //dom: '<"wrapper"Brflit>',
+            "dom": 'Blrftip',
             buttons: ['copy', 'excel', 'pdf', 'colvis'],
             order: [
                 [1, "asc"]
@@ -105,7 +106,7 @@
                 {
                     data: 'novedad',
                     orderable: false,
-                    searchable: false,
+                    searchable: true,
                     class: "text-center"
                 },
                 {
