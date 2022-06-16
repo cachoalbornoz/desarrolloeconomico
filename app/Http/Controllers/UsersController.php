@@ -79,6 +79,7 @@ class UsersController extends Controller
             'nombre'        => $data['nombre'],
             'dni'           => $data['dni'],
             'nacionalidad'  => $data['nacionalidad'],
+            'habilitado'    => 1,
             'direccion'     => $data['direccion'],
             'ciudad'        => $data['ciudad'],
             'cp'            => $data['cp'],
@@ -86,7 +87,7 @@ class UsersController extends Controller
             'telefono'      => $data['telefono'],
             'fechanac'      => $data['fechanac'],
             'email'         => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password'      => Hash::make($data['password']),
         ]);
     }
 
