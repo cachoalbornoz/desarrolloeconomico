@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class Empresa extends Model
 {
@@ -10,6 +12,7 @@ class Empresa extends Model
     protected $table = 'empresa';
 
     protected $fillable = [
+        'id',
         'razon_social',
         'titular',
         'estado',
@@ -50,6 +53,19 @@ class Empresa extends Model
     public function setRazonSocialAttribute($value)
     {
         $this->attributes['razon_social'] = strtoupper($value);
+    }
+
+    public function intereses()
+    {	
+        $interes = DB::table('empresa')
+            ->join('empresa_interes', 'empresa.id', '=', 'empresa_interes.empresa')
+            ->join('tipo_interes', 'tipo_interes.id', '=', 'empresa_interes.interes')
+            ->where('empresa.id', '=', $this->id)
+            ->select('tipo_interes.interes')
+            ->orderByDesc('empresa_interes.id')
+            ->first();
+
+        return ($interes) ? $interes->interes : null;
     }
 
     public function financiamientos()

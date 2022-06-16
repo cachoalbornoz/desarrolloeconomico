@@ -250,6 +250,7 @@ namespace App\Models{
  * @property \App\User|null $titular
  * @property string|null $razon_social
  * @property string|null $cuit
+ * @property string|null $email
  * @property \App\Models\TipoEstado|null $estado
  * @property int|null $tipo_sociedad
  * @property \App\Models\TipoPyme|null $tipopyme
@@ -302,6 +303,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereCuit($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereDireccion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereDireccionActividad($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereEstado($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereFechaInicio($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Empresa whereFechaInscripcion($value)
@@ -408,7 +410,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property \App\Models\Empresa|null $empresa
- * @property \App\Models\TipoInteres|null $interes
+ * @property int|null $interes
  * @property string|null $fecha
  * @method static \Illuminate\Database\Eloquent\Builder|EmpresaInteres newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|EmpresaInteres newQuery()
@@ -859,13 +861,13 @@ namespace App\Models{
  * App\Models\Noticia
  *
  * @property int $id
+ * @property string|null $fecha_publicacion
  * @property string|null $titulo
  * @property string|null $subtitulo
  * @property string|null $cuerpo
  * @property string|null $autor
  * @property string|null $imagen
  * @property \App\Models\NoticiaCategoria|null $categoria
- * @property string|null $fecha_publicacion
  * @property int $active
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia newQuery()
@@ -887,9 +889,13 @@ namespace App\Models{
 /**
  * App\Models\NoticiaCategoria
  *
+ * @property int $id
+ * @property string|null $categoria
  * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria query()
+ * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria whereCategoria($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|NoticiaCategoria whereId($value)
  */
 	class NoticiaCategoria extends \Eloquent {}
 }

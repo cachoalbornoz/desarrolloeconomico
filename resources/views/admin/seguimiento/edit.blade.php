@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-xs-12 col-md-3 col-lg-3">
                         <label> Estado del seguimiento  </label>
-                        {!! Form::select('estado', $tipoestado, null, ['class' => 'form-control', 'required']) !!}
+                        {!! Form::select('estadoTipo', $tipoestado, null, ['class' => 'form-control', 'required']) !!}
                     </div>
                 </div>
 

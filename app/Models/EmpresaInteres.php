@@ -15,13 +15,12 @@ class EmpresaInteres extends Model
 
     public function empresa()
     {
-
         return $this->belongsTo(\App\Models\Empresa::class, 'empresa', 'id');
     }
 
-    public function interes()
-    {
-
-        return $this->belongsTo(\App\Models\TipoInteres::class, 'interes', 'id');
+    public function intereses()
+    {        
+        $interes = TipoInteres::find($this->interes);
+        return ($interes) ? $interes : null;
     }
 }

@@ -27,9 +27,8 @@ class EmpresaController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
-        // $empresa = Empresa::whereId(1115)->select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->first();
-        // $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
-        // return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
+        // $empresa = Empresa::whereId(1422)->select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->first();
+        // return $empresa->intereses();
 
         if ($request->ajax()) {
             $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->get();
@@ -50,8 +49,7 @@ class EmpresaController extends Controller
                         return (isset($empresa->actividad1)) ? '<div class="rowspanning">' . $empresa->actividad1 . '</div>' : null;
                     })
                     ->addColumn('interes', function ($empresa) {
-                        $interes = EmpresaInteres::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->with(['interes'])->first();
-                        return (isset($interes->interes)) ? $interes->Interes->interes : null;
+                        return ($empresa->intereses()) ? $empresa->intereses(): null;
                     })
                     ->addColumn('novedad', function ($empresa) {
                         $novedad = EmpresaSeguimiento::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->first();
