@@ -71,6 +71,7 @@ class UsersController extends Controller
             'apellido'     => $data['apellido'],
             'nombre'       => $data['nombre'],
             'dni'          => $data['dni'],
+            'habilitado'   => 1,
             'nacionalidad' => $data['nacionalidad'],
             'direccion'    => $data['direccion'],
             'ciudad'       => $data['ciudad'],
