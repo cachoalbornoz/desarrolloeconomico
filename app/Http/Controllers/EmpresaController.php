@@ -27,8 +27,9 @@ class EmpresaController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
-        // $empresa = Empresa::whereId(1422)->select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->first();
-        // return $empresa->intereses();
+        // $empresa = Empresa::whereId(1115)->select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->first();
+        // $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
+        // return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
 
         if ($request->ajax()) {
             $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->get();
@@ -45,16 +46,16 @@ class EmpresaController extends Controller
                     ->addColumn('titular', function ($empresa) {
                         return (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
                     })
-                    ->addColumn('actividad', function ($empresa) {
-                        return (isset($empresa->actividad1)) ? '<div class="rowspanning">' . $empresa->actividad1 . '</div>' : null;
-                    })
-                    ->addColumn('interes', function ($empresa) {
-                        return ($empresa->intereses()) ? $empresa->intereses(): null;
-                    })
-                    ->addColumn('novedad', function ($empresa) {
-                        $novedad = EmpresaSeguimiento::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->first();
-                        return (isset($novedad->estadoTipo)) ? $novedad->EstadoTipo->estado : null;
-                    })
+                    // ->addColumn('actividad', function ($empresa) {
+                    //     return (isset($empresa->actividad1)) ? '<div class="rowspanning">' . $empresa->actividad1 . '</div>' : null;
+                    // })
+                    // ->addColumn('interes', function ($empresa) {
+                    //     return ($empresa->intereses()) ? $empresa->intereses(): null;
+                    // })
+                    // ->addColumn('novedad', function ($empresa) {
+                    //     $novedad = EmpresaSeguimiento::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->first();
+                    //     return (isset($novedad->estadoTipo)) ? $novedad->EstadoTipo->estado : null;
+                    // })
                     ->addColumn('emisor', function ($empresa) {
                         $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
                         return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
@@ -71,7 +72,7 @@ class EmpresaController extends Controller
                     ->addColumn('borrar', function ($empresa) {
                         return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
                     })
-                    ->rawColumns(['id', 'razon_social', 'actividad', 'interes', 'novedad', 'titular', 'emisor', 'seguimiento', 'categoria', 'borrar'])
+                    ->rawColumns(['id', 'razon_social', 'titular', 'emisor', 'seguimiento', 'categoria', 'borrar'])
                     ->make(true);
             } else {
                 return Datatables::of($empresa)
@@ -234,8 +235,13 @@ class EmpresaController extends Controller
 
     public function origenUpdate(Request $request, $origen)
     {
-        $origen = EmpresaOrigen::find($origen)->first();
-        $origen->update(($request->all()));
+        $origenEmpresa = EmpresaOrigen::find($origen);
+
+        $origenEmpresa->origen = $request->origen;
+        $origenEmpresa->emisor = $request->emisor;
+        $origenEmpresa->descripcion = $request->descripcion;
+        $origenEmpresa->fecha = $request->fecha;
+        $origenEmpresa->save();        
 
         return redirect()->route('empresa.edit', $request->empresa);
     }

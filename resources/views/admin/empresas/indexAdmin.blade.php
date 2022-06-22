@@ -32,9 +32,6 @@
                             <th>Editar</th>
                             <th>Razón Social </th>
                             <th>Titular</th>
-                            <th>Actividad</th>
-                            <th>Interés</th>
-                            <th>Estado</th>
                             <th>Emisor</th>
                             <th>Seg.</th>
                             <th>Cuit</th>
@@ -90,24 +87,6 @@
                     data: 'titular',
                     orderable: true,
                     searchable: true,
-                },
-
-                {
-                    data: 'actividad',
-                    orderable: true,
-                    searchable: true,
-                    class: "w-25"
-                },
-                {
-                    data: 'interes',
-                    orderable: false,
-                    searchable: false,
-                },
-                {
-                    data: 'novedad',
-                    orderable: false,
-                    searchable: true,
-                    class: "text-center"
                 },
                 {
                     data: 'emisor',
