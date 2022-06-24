@@ -1,5 +1,4 @@
 @if (Auth::guest())
-
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
@@ -29,8 +28,7 @@
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
                 &nbsp;
-                <a href="https://www.youtube.com/channel/UCy0W_lkT1z66MrRN4FA9qAg" target="_blank"
-                    class=" text-muted">
+                <a href="https://www.youtube.com/channel/UCy0W_lkT1z66MrRN4FA9qAg" target="_blank" class=" text-muted">
                     <i class="fab fa-youtube"></i> Youtube
                 </a>
 
@@ -44,7 +42,7 @@
         <div class="row">
 
             <div class="d-none d-lg-block col-lg-6">
-                Teléfono/Whatsapp: 0343-154501843
+                Teléfono/Whatsapp: 0343-154710053
             </div>
             <div class="d-none d-lg-block col-lg-6">
                 <i class="fas fa-envelope text-black-50"></i> economicoemprendedorer@gmail.com
@@ -61,5 +59,4 @@
             </div>
         </div>
     </div>
-
 @endif
