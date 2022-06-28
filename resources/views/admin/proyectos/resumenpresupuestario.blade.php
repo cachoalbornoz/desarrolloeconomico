@@ -29,10 +29,10 @@
                                 {!! Form::text('rpdescripcion', null, ['id' =>'prdescripcion', 'class' => 'form-control empty', 'required']) !!}
                             </td>
                             <td>
-                                {!! Form::number('rpcantidad', 1, ['id' =>'rpcantidad', 'class' => 'form-control text-center', 'required', 'min' => 1, 'max' => '9999', 'onkeyup' => 'imposeMinMax(this)' ]) !!}
+                                {!! Form::number('rpcantidad', 1, ['id' =>'rpcantidad', 'class' => 'form-control text-center', 'required', 'min' => 1, 'max' => '99999999999', 'onkeyup' => 'imposeMinMax(this)' ]) !!}
                             </td>
                             <td>
-                                {!! Form::number('rpcosto', 1, ['id' =>'rpcosto', 'class' => 'form-control text-center', 'required', 'min' => 1, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                                {!! Form::number('rpcosto', 1, ['id' =>'rpcosto', 'class' => 'form-control text-center', 'required', 'min' => 1, 'max' => '99999999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
                             </td>
                             <td>
                                 {!! Form::number('rptotal', 0, ['id' =>'rptotal', 'class' => 'form-control text-center', 'disabled' => true]) !!}

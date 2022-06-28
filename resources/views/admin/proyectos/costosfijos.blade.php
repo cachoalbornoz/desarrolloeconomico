@@ -36,7 +36,7 @@
                                 </select>
                             </td>
                             <td>
-                                {!! Form::number('cfcosto', 1, ['id' =>'cfcosto', 'required', 'class' => 'form-control text-center', 'min' => 1, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                                {!! Form::number('cfcosto', 1, ['id' =>'cfcosto', 'required', 'class' => 'form-control text-center', 'min' => 1, 'max' => '99999999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
                             </td>
                             <td></td>
                             <td>

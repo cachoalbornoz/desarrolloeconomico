@@ -37,10 +37,10 @@
                                 </select>
                             </td>
                             <td>
-                                {!! Form::number('ivcantidad', 1, ['id' =>'ivcantidad', 'required', 'class' => 'form-control text-center', 'min' => 1, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                                {!! Form::number('ivcantidad', 1, ['id' =>'ivcantidad', 'required', 'class' => 'form-control text-center', 'min' => 1, 'max' => '99999999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
                             </td>
                             <td>
-                                {!! Form::number('ivcosto', 1, ['id' =>'ivcosto', 'required', 'class' => 'form-control text-center', 'min' => 1, 'max' => '99999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
+                                {!! Form::number('ivcosto', 1, ['id' =>'ivcosto', 'required', 'class' => 'form-control text-center', 'min' => 1, 'max' => '99999999999', 'onkeyup' => 'imposeMinMax(this)']) !!}
                             </td>
                             <td>
                                 {!! Form::number('ivtotal', 0, ['id' =>'ivtotal', 'required', 'class' => 'form-control text-center', 'disabled' => true]) !!}

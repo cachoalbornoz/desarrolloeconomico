@@ -52,8 +52,8 @@ class PlanillaController extends Controller{
     public function ivInsert(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'ivcantidad'=> 'numeric|min:1|max:99999999',
-            'ivcosto'   => 'numeric|min:1|max:99999999',
+            'ivcantidad'=> 'numeric|min:1|max:999999999999',
+            'ivcosto'   => 'numeric|min:1|max:999999999999',
 
         ]);
 
@@ -82,7 +82,7 @@ class PlanillaController extends Controller{
     public function ffInsert(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'ffmonto' => 'numeric|min:1|max:99999999',
+            'ffmonto' => 'numeric|min:1|max:999999999999',
         ]);
 
         if ($validator->passes()) {
@@ -110,7 +110,7 @@ class PlanillaController extends Controller{
     public function cvInsert(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'cvcosto' => 'numeric|min:1|max:99999999',
+            'cvcosto' => 'numeric|min:1|max:999999999999',
         ]);
 
         if ($validator->passes()) {
@@ -138,7 +138,7 @@ class PlanillaController extends Controller{
     public function cfInsert(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'cfcosto' => 'numeric|min:1|max:99999999',
+            'cfcosto' => 'numeric|min:1|max:999999999999',
         ]);
 
         if ($validator->passes()) {
@@ -167,8 +167,8 @@ class PlanillaController extends Controller{
     public function resumenInsert(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'rpcantidad' => 'numeric|min:1|max:999999',
-            'rpcosto' => 'numeric|min:1|max:99999999',
+            'rpcantidad' => 'numeric|min:1|max:999999999999',
+            'rpcosto' => 'numeric|min:1|max:999999999999',
         ]);
 
         if ($validator->passes()) {
