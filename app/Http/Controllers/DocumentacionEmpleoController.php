@@ -27,7 +27,7 @@ class DocumentacionEmpleoController extends Controller
 
             } else {
 
-                $empresas = $usuario->empresas()->get();
+                $empresas = Auth::user()->empresas()->get();
                 $documentacion = new Collection;
 
                 foreach ($empresas as $empresa) {
