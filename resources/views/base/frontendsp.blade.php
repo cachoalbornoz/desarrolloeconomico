@@ -25,14 +25,6 @@
     </div>
 
     <div class="row mt-3 mb-3">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-            <a href={{ route('programarp') }}>
-                <img src="{{ asset('public/images/frontend/bannerFortalecimiento.png') }}" class=" img-fluid" />
-            </a>
-        </div>
-    </div>
-
-    <div class="row mb-3">
         <div class="col-xs-12 col-sm-12 col-lg-12">
             &nbsp;
         </div>
