@@ -258,6 +258,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('documentacionempleo/mipyme', 'DocumentacionEmpleoController@mipyme')->name('documentacione.mipyme');
         Route::post('documentacionempleo/attrabajador', 'DocumentacionEmpleoController@attrabajador')->name('documentacione.attrabajador');
         Route::post('documentacionempleo/djattrabajador', 'DocumentacionEmpleoController@djattrabajador')->name('documentacione.djattrabajador');
+        Route::post('documentacionempleo/certdiscapacidad', 'DocumentacionEmpleoController@certdiscapacidad')->name('documentacione.certdiscapacidad');
 
         Route::get('documentacionempleo/edit/{documentacion}', 'DocumentacionEmpleoController@edit')->name('documentacione.edit');
         Route::get('documentacionempleo/', 'DocumentacionEmpleoController@index')->name('documentacione.index');

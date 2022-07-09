@@ -1,6 +1,6 @@
 <div class=" ml-5 mr-5">
     <table class="table table-striped table-sm table-hover">
-        <tr>
+        <tr class="mt-4">
             <td>
                 - Solicitud de Acceso al FONDEP
             </td>
@@ -35,7 +35,7 @@
 
 
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Memoria descriptiva de la empresa y proyecto
             </td>
@@ -64,10 +64,10 @@
                     <i class="far fa-circle text-danger"></i>
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Copia del Contrato Constitutivo y/o Estatuto vigente
             </td>
@@ -96,10 +96,10 @@
                     <i class="far fa-circle text-danger"></i>
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Copia del acta de designación de autoridades vigentes y cargos
             </td>
@@ -128,9 +128,9 @@
                     <i class="far fa-circle text-danger"></i>
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Copia DNI representante legal o apoderado
             </td>
@@ -161,7 +161,7 @@
             </td>
         </tr>
 
-        <tr>
+        <tr class="mt-4">
             <td>
                 - Constancia CUIT representante legal / apoderado
             </td>
@@ -190,10 +190,10 @@
                     <i class="far fa-circle text-danger"></i>
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Constancia Inscripción AFIP empleador/a
             </td>
@@ -224,7 +224,7 @@
             </td>
         </tr>
 
-        <tr>
+        <tr class="mt-4">
             <td>
                 - DDJJ Formulario 931 presentando ante AFIP del mes de Marzo 2021
             </td>
@@ -253,11 +253,11 @@
                     <i class="far fa-circle text-danger"></i>
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        <tr class="mt-4">
             <td>
-                - Constancia CBU de titularidad del Solicitante
+                - Constancia de la Clave Bancaria Uniforme (CBU) de titularidad del Solicitante, acreditando el tipo y número de cuenta y sucursal.
             </td>
             <td>
                 <form id="formcbu" action="" enctype="multipart/form-data" method="POST">
@@ -286,7 +286,7 @@
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Constancia REPSAL acreditando que empresa no posee sanciones
             </td>
@@ -317,7 +317,7 @@
             </td>
         </tr>
 
-        <tr>
+        <tr class="mt-4">
             <td>
                 - Certificado MiPyME vigente o rechazo
             </td>
@@ -346,12 +346,12 @@
                     <i class="far fa-circle text-danger"></i>
                 @endif
             </td>
-        </tr>
+        </tr> --}}
 
 
         {{-- Alta temprana --}}
 
-        <tr>
+        <tr class="mt-4">
             <td>
                 - Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP). (<b>Si
                     corresponde</b>)
@@ -385,7 +385,7 @@
 
         {{-- DJ Alta temprana --}}
 
-        <tr>
+        {{-- <tr class="mt-4">
             <td>
                 - Declaración Jurada de Alta del Trabajador o Trabajadora, con detalle de nuevas/s CUIL/S contratadas,
                 especificando la categoría de cupo a la que suscriben, conforme al "Apéndice D" de las Bases y
@@ -411,6 +411,37 @@
             </td>
             <td>
                 @if (Str::length($documentacion->djattrabajador))
+                    <i class="far fa-check-circle text-success"></i>
+                @else
+                    <i class="far fa-circle text-danger"></i>
+                @endif
+            </td>
+        </tr> --}}
+
+        <tr class="mt-4">
+            <td>
+                - Certificado de discapacidad de los/las trabajadores/as contratados/as.(<b>Si corresponde</b>)
+            </td>
+            <td>
+                <form id="formcertdiscapacidad" action="" enctype="multipart/form-data" method="POST">
+                    @csrf
+                    <input type="file" name="certdiscapacidad" id="certdiscapacidad" accept="application/pdf" required>
+                </form>
+            </td>
+            <td>
+                @if (Str::length($documentacion->certdiscapacidad))
+                    <a
+                        href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->certdiscapacidad) }}?codeimg={{ time() }}">
+                        <i class="far fa-file-pdf"></i>
+                    </a>
+                @else
+                    <a href="{{ asset('/public/images/frontend/imagen-no-disponible.png') }}">
+                        <i class="far fa-file-pdf"></i>
+                    </a>
+                @endif
+            </td>
+            <td>
+                @if (Str::length($documentacion->certdiscapacidad))
                     <i class="far fa-check-circle text-success"></i>
                 @else
                     <i class="far fa-circle text-danger"></i>

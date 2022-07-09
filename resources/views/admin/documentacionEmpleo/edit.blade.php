@@ -8,7 +8,6 @@
         input[type="file"] {
             color: transparent !important;
         }
-
     </style>
 @endsection
 
@@ -76,11 +75,6 @@
             </small>
         </div>
     </div>
-    <div class="row mr-5">
-        <div class="col-xs-12 col-sm-12 col-lg-12 text-right">
-            <a class=" btn btn-info" href="{{ route('empresa.vincular') }}"> Regresar </a>
-        </div>
-    </div>
 
     <div class="row mb-4">
         <div class="col-xs-12 col-sm-12 col-lg-12">
@@ -95,198 +89,20 @@
 
     <script>
         let fondep = "{{ route('documentacione.fondep') }}";
-        let memoria = "{{ route('documentacione.memoria') }}";
-        let estatuto = "{{ route('documentacione.estatuto') }}";
-        let autoridades = "{{ route('documentacione.autoridades') }}";
-        let dni = "{{ route('documentacione.dni') }}";
-        let cuit = "{{ route('documentacione.cuit') }}";
-        let afip = "{{ route('documentacione.afip') }}";
-        let f931 = "{{ route('documentacione.f931') }}";
+        // let memoria = "{{ route('documentacione.memoria') }}";
+        // let estatuto = "{{ route('documentacione.estatuto') }}";
+        // let autoridades = "{{ route('documentacione.autoridades') }}";
+        // let dni = "{{ route('documentacione.dni') }}";
+        // let cuit = "{{ route('documentacione.cuit') }}";
+        // let afip = "{{ route('documentacione.afip') }}";
+        // let f931 = "{{ route('documentacione.f931') }}";
         let cbu = "{{ route('documentacione.cbu') }}";
-        let repsal = "{{ route('documentacione.repsal') }}";
-        let mipyme = "{{ route('documentacione.mipyme') }}";
+        // let repsal = "{{ route('documentacione.repsal') }}";
+        // let mipyme = "{{ route('documentacione.mipyme') }}";
         let attrabajador = "{{ route('documentacione.attrabajador') }}";
-        let djattrabajador = "{{ route('documentacione.djattrabajador') }}";
-
-        $("#mipyme").on("change", function() {
-            let data = new FormData($('#formmipyme')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: mipyme,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#repsal").on("change", function() {
-            let data = new FormData($('#formrepsal')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: repsal,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#cbu").on("change", function() {
-            let data = new FormData($('#formcbu')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: cbu,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#f931").on("change", function() {
-            let data = new FormData($('#formf931')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: f931,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#afip").on("change", function() {
-            let data = new FormData($('#formafip')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: afip,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#cuit").on("change", function() {
-            let data = new FormData($('#formcuit')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: cuit,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#dni").on("change", function() {
-            let data = new FormData($('#formdni')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: dni,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#autoridades").on("change", function() {
-            let data = new FormData($('#formautoridades')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: autoridades,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#estatuto").on("change", function() {
-            let data = new FormData($('#formestatuto')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: estatuto,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
-
-        $("#memoria").on("change", function() {
-            let data = new FormData($('#formmemoria')[0]);
-            data.append('documentacion', $('#documentacion').val());
-
-            $.ajax({
-                url: memoria,
-                method: 'POST',
-                data: data,
-                dataType: 'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    mensaje(data);
-                }
-            })
-        });
+        // let djattrabajador = "{{ route('documentacione.djattrabajador') }}";
+        let certdiscapacidad = "{{ route('documentacione.certdiscapacidad') }}";
+        
 
         $("#fondep").on("change", function() {
 
@@ -307,6 +123,189 @@
             })
         });
 
+
+        // $("#memoria").on("change", function() {
+        //     let data = new FormData($('#formmemoria')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: memoria,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+
+        // $("#estatuto").on("change", function() {
+        //     let data = new FormData($('#formestatuto')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: estatuto,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+        // $("#autoridades").on("change", function() {
+        //     let data = new FormData($('#formautoridades')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: autoridades,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+
+        // $("#dni").on("change", function() {
+        //     let data = new FormData($('#formdni')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: dni,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+        // $("#cuit").on("change", function() {
+        //     let data = new FormData($('#formcuit')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: cuit,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+        // $("#afip").on("change", function() {
+        //     let data = new FormData($('#formafip')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: afip,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+        // $("#f931").on("change", function() {
+        //     let data = new FormData($('#formf931')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: f931,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+        $("#cbu").on("change", function() {
+            let data = new FormData($('#formcbu')[0]);
+            data.append('documentacion', $('#documentacion').val());
+
+            $.ajax({
+                url: cbu,
+                method: 'POST',
+                data: data,
+                dataType: 'JSON',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    mensaje(data);
+                }
+            })
+        });
+
+        // $("#repsal").on("change", function() {
+        //     let data = new FormData($('#formrepsal')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: repsal,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+        // $("#mipyme").on("change", function() {
+        //     let data = new FormData($('#formmipyme')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+
+        //     $.ajax({
+        //         url: mipyme,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
         $("#attrabajador").on("change", function() {
             let data = new FormData($('#formattrabajador')[0]);
             data.append('documentacion', $('#documentacion').val());
@@ -324,11 +323,29 @@
             })
         });
 
-        $("#djattrabajador").on("change", function() {
-            let data = new FormData($('#formdjattrabajador')[0]);
+        // $("#djattrabajador").on("change", function() {
+        //     let data = new FormData($('#formdjattrabajador')[0]);
+        //     data.append('documentacion', $('#documentacion').val());
+        //     $.ajax({
+        //         url: djattrabajador,
+        //         method: 'POST',
+        //         data: data,
+        //         dataType: 'JSON',
+        //         contentType: false,
+        //         cache: false,
+        //         processData: false,
+        //         success: function(data) {
+        //             mensaje(data);
+        //         }
+        //     })
+        // });
+
+
+        $("#certdiscapacidad").on("change", function() {
+            let data = new FormData($('#formcertdiscapacidad')[0]);
             data.append('documentacion', $('#documentacion').val());
             $.ajax({
-                url: djattrabajador,
+                url: certdiscapacidad,
                 method: 'POST',
                 data: data,
                 dataType: 'JSON',

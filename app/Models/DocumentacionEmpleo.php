@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DocumentacionEmpleo extends Model
 {
-
     public $timestamps = true;
 
     protected $table = 'documentacion_empleo';
@@ -16,18 +15,19 @@ class DocumentacionEmpleo extends Model
         'empresa',
         'estado',
         'fondep',
-        'memoria',
-        'estatuto',
-        'autoridades',
-        'dni',
-        'cuit',
-        'afip',
-        'f931',
+        // 'memoria',
+        // 'estatuto',
+        // 'autoridades',
+        // 'dni',
+        // 'cuit',
+        // 'afip',
+        // 'f931',
         'cbu',
-        'repsal',
-        'mipyme',
+        // 'repsal',
+        // 'mipyme',
         'attrabajador',
-        'djattrabajador'
+        // 'djattrabajador',
+        'certdiscapacidad',
     ];
 
     public function empresa()
@@ -42,9 +42,9 @@ class DocumentacionEmpleo extends Model
 
     public function completa()
     {
-        $columns = $this->getFillable();
+        $columns    = $this->getFillable();
         $attributes = $this->getAttributes();
-        $arrTabla = [];
+        $arrTabla   = [];
 
         foreach ($attributes as $campo) {
             if (is_null($campo) || strlen($campo) == 0) {
@@ -56,8 +56,7 @@ class DocumentacionEmpleo extends Model
 
     public function personaCompleta()
     {
-        return (!empty($this->fondep) && !empty($this->memoria) && !empty($this->estatuto) && !empty($this->autoridades) && !empty($this->dni)
-            && !empty($this->cuit) && !empty($this->afip) && !empty($this->f931) && !empty($this->cbu) && !empty($this->repsal) && !empty($this->mipyme)) ? 1 : 0;
+        return (!empty($this->fondep) && !empty($this->cbu)) ? 1 : 0;
     }
 
     public function canEdit()
