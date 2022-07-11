@@ -257,7 +257,8 @@
 
         <tr class="mt-4">
             <td>
-                - Constancia de la Clave Bancaria Uniforme (CBU) de titularidad del Solicitante, acreditando el tipo y número de cuenta y sucursal.
+                - Constancia de la Clave Bancaria Uniforme (CBU) de titularidad del Solicitante, acreditando el tipo y
+                número de cuenta y sucursal.
             </td>
             <td>
                 <form id="formcbu" action="" enctype="multipart/form-data" method="POST">
@@ -420,12 +421,13 @@
 
         <tr class="mt-4">
             <td>
-                - Certificado de discapacidad de los/las trabajadores/as contratados/as.(<b>Si corresponde</b>)
+                - Certificado de discapacidad de los/las trabajadores/as contratados/as.
             </td>
             <td>
                 <form id="formcertdiscapacidad" action="" enctype="multipart/form-data" method="POST">
                     @csrf
-                    <input type="file" name="certdiscapacidad" id="certdiscapacidad" accept="application/pdf" required>
+                    <input type="file" name="certdiscapacidad" id="certdiscapacidad" accept="application/pdf"
+                        required>
                 </form>
             </td>
             <td>
