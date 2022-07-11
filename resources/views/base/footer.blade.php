@@ -42,7 +42,7 @@
         <div class="row">
 
             <div class="d-none d-lg-block col-lg-6">
-                Teléfono/Whatsapp: 0343-154710053
+                Teléfono/Whatsapp: 0343 - 5317779
             </div>
             <div class="d-none d-lg-block col-lg-6">
                 <i class="fas fa-envelope text-black-50"></i> economicoemprendedorer@gmail.com

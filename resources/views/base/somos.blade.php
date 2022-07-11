@@ -119,6 +119,9 @@
                         <div class="p-2">
                             Dirección de Políticas de Apoyo Emprendedor: María Eugenia Delsart
                         </div>
+                        <div class="p-2">
+                            Dirección de Asistencia MiPyME: Erika Cardozo
+                        </div>
                     </p>
                 </div>
             </div>

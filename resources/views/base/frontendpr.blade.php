@@ -66,20 +66,18 @@
                     y
                     <a
                         href="{{ asset('/public/images/frontend/Resolución Conjunta 4-2021.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
-                        la Resolución Conjunta 4/2021 de la SIECyGCE y la SEPyME
+                        el Acta de Adhesión al programa que rige la convocatoria específica para Entre Ríos
                     </a>
                     que rige la convocatoria específica para Entre Ríos. La presentación de una solicitud implica
-                    que
-                    Ud. conoce las condiciones del Programa y que garantiza en carácter de Declaración Jurada la
-                    veracidad y
-                    exactitud de toda la información incluida. La correcta inscripción a la línea queda supeditada a la
+                    que Ud. conoce las condiciones del Programa y que garantiza en carácter de Declaración Jurada la
+                    veracidad y exactitud de toda la información incluida. La correcta inscripción a la línea queda
+                    supeditada a la
                     exactitud de la información y la entrega en tiempo y forma de la documentación requerida. La
-                    aprobación
-                    para la obtención del beneficio en el marco del Programa, así como el monto del beneficio por cada
+                    aprobación para la obtención del beneficio en el marco del Programa, así como el monto del beneficio por
+                    cada
                     contratación verificada, será abonada de conformidad a lo que determinan las Bases y Condiciones que
                     rigen en la presente convocatoria, siendo potestad ello del Ministerio de Desarrollo Productivo de
-                    la
-                    Nación.
+                    la Nación.
                 </p>
 
             </div>
@@ -95,16 +93,15 @@
                         Resolución 245/21 MDP
                         <a href="{{ asset('/public/images/frontend/Resolución 245-21 MDP.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
                             target="_blank">
-                            Descarga
+                            - <i class=" fa fa-file-pdf text-primary"></i>  Descargar
                         </a>
 
                     </li>
 
                     <li class=" mb-4">
                         Bases y Condiciones de la linea (Anexo Resolución 245/21 MDP)
-                        <a
-                            href="{{ asset('/public/images/frontend/Bases y Condiciones de la Línea - Reactivacion.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
-                            Descarga
+                        <a href="{{ asset('/public/images/frontend/Bases y Condiciones de la Línea - Reactivacion.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
+                            - <i class=" fa fa-file-pdf text-primary"></i>  Descargar
                         </a>
                     </li>
 
@@ -112,31 +109,12 @@
                     <li class=" mb-4">
                         Actividades alcanzadas por el Programa [Apéndice B de la Resolución 245/21 MDP]
                         <a href="{{ asset('/public/images/frontend/CLAES Habilitadas Para Presentarse al Programa.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
-                            target="_blank">
-                            Descarga
-                        </a>
-
-                    </li>
-                    <li class=" mb-4">
-                        Categorías de los ANR [Apéndice F de la Resolución 245/21 MDP]
-                        <a href="{{ asset('/public/images/frontend/Categorías de los ANR.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
-                            target="_blank">
-                            Descarga
+                            target="_blank"> - <i class=" fa fa-file-pdf text-primary"></i>  Descargar
                         </a>
                     </li>
-                    <li class=" mb-4"> Resolución Conjunta 4/2021 de la SIECyGCE y la SEPyME - Convocatoria Entre Ríos
-                        <a
-                            href="{{ asset('/public/images/frontend/Resolución Conjunta 4-2021.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
-                            Descarga
-                        </a>
-                    </li>
-                    <li class=" mb-4"> Bases y Condiciones del Programa - Convocatoria Entre Ríos
-                        <a href="{{ asset('/public/images/frontend/Anexo 1 - Bases y Condiciones.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
-                            target="_blank">
-                            Descarga
-                        </a>
-
-                        [Anexo de la Resolución Conjunta 4/21 MDP que rige para Entre Ríos]
+                    
+                    <li class=" mb-4"> 
+                        Acta de Adhesión de la provincia de Entre Ríos al Programa Federal de Fortalecimiento de la Reactivación Productiva
                     </li>
                 </ul>
 
@@ -152,77 +130,20 @@
 
                 <ol>
                     <li class=" mb-4">
-                        Apéndice A – 
+                        Apéndice A –
                         <a href="{{ asset('/public/images/frontend/Apéndice A - Solicitud de Acceso a FONDEP.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
                             target="_blank">
-                            Solicitud de acceso al FONDEP
+                            Solicitud de acceso al FONDEP ( <i class=" fa fa-file-pdf text-primary"></i>  Descargar )
                         </a>. Completo y firmado por el representante legal de la empresa solicitante.
                     </li>
                     <li class=" mb-4">
-                        Apéndice C –
-                        <a href="{{ asset('/public/images/frontend/Apéndice C - Memoria Descriptiva de la Empresa y Proyecto.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
-                            target="_blank">
-                            Memoria descriptiva de la empresa y proyecto
-                        </a> Completo y firmado por el representante legal de la empresa solicitante.
+                        Constancia de la Clave Bancaria Uniforme (CBU) de titularidad del Solicitante, acreditando el tipo y número de cuenta y sucursal.
                     </li>
                     <li class=" mb-4">
-                        Contrato Constitutivo y/o Estatuto vigente con todas las modificaciones existentes al día de la
-                        presentación, debidamente
-                        inscriptos ante el Registro Público correspondiente a su domicilio, certificada y legalizada según
-                        corresponda
+                        Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP).
                     </li>
                     <li class=" mb-4">
-                        Copia del Acta de designación de autoridades vigentes y
-                        distribución de cargos, inscriptas en el registro correspondiente o
-                        Poder vigente del/de los/as apoderados/as debidamente certificado y
-                        legalizado
-                    </li>
-                    <li class=" mb-4">
-                        Copia (ambas caras) del Documento Nacional de Identidad (DNI) y
-                        Constancia de la Clave Única de Identificación Tributaria (CUIT) del
-                        Representante Legal que efectúa la presentación o del apoderado
-                    </li>
-                    <li class=" mb-4">
-                        Constancia de inscripción ante la Administración Federal de
-                        Ingresos Públicos (AFIP) que indique como actividad principal, al día
-                        31 de diciembre de 2020 o, de haber iniciado actividades con
-                        posterioridad a dicha fecha, al momento de inscripción, alguna de las
-                        actividades incluidas en el Programa
-                    </li>
-                    <li class=" mb-4">
-                        Declaración Jurada del Formulario 931 presentada ante la
-                        Administración Federal de Ingresos Públicos (AFIP), del mes de
-                        marzo de 2021, considerado como “período base” de la convocatoria,
-                        con su respectivo acuse de presentación y nómina asociada obtenida
-                        del mismo
-                    </li>
-                    <li class=" mb-4">
-                        Constancia de Clave Bancaria Uniforme (CBU) de titularidad del
-                        solicitante acreditando tipo y número de cuenta, certificada por entidad
-                        bancaria
-                    </li>
-                    <li class=" mb-4">
-                        Constancia del Registro Público de Empleadores con Sanciones
-                        Laborales (REPSAL) donde se acredite que la empresa solicitante no
-                        posee sanciones
-                    </li>
-
-                    <li class=" mb-4">
-                        Certificado MiPyME o constancia de rechazo. Vigente según lo establecido en la Resolución N° 220/19
-                        de la ex SECRETARÍA DE
-                        EMPRENDEDORES Y DE LA PEQUEÑA Y MEDIANA EMPRESA del ex MINISTERIO DE PRODUCCIÓN Y TRABAJO y sus
-                        modificatorias, o constancia de rechazo del mismo según corresponda
-                    </li>
-                    <li class=" mb-4">
-                        Apéndice D – 
-                        <a href="{{ asset('/public/images/frontend/Apéndice D - Alta Trabajador o Trabajadora.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
-                            target="_blank">
-                            Alta de Trabajador o Trabajadora
-                        </a>
-                        (de corresponder)
-                    </li>
-                    <li class=" mb-4">
-                        Alta temprana del Trabajador o Trabajadora (de corresponder)
+                        Certificado de discapacidad de los/las trabajadores/as contratados/as.(Si corresponde)
                     </li>
                 </ol>
 
