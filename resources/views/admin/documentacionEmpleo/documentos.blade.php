@@ -354,8 +354,7 @@
 
         <tr class="mt-4">
             <td>
-                - Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP). (<b>Si
-                    corresponde</b>)
+                - Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP). 
             </td>
             <td>
                 <form id="formattrabajador" action="" enctype="multipart/form-data" method="POST">
@@ -421,7 +420,7 @@
 
         <tr class="mt-4">
             <td>
-                - Certificado de discapacidad de los/las trabajadores/as contratados/as.
+                - Certificado de discapacidad de los/las trabajadores/as contratados/as. (<b>Si corresponde</b>)
             </td>
             <td>
                 <form id="formcertdiscapacidad" action="" enctype="multipart/form-data" method="POST">
