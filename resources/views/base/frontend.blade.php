@@ -24,6 +24,107 @@
             </div>
         </div>
 
+
+        <div class="row mb-5 mt-5">
+            <div class="col">
+                
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark favenir pb-3">            
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+            
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            
+                        <ul class="navbar-nav nav-fill w-100">
+                            
+            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CREDITOS PRODUCTIVOS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('pafinanciera') }}">
+                                        - Empresas
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('pcooperativas') }}">
+                                        - Cooperativas
+                                    </a>
+                                    <hr>
+                                    <h6 class="ml-2">* Emprendedores</h6>
+            
+                                    <a class="dropdown-item"
+                                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_jovenes.php">
+                                        - Créditos a tasa cero
+                                    </a>
+            
+                                    <a class="dropdown-item"
+                                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_proaccer.php">
+                                        - ANR para comercialización
+                                    </a>
+            
+                                    <a class="dropdown-item"
+                                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_proceder.php">
+                                        - ANR para innovación
+                                    </a>
+            
+                                    <hr />
+            
+                                    <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
+                                        - Banco de Entre Ríos
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('pestrategicos') }}">
+                                        - Créditos Nacionales
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('programarp') }}">
+                                        - Reactivación Productiva
+                                    </a>
+            
+                                </div>
+                            </li>
+            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CAPACITACIONES y ASISTENCIA TECNICA
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            
+                                    <h6 class="ml-2 mr-2">Empresas y Cooperativas </h6>
+            
+                                    <a class="dropdown-item" href="{{ route('pafinanciera') }}">
+                                        - Empresas
+                                    </a>
+            
+                                    <a class="dropdown-item" href="{{ route('patecnica') }}">
+                                        - Asistencia Técnica
+                                    </a>
+            
+                                    <hr />
+            
+                                    <h6 class="ml-2">Emprendedores</h6>
+                                    <a class="dropdown-item"
+                                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_formacion.php">
+                                        - Capacitaciones
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_tutorias.php">
+                                        - Tutorías
+                                    </a>
+            
+                                </div>
+                            </li>            
+            
+                        </ul>
+            
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        
+
         <div class="row">
             <div class="col-xs-12 col-md-6 col-lg-6 w-100 mb-3">
                 <div class="mb-3 text-center h-100">
@@ -39,88 +140,9 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div>       
 
-        <div class="row mt-3 mb-4">
-            <div class="col-xs-12 col-sm-12 col-lg-12">
-                <h4>Créditos productivos</h4>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-xs-12 col-sm-12 col-lg-12">
-                <div class="list-group">
-                    <a href="{{ route('pafinanciera') }}"
-                        class="mb-2 list-group-item list-group-item-action list-group-item-primary">* Empresas
-                    </a>
-                    <a href="{{ route('pcooperativas') }}"
-                        class="mb-2 list-group-item list-group-item-action list-group-item-primary">* Cooperativas
-                    </a>
-
-                    <hr/>
-
-                    <h6 class="mt-2">Emprendedores</h6>
-
-                    <a class="list-group-item mt-2 list-group-item-action list-group-item-info"
-                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_jovenes.php">
-                        - Créditos a tasa cero
-                    </a>
-
-                    <a class="list-group-item mt-1 list-group-item-action list-group-item-info"
-                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_proaccer.php">
-                        - ANR para comercialización
-                    </a>
-
-                    <a class="list-group-item mt-1 list-group-item-action list-group-item-info"
-                        href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_proceder.php">
-                        - ANR para innovación
-                    </a>
-
-                    <hr/>
-
-                    <a href="{{ route('pcapitalTrabajo') }}"
-                        class="mt-2 mb-2 list-group-item list-group-item-action list-group-item-dark">
-                        * Banco de Entre Ríos
-                    </a>
-                    <a href="{{ route('pestrategicos') }}"
-                        class="mt-2 mb-2 list-group-item list-group-item-action list-group-item-info">
-                        * Créditos Nacionales
-                    </a>
-                    <a href="{{ route('programarp') }}"
-                        class="mt-2 mb-2 list-group-item list-group-item-action list-group-item-info">
-                        * Reactivación Productiva
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-5 mb-4">
-            <div class="col-xs-12 col-sm-12 col-lg-12">
-                <h4>Capacitaciones y Asistencia Técnica</h4>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-xs-12 col-sm-12 col-lg-12">
-                <div class="list-group">
-                    <h6>Empresas y Cooperativas</h6>
-                    <a href="{{ route('patecnica') }}"
-                        class="mb-2 list-group-item list-group-item-action list-group-item-primary">
-                        * Asistencia Técnica
-                    </a>
-
-                    <hr/>
-
-                    <h6>Emprendedores</h6>
-                    <a href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_formacion.php"
-                        class="mb-2 list-group-item list-group-item-action list-group-item-primary">* Capacitaciones
-                    </a>
-                    <a href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_tutorias.php"
-                        class="mb-2 list-group-item list-group-item-action list-group-item-primary">* Tutorías
-                    </a>
-                </div>
-            </div>
-        </div>
+        
 
 
 
