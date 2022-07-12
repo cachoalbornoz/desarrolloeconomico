@@ -59,15 +59,11 @@
                         href="{{ asset('/public/images/frontend/Resolución 245-21 MDP.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
                         Resolución Nº245/2021 MDP
                     </a>, las
-                    <a
-                        href="{{ asset('/public/images/frontend/Bases y Condiciones de la Línea - Reactivacion.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
+                    <a class=" text-primary"
+                        href="{{ asset('/public/images/frontend/BASES Y CONDICIONES.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
                         Bases y Condiciones de la línea
                     </a>
-                    y
-                    <a
-                        href="{{ asset('/public/images/frontend/Resolución Conjunta 4-2021.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
-                        el Acta de Adhesión al programa que rige la convocatoria específica para Entre Ríos
-                    </a>
+                    y  el Acta de Adhesión al programa que rige la convocatoria específica para Entre Ríos
                     que rige la convocatoria específica para Entre Ríos. La presentación de una solicitud implica
                     que Ud. conoce las condiciones del Programa y que garantiza en carácter de Declaración Jurada la
                     veracidad y exactitud de toda la información incluida. La correcta inscripción a la línea queda
@@ -93,15 +89,16 @@
                         Resolución 245/21 MDP
                         <a href="{{ asset('/public/images/frontend/Resolución 245-21 MDP.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
                             target="_blank">
-                            - <i class=" fa fa-file-pdf text-primary"></i>  Descargar
+                            - <i class=" fa fa-file-pdf text-primary"></i> Descargar
                         </a>
 
                     </li>
 
                     <li class=" mb-4">
-                        Bases y Condiciones de la linea (Anexo Resolución 245/21 MDP)
-                        <a href="{{ asset('/public/images/frontend/Bases y Condiciones de la Línea - Reactivacion.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
-                            - <i class=" fa fa-file-pdf text-primary"></i>  Descargar
+                        Bases y Condiciones de la linea
+                        <a
+                            href="{{ asset('/public/images/frontend/BASES Y CONDICIONES.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
+                            - <i class=" fa fa-file-pdf text-primary"></i> Descargar
                         </a>
                     </li>
 
@@ -109,12 +106,13 @@
                     <li class=" mb-4">
                         Actividades alcanzadas por el Programa [Apéndice B de la Resolución 245/21 MDP]
                         <a href="{{ asset('/public/images/frontend/CLAES Habilitadas Para Presentarse al Programa.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
-                            target="_blank"> - <i class=" fa fa-file-pdf text-primary"></i>  Descargar
+                            target="_blank"> - <i class=" fa fa-file-pdf text-primary"></i> Descargar
                         </a>
                     </li>
-                    
-                    <li class=" mb-4"> 
-                        Acta de Adhesión de la provincia de Entre Ríos al Programa Federal de Fortalecimiento de la Reactivación Productiva
+
+                    <li class=" mb-4">
+                        Acta de Adhesión de la provincia de Entre Ríos al Programa Federal de Fortalecimiento de la
+                        Reactivación Productiva
                     </li>
                 </ul>
 
@@ -131,13 +129,14 @@
                 <ol>
                     <li class=" mb-4">
                         Apéndice A –
-                        <a href="{{ asset('/public/images/frontend/Apéndice A - Solicitud de Acceso a FONDEP.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
+                        <a href="{{ asset('/public/images/frontend/APENDICE A.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
                             target="_blank">
-                            Solicitud de acceso al FONDEP ( <i class=" fa fa-file-pdf text-primary"></i>  Descargar )
+                            Solicitud de acceso al FONDEP ( <i class=" fa fa-file-pdf text-primary"></i> Descargar )
                         </a>. Completo y firmado por el representante legal de la empresa solicitante.
                     </li>
                     <li class=" mb-4">
-                        Constancia de la Clave Bancaria Uniforme (CBU) de titularidad del Solicitante, acreditando el tipo y número de cuenta y sucursal.
+                        Constancia de la Clave Bancaria Uniforme (CBU) de titularidad del Solicitante, acreditando el tipo y
+                        número de cuenta y sucursal.
                     </li>
                     <li class=" mb-4">
                         Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP).
