@@ -55,11 +55,19 @@
                 <p class=" text-justify">
                     Estimado/a empleador/a: para poder completar la solicitud al Programa es necesario previamente descargar
                     y leer la
-                    <a
+                    <a 
+                        class=" text-primary"
                         href="{{ asset('/public/images/frontend/Resolución 245-21 MDP.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
-                        Resolución Nº245/2021 MDP
-                    </a>, las
-                    <a class=" text-primary"
+                       Resolución Nº245/2021 MDP 
+                    </a> 
+                    , <a 
+                        class=" text-primary" 
+                        href="{{ asset('/public/images/frontend/Resolucion Conjunta 07-22.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
+                        Resolución Conjunta N° 1/2022 MDP 
+                    </a>
+                    y las
+                    <a 
+                        class=" text-primary"
                         href="{{ asset('/public/images/frontend/BASES Y CONDICIONES.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
                         Bases y Condiciones de la línea
                     </a>
@@ -95,11 +103,21 @@
                     </li>
 
                     <li class=" mb-4">
+                        Resolución Conjunta N° 1/22 MDP
+                        <a href="{{ asset('/public/images/frontend/Resolucion Conjunta 07-22.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
+                            target="_blank">
+                            - <i class=" fa fa-file-pdf text-primary"></i> Descargar
+                        </a>
+
+                    </li>
+
+                    <li class=" mb-4">
                         Bases y Condiciones de la linea
                         <a
                             href="{{ asset('/public/images/frontend/BASES Y CONDICIONES.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}">
                             - <i class=" fa fa-file-pdf text-primary"></i> Descargar
                         </a>
+                        (Anexo III de la Resolución Conjunta N° 1/22 MDP)
                     </li>
 
 
