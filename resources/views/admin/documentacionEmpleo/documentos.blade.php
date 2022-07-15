@@ -354,7 +354,7 @@
 
         <tr class="mt-4">
             <td>
-                - Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP). 
+                - Alta temprana de la/s persona/s contratada/s ante la ADMINISTRACIÓN FEDERAL DE INGRESOS PÚBLICOS (AFIP). 
             </td>
             <td>
                 <form id="formattrabajador" action="" enctype="multipart/form-data" method="POST">

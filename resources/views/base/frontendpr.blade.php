@@ -149,7 +149,7 @@
                         Apéndice A –
                         <a href="{{ asset('/public/images/frontend/APENDICE A.pdf') }}?{{ substr(md5(mt_rand()), 0, 7) }}={{ time() }}"
                             target="_blank">
-                            Solicitud de acceso al FONDEP ( <i class=" fa fa-file-pdf text-primary"></i> Descargar )
+                            Solicitud de Acceso al “Programa Federal de Fortalecimiento de la Reactivación Productiva- FONDEP ( <i class=" fa fa-file-pdf text-primary"></i> Descargar )
                         </a>. Completo y firmado por el representante legal de la empresa solicitante.
                     </li>
                     <li class=" mb-4">
@@ -157,7 +157,7 @@
                         número de cuenta y sucursal.
                     </li>
                     <li class=" mb-4">
-                        Alta Temprana del Trabajador en la Administración Federal de Ingresos Públicos (AFIP).
+                        Alta temprana de la/s persona/s contratada/s ante la ADMINISTRACIÓN FEDERAL DE INGRESOS PÚBLICOS (AFIP)
                     </li>
                     <li class=" mb-4">
                         Certificado de discapacidad de los/las trabajadores/as contratados/as.(Si corresponde)
@@ -204,9 +204,7 @@
                     <li class=" mb-4">Cargar los <b>datos de la empresa</b>, una vez completados previamente sus datos
                         personales.</li>
                     <li class=" mb-4">Cargados los datos de la empresa aparecerá el botón <b>Presentar Documentación</b>
-                        donde deberá
-                        hacer
-                        click.
+                        donde deberá hacer click.
                     </li>
                 </ol>
             </div>
