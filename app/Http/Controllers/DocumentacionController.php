@@ -22,7 +22,6 @@ class DocumentacionController extends Controller
         if ($request->ajax()) {
 
             if (Auth::user()->hasRole(['superadmin', 'admin'])) {
-
                 $documentacion = Documentacion::all();
             } else {
 

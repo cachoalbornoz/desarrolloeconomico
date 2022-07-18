@@ -21,12 +21,9 @@
                         <div class="col-xs-12 col-md-6 col-lg-6">
 
                             @if (count($empresas) == 0)
-
-                                <a class='btn btn-info'
-                                    href="{{ route('empresaEmpleo.createAsociar', Auth::user()->id) }}">
+                                <a class='btn btn-info' href="{{ route('empresaEmpleo.createAsociar', Auth::user()->id) }}">
                                     Nueva empresa
                                 </a>
-
                             @endif
 
                         </div>
@@ -59,90 +56,90 @@
             function enviar(id) {
 
                 ymz.jq_confirm({
-                    title: '<div class="text-center m-3">Confirma el envío de los datos para su evaluación  ?</div>',
-                    text: "<small>Luego de enviar, todos sus datos no podrán modificarse</small>",
-                    no_btn: "No",
-                    yes_btn: "Si",
-                    no_fn: function() {
+                            title: `<div class="text-center m-3">Confirma el envío de los datos para su evaluación  ?</div>`,
+                            text: `<p class="text-center m-3">Luego del envío, los datos no podrán modificarse hasta su revisión</p>`,
+                            no_btn: "No",
+                            yes_btn: "Si",
+                            no_fn: function() {
 
-                        return false;
-                    },
-                    yes_fn: function() {
-
-                        var route = '{{ route('empresaEmpleo.enviar') }}';
-                        var token = $('input[name=_token]').val();
-                        $.ajax({
-
-                            url: route,
-                            headers: {
-                                'X-CSRF-TOKEN': token
+                                return false;
                             },
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                usuario,
-                                id
+                            yes_fn: function() {
+
+                                var route = '{{ route('empresaEmpleo.enviar') }}';
+                                var token = $('input[name=_token]').val();
+                                $.ajax({
+
+                                    url: route,
+                                    headers: {
+                                        'X-CSRF-TOKEN': token
+                                    },
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: {
+                                        usuario,
+                                        id
+                                    },
+
+                                    success: function(data) {
+
+                                        $('#divEmpresa').html(data.view);
+
+                                        toastr.options = {
+                                            "positionClass": "toast-top-center",
+                                            "progressBar": true,
+                                            "showDuration": "5000",
+                                            "timeOut": "5000"
+                                        };
+                                        toastr.success("&nbsp;", data.message);
+
+                                    }
+                                });
+                            }
+                        })
+                    }
+
+
+                    function desvincula(id) {
+
+                        var texto = '&nbsp; Elimina ésta empresa ? &nbsp;';
+
+                        ymz.jq_confirm({
+                            title: texto,
+                            text: "",
+                            no_btn: "Cancelar",
+                            yes_btn: "Confirma",
+                            no_fn: function() {
+                                return false;
                             },
+                            yes_fn: function() {
 
-                            success: function(data) {
+                                var route = '{{ route('empresaEmpleo.desvinculaEmpresa') }}';
+                                var token = $('input[name=_token]').val();
+                                $.ajax({
 
-                                $('#divEmpresa').html(data.view);
+                                    url: route,
+                                    headers: {
+                                        'X-CSRF-TOKEN': token
+                                    },
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: {
+                                        usuario,
+                                        id
+                                    },
 
-                                toastr.options = {
-                                    "positionClass": "toast-top-center",
-                                    "progressBar": true,
-                                    "showDuration": "5000",
-                                    "timeOut": "5000"
-                                };
-                                toastr.success("&nbsp;", data.message);
-
+                                    success: function(data) {
+                                        $('#divEmpresa').html(data);
+                                    }
+                                });
+                                setTimeout(function() {
+                                    window.location.reload(1);
+                                }, 1000);
                             }
                         });
-                    }
-                })
-            }
 
-
-            function desvincula(id) {
-
-                var texto = '&nbsp; Elimina ésta empresa ? &nbsp;';
-
-                ymz.jq_confirm({
-                    title: texto,
-                    text: "",
-                    no_btn: "Cancelar",
-                    yes_btn: "Confirma",
-                    no_fn: function() {
-                        return false;
-                    },
-                    yes_fn: function() {
-
-                        var route = '{{ route('empresaEmpleo.desvinculaEmpresa') }}';
-                        var token = $('input[name=_token]').val();
-                        $.ajax({
-
-                            url: route,
-                            headers: {
-                                'X-CSRF-TOKEN': token
-                            },
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {
-                                usuario,
-                                id
-                            },
-
-                            success: function(data) {
-                                $('#divEmpresa').html(data);
-                            }
-                        });
-                        setTimeout(function() {
-                            window.location.reload(1);
-                        }, 1000);
-                    }
-                });
-
-            };
+                    };
         </script>
 
     @endsection

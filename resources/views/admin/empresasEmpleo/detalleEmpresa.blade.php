@@ -39,13 +39,20 @@
                         <td>{{ $empresa->tipopyme ? $empresa->Tipopyme->pyme : null }}</td>
 
                         <td>
-                            @if ($empresa->estado != 24)
+                            @if ($empresa->documentacion->personaCompleta() == 0)
                                 <a href="{{ route('documentacione.edit', $empresa->id) }}"
                                     title="Carga y modifica documentación de la empresa">
-                                    Cargar Documentación
+                                    <span class=" text-danger">
+                                        Falta Documentación ...
+                                    </span>
                                 </a>
                             @else
-                                Documentación completa
+                                <a href="{{ route('documentacione.edit', $empresa->id) }}"
+                                    title="Carga y modifica documentación de la empresa">
+                                    <span class=" text-success">
+                                        Documentación completa
+                                    </span>
+                                </a>
                             @endif
                         </td>
 
@@ -61,14 +68,13 @@
                         <td class=" text-center">
 
                             @if ($empresa->estado == 20 && $empresa->completa() && $empresa->Documentacion->personaCompleta() == 1)
-
-                                <a href="javascript:enviar({{ $empresa->id }})" class=" btn btn-success"
+                                <a href="javascript:enviar({{ $empresa->id }})" class="btn btn-success btn-sm"
                                     title="Envía datos de la empresa junto a la documentación para que se evalúen">
                                     Enviar datos
                                 </a>
                             @else
                                 @if ($empresa->estado == 24)
-                                    <button class=" btn btn-secondary"
+                                    <button class=" btn btn-secondary btn-sm"
                                         title="La empresa ha enviado sus datos junto a la documentación ">
                                         Datos enviados
                                     </button>
@@ -80,14 +86,12 @@
                         <td class=" text-center">
 
                             @if (Auth::user()->hasRole(['superadmin', 'admin']))
-
                                 @if ($empresa->estado != 24)
                                     <a class="link" onclick="desvincula({{ $empresa->id }})"
                                         title="Elimina la empresa cargada">
                                         <i class="fas fa-trash text-danger"></i>
                                     </a>
                                 @endif
-
                             @endif
 
                         </td>

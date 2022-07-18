@@ -192,7 +192,7 @@ class EmpresaController extends Controller
         $empresa->save();
 
         if (Auth::user()->hasRole(['user'])) {
-            return redirect()->route('empresa.vincular');
+            return redirect()->route('empresa.index');
         }
         return redirect()->route('empresa.indexAdmin');
     }

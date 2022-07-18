@@ -283,6 +283,19 @@
             @endcan
 
 
+            @else
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/proyecto') }}" title="Proyectos registrados">
+                    Proyecto
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/empresa') }}" title="Empresa registradas">
+                    Empresa
+                </a>
+            </li>
+
             @endif
 
         </ul>

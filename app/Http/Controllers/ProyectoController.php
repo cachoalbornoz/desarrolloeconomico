@@ -36,7 +36,6 @@ class ProyectoController extends Controller
 
                 $proyecto = Proyecto::all();
             } else {
-
                 $user       = Auth::user();
                 $proyecto   = Proyecto::where('titular', '=', $user->id)->get();
             }

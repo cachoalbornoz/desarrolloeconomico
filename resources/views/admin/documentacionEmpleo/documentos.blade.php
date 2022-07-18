@@ -13,8 +13,7 @@
             </td>
             <td>
                 @if (Str::length($documentacion->fondep))
-                    <a
-                        href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->fondep) }}?codeimg={{ time() }}">
+                    <a href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->fondep) }}?codeimg={{ time() }}">
                         <i class="far fa-file-pdf"></i>
                     </a>
                 @else
@@ -25,9 +24,11 @@
             </td>
             <td>
                 @if (Str::length($documentacion->fondep))
-                    <i class="far fa-check-circle text-success"></i>
-                @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-success"><i class="far fa-check-circle"></i> Documentación subida
+                    @else
+                        <span class=" text-danger">
+                            <i class="far fa-circle"></i> Falta documentación...
+                        </span>
                 @endif
             </td>
         </tr>
@@ -47,8 +48,7 @@
             </td>
             <td>
                 @if (Str::length($documentacion->memoria))
-                    <a
-                        href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->memoria) }}?codeimg={{ time() }}">
+                    <a href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->memoria) }}?codeimg={{ time() }}">
                         <i class="far fa-file-pdf"></i>
                     </a>
                 @else
@@ -59,9 +59,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->memoria))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -79,8 +82,7 @@
             </td>
             <td>
                 @if (Str::length($documentacion->estatuto))
-                    <a
-                        href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->estatuto) }}?codeimg={{ time() }}">
+                    <a href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->estatuto) }}?codeimg={{ time() }}">
                         <i class="far fa-file-pdf"></i>
                     </a>
                 @else
@@ -91,9 +93,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->estatuto))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -123,9 +128,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->autoridades))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -154,9 +162,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->dni))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr>
@@ -185,9 +196,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->cuit))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -217,9 +231,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->afip))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr>
@@ -236,8 +253,7 @@
             </td>
             <td>
                 @if (Str::length($documentacion->f931))
-                    <a
-                        href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->f931) }}?codeimg={{ time() }}">
+                    <a href="{{ asset('/public/images/upload/documentacionEmpresas/' . $documentacion->f931) }}?codeimg={{ time() }}">
                         <i class="far fa-file-pdf"></i>
                     </a>
                 @else
@@ -248,9 +264,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->f931))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -280,9 +299,11 @@
             </td>
             <td>
                 @if (Str::length($documentacion->cbu))
-                    <i class="far fa-check-circle text-success"></i>
-                @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-success"><i class="far fa-check-circle"></i> Documentación subida
+                    @else
+                        <span class=" text-danger">
+                            <i class="far fa-circle"></i> Falta documentación...
+                        </span>
                 @endif
             </td>
         </tr>
@@ -311,9 +332,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->repsal))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr>
@@ -342,9 +366,12 @@
             </td>
             <td>
                 @if (Str::length($documentacion->mipyme))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                    <i class="far fa-check-circle"></i> Documentación subida
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -354,7 +381,8 @@
 
         <tr class="mt-4">
             <td>
-                - Alta temprana de la/s persona/s contratada/s ante la ADMINISTRACIÓN FEDERAL DE INGRESOS PÚBLICOS (AFIP). 
+                - Alta temprana de la/s persona/s contratada/s ante la ADMINISTRACIÓN FEDERAL DE INGRESOS PÚBLICOS
+                (AFIP).
             </td>
             <td>
                 <form id="formattrabajador" action="" enctype="multipart/form-data" method="POST">
@@ -376,9 +404,13 @@
             </td>
             <td>
                 @if (Str::length($documentacion->attrabajador))
-                    <i class="far fa-check-circle text-success"></i>
-                @else
-                    <i class="far fa-circle text-danger"></i>
+                        <span class="text-success">
+                            <span class=" text-success"><i class="far fa-check-circle"></i> Documentación subida
+                        </span>
+                    @else
+                    <span class="text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr>
@@ -411,9 +443,13 @@
             </td>
             <td>
                 @if (Str::length($documentacion->djattrabajador))
-                    <i class="far fa-check-circle text-success"></i>
+                    <span class=" text-success">
+                        <i class="far fa-check-circle"></i> Documentación subida
+                    </span>
                 @else
-                    <i class="far fa-circle text-danger"></i>
+                    <span class=" text-danger">
+                        <i class="far fa-circle"></i> Falta documentación...
+                    </span>    
                 @endif
             </td>
         </tr> --}}
@@ -443,9 +479,13 @@
             </td>
             <td>
                 @if (Str::length($documentacion->certdiscapacidad))
-                    <i class="far fa-check-circle text-success"></i>
-                @else
-                    <i class="far fa-circle text-danger"></i>
+                        <span class=" text-success">
+                            <i class="far fa-check-circle"></i> Documentación subida
+                        </span>
+                    @else
+                        <span class=" text-danger">
+                            <i class="far fa-circle"></i> Falta documentación...
+                        </span>
                 @endif
             </td>
         </tr>

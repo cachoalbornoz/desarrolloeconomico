@@ -25,7 +25,7 @@
                     <p class=" font-weight-bold">{{ $documentacion->Empresa->razon_social }}</p>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-lg-2 text-center">
-                    Tipo persona:
+                    Tipo persona
                     <br>
                     <strong>
                         @if ($documentacion->Empresa->tiposociedad->id == '0')
@@ -36,7 +36,7 @@
                     </strong>
                 </div>
                 <div class="col-xs-12 col-sm-1 col-lg-1 text-center">
-                    Estado:
+                    Estado
                     <br>
                     <div id="estado">
                         <strong> @include('admin.documentacionEmpleo.estado') </strong>

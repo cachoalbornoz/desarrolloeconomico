@@ -33,8 +33,7 @@
                         <table class="table table-bordered table-hover table-sm" style="font-size: smaller" id="proyecto">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Denominación proyecto</th>
+                                    <th>Denominación</th>
                                     <th>Titular</th>
                                     <th>Empresa</th>
                                     <th>Asociados</th>
@@ -85,11 +84,7 @@
                     "url": "{{ url('public/DataTables/spanish.json') }}"
                 },
                 ajax: "{{ route('proyecto.index') }}",
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                        class: "text-center"
-                    },
+                columns: [
                     {
                         data: 'denominacion',
                         name: 'denominacion',

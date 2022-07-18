@@ -14,14 +14,15 @@
             <div class="col-xs-12 col-md-8 col-lg-8">
 
                 <div class="card-group">
+
                     <div class="card mr-3 mb-3">
                         <div class="card-header badge-info text-center">
                             PROGRAMA FEDERAL DE FORTALECIMIENTO DE LA REACTIVACIÓN PRODUCTIVA
                         </div>
                         <div class="card-body">
-                            <h5 class="card-text">
-                                <a class="nav-link text-black-50" href="{{ route('empresa.vincular') }}">
-                                    Ingresa al programa
+                            <h5 class=" row">
+                                <a class="nav-link text-info" href="{{ route('empresa.vincular') }}">
+                                    <i class=" fa fa-pen-alt"></i> Ingresa aquí al programa
                                 </a>
                             </h5>
 
@@ -69,9 +70,9 @@
                         </div>
                         <div class="card-body">
 
-                            <h5 class="card-text">
-                                <a class="nav-link text-black-50" href="{{ route('proyecto.index') }}">
-                                    Cargá tu proyecto
+                            <h5 class="row">
+                                <a class="nav-link text-success" href="{{ route('proyecto.index') }}">
+                                    <i class=" fa fa-pen-alt"></i> Cargá aquí tu proyecto
                                 </a>
                             </h5>
 
