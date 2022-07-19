@@ -201,6 +201,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property \App\Models\EmpresaEmpleo|null $empresa
+ * @property string|null $empleado
  * @property \App\Models\TipoEstado|null $estado
  * @property string|null $fondep
  * @property string|null $memoria
@@ -215,6 +216,7 @@ namespace App\Models{
  * @property string|null $mipyme
  * @property string|null $attrabajador
  * @property string|null $djattrabajador
+ * @property string|null $certdiscapacidad
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo newModelQuery()
@@ -224,10 +226,12 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereAttrabajador($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereAutoridades($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereCbu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereCertdiscapacidad($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereCuit($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereDjattrabajador($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereDni($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereEmpleado($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereEmpresa($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereEstado($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DocumentacionEmpleo whereEstatuto($value)

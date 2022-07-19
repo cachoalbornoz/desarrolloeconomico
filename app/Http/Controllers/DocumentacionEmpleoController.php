@@ -63,8 +63,15 @@ class DocumentacionEmpleoController extends Controller
     public function revisar($documentacion)
     {
         $documentacion = DocumentacionEmpleo::find($documentacion);
-
         return view('admin.documentacion.revisar', \compact('documentacion'));
+    }
+
+    public function habilitar(Request $request)
+    {
+        $documento         = DocumentacionEmpleo::find($request->id);
+        $documento->estado = 20;
+        $documento->save();
+        return response()->json();
     }
 
     public function update(Request $request, $id)
@@ -82,9 +89,9 @@ class DocumentacionEmpleoController extends Controller
         return redirect()->route('documentacion.index')->with($notification);
     }
 
-    public function edit($empresa)
+    public function edit($id)
     {
-        $documentacion = DocumentacionEmpleo::where('empresa', '=', $empresa)->first();
+        $documentacion = DocumentacionEmpleo::find($id);
         return view('admin.documentacionEmpleo.edit', \compact('documentacion'));
     }
 
@@ -379,6 +386,29 @@ class DocumentacionEmpleoController extends Controller
                 'message' => 'Pdf subido',
                 'success' => true,
                 'imagen'  => $documentacion->estatuto,
+            ]);
+        }
+        return response()->json([
+            'message' => $validator->errors()->all(),
+        ]);
+    }
+
+    public function empleado(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+
+            'documentacion' => 'required',
+            'empleado'      => 'required',
+        ]);
+
+        if ($validator->passes()) {
+            $documentacion           = DocumentacionEmpleo::find($request->documentacion);
+            $documentacion->empleado = $request->empleado;
+            $documentacion->save();
+
+            return response()->json([
+                'message' => 'Datos de la persona subida',
+                'success' => true,
             ]);
         }
         return response()->json([

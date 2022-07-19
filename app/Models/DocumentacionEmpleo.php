@@ -13,26 +13,22 @@ class DocumentacionEmpleo extends Model
     protected $fillable = [
         'id',
         'empresa',
+        'empleado',
         'estado',
         'fondep',
-        // 'memoria',
-        // 'estatuto',
-        // 'autoridades',
-        // 'dni',
-        // 'cuit',
-        // 'afip',
-        // 'f931',
         'cbu',
-        // 'repsal',
-        // 'mipyme',
         'attrabajador',
-        // 'djattrabajador',
         'certdiscapacidad',
     ];
 
     public function empresa()
     {
         return $this->belongsTo(\App\Models\EmpresaEmpleo::class, 'empresa', 'id');
+    }
+
+    public function setEmpleadoAttribute($value)
+    {
+        $this->attributes['empleado'] = strtoupper($value);
     }
 
     public function estado()
@@ -56,7 +52,7 @@ class DocumentacionEmpleo extends Model
 
     public function personaCompleta()
     {
-        return (!empty($this->fondep) && !empty($this->cbu)) ? 1 : 0;
+        return (!empty($this->empleado) && !empty($this->fondep) && !empty($this->cbu) && !empty($this->attrabajador)) ? 1 : 0;
     }
 
     public function canEdit()

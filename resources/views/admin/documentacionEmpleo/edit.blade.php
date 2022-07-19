@@ -20,24 +20,12 @@
 
         <div class="card-header">
             <div class="row">
-                <div class="col-xs-12 col-sm-9 col-lg-9">
+                <div class="col-xs-12 col-sm-6 col-lg-6">
                     <h5> Documentación solicitada </h5>
-                    <p class=" font-weight-bold">{{ $documentacion->Empresa->razon_social }}</p>
+                    Empresa :: <span class=" font-weight-bold">{{ $documentacion->Empresa->razon_social }}</span>
                 </div>
-                <div class="col-xs-12 col-sm-2 col-lg-2 text-center">
-                    Tipo persona
-                    <br>
-                    <strong>
-                        @if ($documentacion->Empresa->tiposociedad->id == '0')
-                            Física
-                        @else
-                            Jurídica
-                        @endif
-                    </strong>
-                </div>
-                <div class="col-xs-12 col-sm-1 col-lg-1 text-center">
-                    Estado
-                    <br>
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <h5> Estado documentación </h5>
                     <div id="estado">
                         <strong> @include('admin.documentacionEmpleo.estado') </strong>
                     </div>
@@ -88,21 +76,30 @@
 @section('js')
 
     <script>
-        let fondep = "{{ route('documentacione.fondep') }}";
-        // let memoria = "{{ route('documentacione.memoria') }}";
-        // let estatuto = "{{ route('documentacione.estatuto') }}";
-        // let autoridades = "{{ route('documentacione.autoridades') }}";
-        // let dni = "{{ route('documentacione.dni') }}";
-        // let cuit = "{{ route('documentacione.cuit') }}";
-        // let afip = "{{ route('documentacione.afip') }}";
-        // let f931 = "{{ route('documentacione.f931') }}";
-        let cbu = "{{ route('documentacione.cbu') }}";
-        // let repsal = "{{ route('documentacione.repsal') }}";
-        // let mipyme = "{{ route('documentacione.mipyme') }}";
-        let attrabajador = "{{ route('documentacione.attrabajador') }}";
-        // let djattrabajador = "{{ route('documentacione.djattrabajador') }}";
-        let certdiscapacidad = "{{ route('documentacione.certdiscapacidad') }}";
         
+        let fondep = "{{ route('documentacione.fondep') }}";
+        let cbu = "{{ route('documentacione.cbu') }}";
+        let attrabajador = "{{ route('documentacione.attrabajador') }}";
+        let certdiscapacidad = "{{ route('documentacione.certdiscapacidad') }}";
+
+        $("#guardar").on("click", function() {
+
+            let empleado = $('#empleado').val();
+            let documentacion = $("#documentacion").val();
+
+            $.ajax({
+                url: "{{ route('documentacione.empleado') }}",
+                method: 'POST',
+                data: {
+                    empleado: empleado,
+                    documentacion: documentacion
+                },
+                success: function(data) {
+                    mensaje(data);
+                }
+            })
+        });
+
 
         $("#fondep").on("change", function() {
 
@@ -123,135 +120,6 @@
             })
         });
 
-
-        // $("#memoria").on("change", function() {
-        //     let data = new FormData($('#formmemoria')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: memoria,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-
-        // $("#estatuto").on("change", function() {
-        //     let data = new FormData($('#formestatuto')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: estatuto,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-        // $("#autoridades").on("change", function() {
-        //     let data = new FormData($('#formautoridades')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: autoridades,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-
-        // $("#dni").on("change", function() {
-        //     let data = new FormData($('#formdni')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: dni,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-        // $("#cuit").on("change", function() {
-        //     let data = new FormData($('#formcuit')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: cuit,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-        // $("#afip").on("change", function() {
-        //     let data = new FormData($('#formafip')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: afip,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-        // $("#f931").on("change", function() {
-        //     let data = new FormData($('#formf931')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: f931,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
         $("#cbu").on("change", function() {
             let data = new FormData($('#formcbu')[0]);
             data.append('documentacion', $('#documentacion').val());
@@ -270,42 +138,6 @@
             })
         });
 
-        // $("#repsal").on("change", function() {
-        //     let data = new FormData($('#formrepsal')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: repsal,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
-        // $("#mipyme").on("change", function() {
-        //     let data = new FormData($('#formmipyme')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-
-        //     $.ajax({
-        //         url: mipyme,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
         $("#attrabajador").on("change", function() {
             let data = new FormData($('#formattrabajador')[0]);
             data.append('documentacion', $('#documentacion').val());
@@ -322,24 +154,6 @@
                 }
             })
         });
-
-        // $("#djattrabajador").on("change", function() {
-        //     let data = new FormData($('#formdjattrabajador')[0]);
-        //     data.append('documentacion', $('#documentacion').val());
-        //     $.ajax({
-        //         url: djattrabajador,
-        //         method: 'POST',
-        //         data: data,
-        //         dataType: 'JSON',
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         success: function(data) {
-        //             mensaje(data);
-        //         }
-        //     })
-        // });
-
 
         $("#certdiscapacidad").on("change", function() {
             let data = new FormData($('#formcertdiscapacidad')[0]);
@@ -376,7 +190,6 @@
 
         function mensaje(data) {
             if (data.success) {
-
                 estado();
                 toastr.options = {
                     "positionClass": "toast-top-center",

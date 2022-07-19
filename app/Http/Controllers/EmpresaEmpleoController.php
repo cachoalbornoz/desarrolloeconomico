@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EmpresaEmpleoUpdateRequest;
 
-use App\Models\EmpresaEmpleo;
-use App\Models\DocumentacionEmpleo;
 use App\Models\CiudadAll;
+use App\Models\DocumentacionEmpleo;
+use App\Models\EmpresaEmpleo;
 use App\Models\Provincia;
 use App\Models\TipoCategoria;
-use App\Models\TipoInteres;
 use App\Models\TipoPyme;
 use App\Models\TipoResponsabilidad;
 use App\Models\TipoSociedad;
 use App\User;
 use Auth;
-use Mail;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class EmpresaEmpleoController extends Controller
@@ -26,54 +25,35 @@ class EmpresaEmpleoController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
-
         if ($request->ajax()) {
 
-            $empresa = EmpresaEmpleo::all();
+            $documento = DocumentacionEmpleo::whereNotNull('empleado')->get();
 
-            if ($empresa) {
-
-                return Datatables::of($empresa)
+            if ($documento) {
+                return Datatables::of($documento)
                     ->addIndexColumn()
-                    ->editColumn('id', function ($empresa) {
-                        return '<a href= "' . route('empresaEmpleo.edit', $empresa->id) . '"><i class="fas fa-pencil-alt"></i></a>';
+                    ->editColumn('id', function ($documento) {
+                        return '<a href= "' . route('documentacione.edit', $documento->id) . '"><i class="fas fa-eye"></i></a>';
                     })
-                    ->editColumn('razon_social', function ($empresa) {
-
-                        return (isset($empresa->razon_social)) ? $empresa->razon_social : null;
+                    ->editColumn('empleado', function ($documento) {
+                        return (isset($documento->empleado)) ? $documento->empleado : null;
                     })
-                    ->addColumn('titular', function ($empresa) {
-
-                        return (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
-                    })    
-                    ->addColumn('estado', function ($empresa) {
-
-                        return ($empresa->estado == 24) ? '<i class="fas fa-check text-success"></i> Datos enviados' : '<i class="fas fa-hourglass-half text-danger"></i> cargando ';
+                    ->editColumn('empresa', function ($documento) {
+                        return (isset($documento->empresa)) ? $documento->Empresa->razon_social : null;
                     })
-                    ->addColumn('documentacion', function ($empresa) {
-
-                        return '<a href= "' . route('documentacione.edit', $empresa->id) . '">Documentación</a>';                         
+                    ->addColumn('estado', function ($documento) {
+                        return ($documento->estado) ? $documento->Estado->estado: null;
                     })
-                    ->addColumn('categoria', function ($empresa) {
-
-                        return ($empresa->categoria1) ? $empresa->Categoria1->categoria : null;
+                    ->addColumn('icono', function ($documento) {
+                        return ($documento->estado) ? $documento->Estado->icono: null;
                     })
-                    ->editColumn('ciudad', function ($empresa) {
-
-                        return ($empresa->ciudad) ? $empresa->Ciudad->nombre : null;
-                    })      
-                    ->addColumn('habilitar', function ($empresa) {
-                        return '<a href="javascript:void(0)" title="Permite empresa modificar sus datos"><i class="fas fa-exclamation text-warning habilitar" id="' . $empresa['id'] . '"></i></a>';
+                    ->addColumn('habilitar', function ($documento) {
+                        return '<a href="javascript:void(0)" title="Permite empresa modificar sus datos"><i class="fas fa-exclamation text-warning habilitar" id="' . $documento['id'] . '"></i></a>';
                     })
-                    ->addColumn('borrar', function ($empresa) {
-
-                        return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
-                    })                    
-                    ->rawColumns(['id', 'razon_social', 'titular', 'estado', 'documentacion', 'categoria', 'ciudad', 'habilitar', 'borrar'])
+                    ->rawColumns(['id', 'empleado', 'empresa', 'estado', 'icono', 'habilitar'])
                     ->make(true);
             } else {
-
-                return Datatables::of($empresa)
+                return Datatables::of($documento)
                     ->addIndexColumn()
                     ->make(true);
             }
@@ -84,22 +64,25 @@ class EmpresaEmpleoController extends Controller
 
     public function vincular(Request $request)
     {
-        $usuario = Auth::user();
-        $empresas = EmpresaEmpleo::where('titular', $usuario->id)->get();
+        $usuario    = Auth::user();
+        $empresa    = EmpresaEmpleo::where('titular', $usuario->id)->first();
+        $documentos = DocumentacionEmpleo::where('Empresa', $empresa->id)->get();
 
-        return view('admin.empresasEmpleo.vincularEmpresa', \compact('usuario', 'empresas'));
+        return view('admin.empresasEmpleo.vincularEmpresa', \compact('usuario', 'empresa', 'documentos'));
     }
 
     public function createAsociar(Request $request)
     {
-        $empresa = EmpresaEmpleo::create([
-            'razon_social' => 'Nueva empresa ',
-            'titular' => $request->usuario,
-        ]);
+        $empresa = EmpresaEmpleo::where('titular', Auth::user()->id)->first();
 
+        if (!$empresa) {
+            $empresa = EmpresaEmpleo::create([
+                'razon_social' => 'Nueva empresa ',
+                'titular'      => $request->usuario,
+            ]);
+        }
         DocumentacionEmpleo::create(['empresa' => $empresa->id]);
-
-        return redirect()->route('empresaEmpleo.edit', $empresa->id);
+        return redirect()->route('empresa.vincular');
     }
 
     public function edit($empresa)
@@ -110,14 +93,14 @@ class EmpresaEmpleoController extends Controller
         ? User::where('id', '=', Auth::user()->id)->get()->pluck('nombrecompleto', 'id')
         : User::orderBy('apellido')->get()->pluck('NombreCompleto', 'id');
 
-        $sociedad = TipoSociedad::all()->sortBy('sociedad')->pluck('sociedad', 'id');
+        $sociedad        = TipoSociedad::all()->sortBy('sociedad')->pluck('sociedad', 'id');
         $responsabilidad = TipoResponsabilidad::all()->sortBy('responsabilidad')->pluck('responsabilidad', 'id');
 
-        $ciudad = CiudadAll::all()->sortBy('nombre')->pluck('nombre', 'id');
-        $provincia = Provincia::all()->sortBy('nombre')->pluck('nombre', 'id');
+        $ciudad      = CiudadAll::all()->sortBy('nombre')->pluck('nombre', 'id');
+        $provincia   = Provincia::all()->sortBy('nombre')->pluck('nombre', 'id');
         $idprovincia = isset($empresa->Ciudad) ? $empresa->Ciudad->Departamento->provincia : 7;
 
-        $tipopyme = TipoPyme::all()->sortBy('id')->pluck('pyme', 'id');
+        $tipopyme  = TipoPyme::all()->sortBy('id')->pluck('pyme', 'id');
         $categoria = TipoCategoria::where('id', '=', 7)->get()->pluck('categoria', 'id');
 
         return view('admin.empresasEmpleo.edit', \compact('empresa', 'usuario', 'sociedad', 'responsabilidad', 'ciudad', 'provincia', 'idprovincia', 'tipopyme', 'categoria'));
@@ -132,18 +115,17 @@ class EmpresaEmpleoController extends Controller
 
         if (Auth::user()->hasRole(['user'])) {
             return redirect()->route('empresa.vincular');
-        }else{
-            return redirect()->route('empresaEmpleo.indexAdmin');
         }
+        return redirect()->route('empresaEmpleo.indexAdmin');
     }
 
     public function habilitar(Request $request)
     {
-        $empresa = EmpresaEmpleo::find($request->id);
+        $empresa         = EmpresaEmpleo::find($request->id);
         $empresa->estado = 20;
         $empresa->save();
 
-        $documentacion = DocumentacionEmpleo::where('empresa', '=', $request->id)->first();
+        $documentacion         = DocumentacionEmpleo::where('empresa', '=', $request->id)->first();
         $documentacion->estado = 20;
         $documentacion->save();
 
@@ -152,47 +134,46 @@ class EmpresaEmpleoController extends Controller
 
     public function enviar(Request $request)
     {
-        $empresa = EmpresaEmpleo::find($request->id);
-        $empresa->enviado();
-
-        $documentacion = DocumentacionEmpleo::where('empresa', '=', $request->id)->first();
+        $documentacion         = DocumentacionEmpleo::find($request->id);
         $documentacion->estado = 24;
         $documentacion->save();
 
+        $empresa = EmpresaEmpleo::find($documentacion->empresa);
+
         /////////////////////////////////////////////////////////////////////////////////////
-        $titular = User::find($empresa->titular);
+        $titular      = User::find($empresa->titular);
         $destinatario = $titular->nombre . ' ' . $titular->apellido;
-        $email = $titular->email;
+        $email        = $titular->email;
         $denominacion = $empresa->razon_social;
-        $data = array('destinatario' => $destinatario, 'denominacion' => $denominacion);
-        $mensaje = 'Su documentacion se ha enviado correctamente !';   
+        $data         = ['destinatario' => $destinatario, 'denominacion' => $denominacion];
+        $mensaje      = 'Su documentacion se ha enviado correctamente !';
 
         Mail::send('email.envioproyecto', $data, function ($message) use ($destinatario, $email) {
             $message->to($email, $destinatario)->subject('Envío de documentacion');
-        });     
+        });
         /////////////////////////////////////////////////////////////////////////////////////
-        
-        $usuario = User::find($request->usuario);
-        $empresas = EmpresaEmpleo::where('titular', $usuario->id)->get();
 
-        $view = view('admin.empresasEmpleo.detalleEmpresa', compact('empresas'))->render();
+        $usuario    = Auth::user();
+        $empresa    = EmpresaEmpleo::where('titular', $usuario->id)->first();
+        $documentos = DocumentacionEmpleo::where('Empresa', $empresa->id)->get();
+
+        $view = view('admin.empresasEmpleo.detalleDocumentacion', compact('documentos'))->render();
 
         return new JsonResponse([
-            'view'  => $view,
-            'message'  => '<b>Datos enviados</b>',
-            'type' =>  'error'
+            'view'    => $view,
+            'message' => '<b>Datos enviados</b>',
+            'type'    => 'error',
         ]);
-
     }
 
     public function desvinculaEmpresa(Request $request)
     {
         // Eliminar
-        DocumentacionEmpleo::where('empresa', '=', $request->id)->delete();        
+        DocumentacionEmpleo::where('empresa', '=', $request->id)->delete();
         EmpresaEmpleo::find($request->id)->delete();
 
         // Obtener empresas
-        $usuario = User::find($request->usuario);
+        $usuario  = User::find($request->usuario);
         $empresas = EmpresaEmpleo::where('titular', $usuario->id)->get();
 
         $view = view('admin.empresasEmpleo.detalleEmpresa', compact('empresas'))->render();
@@ -202,7 +183,6 @@ class EmpresaEmpleoController extends Controller
 
     public function destroy(Request $request)
     {
-
         $empresa = EmpresaEmpleo::find($request->id);
         $empresa->delete();
 

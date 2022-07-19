@@ -245,6 +245,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::get('documentacionempleo/revisar/{documentacion}', 'DocumentacionEmpleoController@revisar')->name('documentacione.revisar');
         Route::put('documentacionempleo/{documentacion}', 'DocumentacionEmpleoController@update')->name('documentacione.update');
         Route::post('documentacionempleo/estado', 'DocumentacionEmpleoController@estado')->name('documentacione.estado');
+        Route::post('documentacionempleo/empleado', 'DocumentacionEmpleoController@empleado')->name('documentacione.empleado');
         Route::post('documentacionempleo/fondep', 'DocumentacionEmpleoController@fondep')->name('documentacione.fondep');
         Route::post('documentacionempleo/memoria', 'DocumentacionEmpleoController@memoria')->name('documentacione.memoria');
         Route::post('documentacionempleo/estatuto', 'DocumentacionEmpleoController@estatuto')->name('documentacione.estatuto');
@@ -260,6 +261,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('documentacionempleo/djattrabajador', 'DocumentacionEmpleoController@djattrabajador')->name('documentacione.djattrabajador');
         Route::post('documentacionempleo/certdiscapacidad', 'DocumentacionEmpleoController@certdiscapacidad')->name('documentacione.certdiscapacidad');
 
+        Route::post('documentacionempleo/habilitar', 'DocumentacionEmpleoController@habilitar')->name('documentacione.habilitar');
         Route::get('documentacionempleo/edit/{documentacion}', 'DocumentacionEmpleoController@edit')->name('documentacione.edit');
         Route::get('documentacionempleo/', 'DocumentacionEmpleoController@index')->name('documentacione.index');
 
