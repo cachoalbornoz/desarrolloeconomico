@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('/public/images/frontend/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/public/images/frontend/favicon.png') }}">
 
     <meta name="Keywords"
         content="secretaria, produccion, creditos, mipyme, desarrollo, economico, registro, gobierno,entre rios, financiacion" />
