@@ -1,8 +1,85 @@
-@extends('base.base')
+@extends('base.base-sin-menu')
 
 @section('title', 'Inicio')
 
 @section('content')
+
+<div class="container">
+
+    <div class="row pb-3">
+        <div class="col-xs-4 col-md-3 col-lg-3 text-center">
+            <img class=" img-fluid" src="{{ asset('images/frontend/cabecera.png') }}" alt="Desarrollo Económico" />
+        </div>
+        <div class="col-xs-8 col-md-9 col-lg-9 text-center">
+        </div>
+    </div>
+
+    <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark favenir pb-3">
+
+        <a id="navbar_top-brand" class="navbar-brand d-none" href="#">
+            <img src="{{ asset('images/frontend/logo_er.png') }}" alt="logo" style=" width:40px">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item">
+                    <a href="https://www.entrerios.gov.ar/economicoemprendedor/" class="nav-link">
+                        INICIO
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('noticias.publicacion') }}" class="nav-link">
+                        NOTICIAS
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        PROGRAMAS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                        <a class="dropdown-item" href={{ route('programarp') }}>
+                            PROGRAMA FEDERAL DE FORTALECIMIENTO DE LA REACTIVACION PRODUCTIVA
+                        </a>
+                        <a class="dropdown-item" href={{ route('pafinanciera') }}>
+                            ASISTENCIA FINANCIERA PARA LA CONSOLIDACION PRODUCTIVA
+                        </a>
+                        <a class="dropdown-item" href={{ route('patecnica') }}>
+                            ASISTENCIA TECNICA PARA EL FORTALECIMIENTO MIPyME
+                        </a>
+                        <a class="dropdown-item" href="{{ route('pcooperativas') }}">
+                            PROGRAMA DE FINANCIAMIENTO PARA COOPERATIVAS DE TRABAJO
+                        </a>
+                        <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
+                            LÍNEAS DE CRÉDITO A TASA SUBSIDIADA JUNTO AL BANCO DE ENTRE RÍOS
+                        </a>
+                        <a class="dropdown-item" href="{{ route('pestrategicos') }}">
+                            LÍNEAS DE CRÉDITOS PARA PROYECTOS ESTRATÉGICOS
+                        </a>
+
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('register') }}" class="nav-link">
+                        REGISTRO
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="nav-link text-white">
+                        INGRESAR
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
 
 <div class="container">
 

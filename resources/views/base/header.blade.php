@@ -21,7 +21,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav nav-fill w-100">
+            <ul class="navbar-nav nav-fill">
                 <li class="nav-item">
                     <a href="https://www.entrerios.gov.ar/economicoemprendedor/" class="nav-link">
                         INICIO
@@ -32,7 +32,7 @@
                         NOTICIAS
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         PROGRAMAS
                     </a>
@@ -70,7 +70,7 @@
                     <a href="{{ route('login') }}" class="nav-link text-white">
                         INGRESAR
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </nav>
