@@ -29,4 +29,12 @@ class NoticiaRequest extends FormRequest
             'imagen' => 'mimes:png,jpg,jpeg|max:5000',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'titulo.required'   => 'El titulo de la noticia es requerido ',
+            'imagen.max'   => 'La imagen supera los 5 Mbytes',
+        ];
+    }
 }

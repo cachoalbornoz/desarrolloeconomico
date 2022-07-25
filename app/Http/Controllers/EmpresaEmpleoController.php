@@ -28,7 +28,7 @@ class EmpresaEmpleoController extends Controller
         //return $documento = DocumentacionEmpleo::whereNotNull('empleado')->get();
 
         if ($request->ajax()) {
-            $documento = DocumentacionEmpleo::whereNotNull('empleado')->get();
+            $documento = DocumentacionEmpleo::whereNotNull('empleado')->orderByDesc('updated_at')->get();
 
             if ($documento) {
                 return Datatables::of($documento)

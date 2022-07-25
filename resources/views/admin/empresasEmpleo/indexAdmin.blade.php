@@ -57,6 +57,7 @@
             order: [
                 [1, "asc"]
             ],
+            bSort:false,
             stateSave: true,
             processing: true,
             serverSide: true,
