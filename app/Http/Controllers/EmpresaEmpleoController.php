@@ -25,8 +25,9 @@ class EmpresaEmpleoController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
-        if ($request->ajax()) {
+        //return $documento = DocumentacionEmpleo::whereNotNull('empleado')->get();
 
+        if ($request->ajax()) {
             $documento = DocumentacionEmpleo::whereNotNull('empleado')->get();
 
             if ($documento) {
