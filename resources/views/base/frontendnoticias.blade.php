@@ -10,7 +10,7 @@
 
 <div class="container">
 
-    <div class="row mt-5 mb-5">
+    <div class="row mt-5 mb-5 favenir">
         <div class="col-xs-12 col-sm-12 col-lg-12">
             <h4 class="mx-4 my-0">Noticias recientes </h4>
         </div>
@@ -25,7 +25,7 @@
 
     @foreach ($noticias as $noticia)
 
-    <div class="card mt-5 mb-5 p-4">
+    <div class="card mt-5 mb-5 p-4 favenir">
         <div class="card-header bg-white">
             <p> {{ $noticia->fecha_publicacion }} ({{  \Carbon::parse($noticia->fecha_publicacion)->diffForHumans() }})</p>
             <h5 class=" text-muted"> <i class=" fa fa-arrow-alt-circle-right"></i> {{ $noticia->titulo }} </h5>

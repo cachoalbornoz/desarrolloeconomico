@@ -142,7 +142,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row favenir">
             <div class="col-xs-12 col-sm-12 col-lg-12">
                 <h2 class=" mt-5 mb-5">Trayectorías de Jóvenes Emprendedores </h2>
 
