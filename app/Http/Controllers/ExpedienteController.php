@@ -14,7 +14,7 @@ use App\Models\Provincia;
 use App\Models\TipoRubro;
 
 use DB;
-
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Yajra\DataTables\Facades\DataTables;
 
 class ExpedienteController extends Controller
@@ -75,15 +75,15 @@ class ExpedienteController extends Controller
         $idprovincia    = null;
 
         $estados        = ['19', '20', '24'];
-        $usuarios       = User::whereHas('proyectos', static function ($query) use ($estados) {
-            return $query->whereIn('estado', $estados);
-        })->orderBy('apellido')->get()->pluck('nombrecompleto', 'id');
+        $usuarios= DB::table('users')->where('habilitado', 1)
+            ->selectRaw('id, CONCAT(apellido," ",nombre) as titular')
+            ->orderBy('titular')->pluck('titular', 'id');            
 
         $proyectos      =    DB::table('proyecto as p')
             ->whereIn('p.estado', $estados)
-            ->join('users as u', 'p.titular', '=', 'u.id')
+            ->leftJoin('users as u', 'p.titular', '=', 'u.id')
             ->selectRaw('p.id, CONCAT(u.apellido," ",u.nombre, " (", p.denominacion,")") as DenominacionCompleta')
-            ->get()
+            ->orderBy('DenominacionCompleta')
             ->pluck('DenominacionCompleta', 'id');
 
         $ciudad         = CiudadAll::all()->sortBy('nombre')->pluck('nombre', 'id');
@@ -128,18 +128,17 @@ class ExpedienteController extends Controller
         $expediente     = Expediente::find($id);
 
         $estados        = ['24'];
-        $usuarios       = User::whereHas('proyectos', static function ($query) use ($estados) {
-            return $query->where('estado', '=', $estados);
-        })->orderBy('apellido')->get()->pluck('nombrecompleto', 'id');
+        $usuarios= DB::table('users')->where('habilitado', 1)
+            ->selectRaw('id, CONCAT(apellido," ",nombre) as titular')
+            ->orderBy('titular')->pluck('titular', 'id'); 
 
         //$proyectos      = Proyecto::where('estado', 24)->get()->pluck('DenominacionCompleta', 'id');
-
+        $estados        = ['19', '20', '24'];
         $proyectos      =    DB::table('proyecto as p')
-            ->where('p.estado', '=', 24)
-            ->join('users as u', 'p.titular', '=', 'u.id')
-            ->orderBy('u.apellido', 'ASC')
+            ->whereIn('p.estado', $estados)
+            ->leftJoin('users as u', 'p.titular', '=', 'u.id')
             ->selectRaw('p.id, CONCAT(u.apellido," ",u.nombre, " (", p.denominacion,")") as DenominacionCompleta')
-            ->get()
+            ->orderBy('DenominacionCompleta')
             ->pluck('DenominacionCompleta', 'id');
 
         $ciudad         = CiudadAll::all()->sortBy('nombre')->pluck('nombre', 'id');

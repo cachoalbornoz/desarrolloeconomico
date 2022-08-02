@@ -46,7 +46,7 @@ class ProyectoController extends Controller
                     ->addIndexColumn()
                     ->editColumn('denominacion', function ($proyecto) {
 
-                        $titulo = ($proyecto->denominacion) ? substr($proyecto->denominacion, 0, 35) : 'PROYECTO';
+                        $titulo = ($proyecto->denominacion) ? mb_substr($proyecto->denominacion, 0, 15) : 'PROYECTO';
 
                         if (Auth::user()->hasRole(['user'])) {
                             return ($proyecto->canEdit()) ? '<a href= "' . route('proyecto.edit', $proyecto->id) . '">' . $titulo . '</a>' : $titulo;

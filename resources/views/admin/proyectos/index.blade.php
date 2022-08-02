@@ -72,11 +72,9 @@
                     [25, 50, -1],
                     [25, 50, "Todos"]
                 ],
-                dom: '<"wrapper"Brflit>',
+                dom: '<"wrapper"Brflitp>',
                 buttons: ['copy', 'excel', 'pdf', 'colvis'],
-                order: [
-                    [1, "asc"]
-                ],
+                order: [[1, "asc"]],
                 stateSave: true,
                 processing: true,
                 serverSide: true,
