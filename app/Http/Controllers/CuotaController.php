@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Models\Expediente;
 use App\Models\ExpedienteCuota;
-
+use App\Models\ExpedientePago;
 use Illuminate\Http\Request;
 
 use Carbon;
@@ -17,7 +17,6 @@ class CuotaController extends Controller
     {
         $expediente = Expediente::find($request->id);
         $cuotas     = ExpedienteCuota::where('expediente', $request->id)->orderBy('fechaVcto', 'asc')->get();
-
         return view('admin.cuota.index', compact('expediente', 'cuotas'));
     }
 
@@ -75,9 +74,32 @@ class CuotaController extends Controller
         }
 
         $cuotas     = ExpedienteCuota::where('expediente', $request->expediente)->orderBy('fechaVcto', 'asc')->get();
-
         $view       = view('admin.cuota.detalle', compact('cuotas'))->render();
 
+        return response()->json($view);
+    }
+
+    public function comprobar(Request $request)
+    {	
+        $pagos = ExpedientePago::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->get();
+        $total_cobrado = $pagos->sum('monto');
+        $cuotas = ExpedienteCuota::where('expediente', $request->expediente)->orderBy('nroCuota', 'asc')->get();
+
+        foreach ($cuotas as $cuota) {
+            if ($total_cobrado >= $cuota->monto) {
+                $cuota->pago           = $cuota->nroCuota;
+                $cuota->estado         = 1;
+                $cuota->entregaParcial = 0;
+                $cuota->save();
+            } else {               
+                $cuota->estado         = 0;
+                $cuota->entregaParcial = ($total_cobrado >= 0)?$total_cobrado:0;
+                $cuota->save();                
+            }
+            $total_cobrado = $total_cobrado - $cuota->monto;
+        }
+        $cuotas     = ExpedienteCuota::where('expediente', $request->expediente)->orderBy('fechaVcto', 'asc')->get();
+        $view       = view('admin.cuota.detalle', compact('cuotas'))->render();
         return response()->json($view);
     }
 

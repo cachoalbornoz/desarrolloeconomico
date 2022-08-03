@@ -37,10 +37,10 @@
         {{date('d-m-Y',strtotime($cuota->fechaVcto)) }}
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2">
-        {{ number_format($cuota->monto,2) }}
+        {{ number_format($cuota->monto,2,',', '') }}
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2 {{ ($cuota->estado==0)?'text-danger':'text-success' }}">
-        {{ ($cuota->estado==0)?'Debe':'Pagada' }}
+        {{ ($cuota->estado == '0')?'Debe':'Pagada' }}
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2">
         {{ number_format($cuota->entregaParcial,2) }}

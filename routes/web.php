@@ -64,6 +64,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::get('/cuota/{id?}', 'CuotaController@index')->name('cuota.index');
         Route::get('/cuota/create/{id?}', 'CuotaController@create')->name('cuota.create');
         Route::post('/cuota/store', 'CuotaController@store')->name('cuota.store');
+        Route::post('/cuota/comprobar', 'CuotaController@comprobar')->name('cuota.comprobar');
         Route::get('/cuota/edit/{id}', 'CuotaController@edit')->name('cuota.edit');
         Route::put('/cuota/update/{id}', 'CuotaController@update')->name('cuota.update');
         Route::post('/cuota/destroy', 'CuotaController@destroy')->name('cuota.destroy');

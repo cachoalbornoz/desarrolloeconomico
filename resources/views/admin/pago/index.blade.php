@@ -26,10 +26,10 @@
 
                 <div class="row text-center mt-3">
                     <div class="col-xs-12 col-sm-2 col-xs-2">
-                        Fecha
+                        Monto total pago
                     </div>
                     <div class="col-xs-12 col-sm-2 col-xs-2">
-                        Monto total pago
+                        Fecha
                     </div>
                     <div class="col-xs-12 col-sm-2 col-xs-2">
                         Nro Cta
@@ -49,13 +49,13 @@
                     {!! Form::hidden('expediente', $expediente->id, ['id' => 'expediente']) !!}
 
                     <div class="col-xs-12 col-sm-2 col-xs-2">
+                        {!! Form::number('monto', null, ['class' => 'form-control text-center', 'required' => 'true', 'step'=>'any', 'autofocus'=>true]) !!}
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-xs-2">
                         {!! Form::date('fecha', null, ['class' => 'form-control text-center', 'required']) !!}
                     </div>
                     <div class="col-xs-12 col-sm-2 col-xs-2">
-                        {!! Form::number('monto', null, ['class' => 'form-control text-center', 'required' => 'true', 'step'=>'any']) !!}
-                    </div>
-                    <div class="col-xs-12 col-sm-2 col-xs-2">
-                        {!! Form::text('cuenta', null, ['class' => 'form-control text-center', 'required' => 'true']) !!}
+                        {!! Form::text('cuenta', '62298851', ['class' => 'form-control text-center', 'required' => 'true']) !!}
                     </div>
                     <div class="col-xs-12 col-sm-2 col-xs-2">
                         {!! Form::select('tipopago', $tipopago, null, ['class' => 'form-control text-center', 'required' => 'true']) !!}
@@ -102,10 +102,9 @@
             dataType: 'json',
             data 	: $("#formpago").serialize(),
             success: function(data){
-
                 $('.detalle').html(data);
                 toastr.options = { "progressBar": true, "showDuration": "300", "timeOut": "1000" };
-                toastr.success("&nbsp;", "pago agregada ... ");
+                toastr.success("&nbsp;", "pago agregado ... ");
             }
         });    
     })

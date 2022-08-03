@@ -103,16 +103,25 @@
                                 value={{ date(now()) }}>
                         </div>
                         <div class="col-xs-12 col-sm-2 col-xs-2">
-                            <input type="number" name="monto" id="monto" value="0" class="form-control text-center">
+                            <input type="number" name="monto" id="monto" value="0"
+                                class="form-control text-center">
                         </div>
                         <div class="col-xs-12 col-sm-2 col-xs-2">
-                            <button class=" btn btn-secondary" onClick="registrar()"> Crear cuota </button>
+                            <button class=" btn btn-secondary" onClick="registrar()"> Crear </button>
                         </div>
                         <div class="col-xs-12 col-sm-2 col-xs-2">
                             <button class=" btn btn-secondary" onClick="generar_18()"> 18 Cuotas </button>
                         </div>
-                        <div class="col-xs-12 col-sm-2 col-xs-2">
-                            <button class=" btn btn-danger" onClick="eliminar_plan()"> Borrar plan </button>
+                       
+                        <div class="col-xs-12 col-sm-1 col-xs-1">
+                            <button class=" btn btn-secondary" onClick="chequear_plan()" title="revisar pagos">
+                                Revisar
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-1 col-xs-1">
+                            <button class=" btn btn-default" onClick="eliminar_plan()"> <i
+                                    class=" fa fa-trash text-danger"></i> 
+                            </button>
                         </div>
                     </div>
 
@@ -138,6 +147,29 @@
 
     <script>
         const expediente = document.getElementById('expediente').value;
+
+        const chequear_plan = () => {
+
+            event.preventDefault();
+
+            $.ajax({
+                url: "{{ route('cuota.comprobar') }}",
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    expediente
+                },
+                success: function(response) {
+                    $('.detalle').html(response);
+                    toastr.options = {
+                        "progressBar": true,
+                        "showDuration": "300",
+                        "timeOut": "1000"
+                    };
+                    toastr.success("&nbsp;", "Chequeado ... ");
+                }
+            });
+        }
 
         const registrar = () => {
 

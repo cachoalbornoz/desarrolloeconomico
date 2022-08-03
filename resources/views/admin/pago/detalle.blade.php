@@ -2,10 +2,10 @@
 
 <div class="row text-center mb-5">
     <div class="col-xs-12 col-sm-2 col-xs-2">
-        {{ date('d-m-Y', strtotime($pago->fecha)) }}
+        {{$pago->monto}}
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2">
-        {{$pago->monto}}
+        {{ date('d-m-Y', strtotime($pago->fecha)) }}
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2">
         {{$pago->cuenta}}
