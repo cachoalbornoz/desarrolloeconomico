@@ -32,6 +32,8 @@ class PagoController extends Controller
         try {
             DB::beginTransaction();
             Schema::disableForeignKeyConstraints();
+            // Cargar el pago
+            $expedientePago = ExpedientePago::create($request->all());
             // Obtengo todos los pagos realizados
             $pagos = ExpedientePago::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->get();
             // Calcula el total pagado
