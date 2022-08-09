@@ -52,7 +52,7 @@
                                         - Cooperativas
                                     </a>
                                     <hr>
-                                    <h6 class="ml-2">* Emprendedores</h6>
+                                    <h6 class="ml-2">Emprendedores</h6>
 
                                     <a class="dropdown-item"
                                         href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_jovenes.php">
@@ -92,10 +92,6 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                                     <h6 class="ml-2 mr-2">Empresas y Cooperativas </h6>
-
-                                    <a class="dropdown-item" href="{{ route('pafinanciera') }}">
-                                        - Empresas
-                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('patecnica') }}">
                                         - Asistencia Técnica
