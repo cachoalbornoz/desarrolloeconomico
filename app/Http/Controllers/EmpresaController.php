@@ -8,7 +8,6 @@ use App\Models\CiudadAll;
 use App\Models\Empresa;
 use App\Models\EmpresaInteres;
 use App\Models\EmpresaOrigen;
-use App\Models\EmpresaSeguimiento;
 use App\Models\Provincia;
 use App\Models\TipoCategoria;
 use App\Models\TipoEmisor;
@@ -27,61 +26,110 @@ class EmpresaController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
-        // $empresa = Empresa::whereId(1115)->select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->first();
-        // $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
-        // return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
+        // if ($request->ajax()) {
+        //     $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->get();
+        //     return Datatables::of($empresa)
+        //         ->addIndexColumn()
+        //         ->editColumn('id', function ($empresa) {
+        //             return '<a href= "' . route('empresa.edit', $empresa->id) . '"><i class="fas fa-pencil-alt"></i></a>';
+        //         })
+        //         ->editColumn('razon_social', function ($empresa) {
+        //             return (isset($empresa->razon_social)) ? $empresa->razon_social : null;
+        //         })
+        //         ->addColumn('titular', function ($empresa) {
+        //             return (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
+        //         })
+        //         ->addColumn('emisor', function ($empresa) {
+        //             $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
+        //             return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
+        //         })
+        //         ->addColumn('seguimiento', function ($empresa) {
+        //             return '<a href= "' . route('seguimiento.index', $empresa->id) . '"><span class="fa fa-eye"></span></a>';
+        //         })
+        //         ->addColumn('categoria1', function ($empresa) {
+        //             return ($empresa->categoria1) ? $empresa->Categoria1->categoria : null;
+        //         })
+        //         ->editColumn('ciudad', function ($empresa) {
+        //             return ($empresa->ciudad) ? $empresa->Ciudad->nombre : null;
+        //         })
+        //         ->addColumn('borrar', function ($empresa) {
+        //             return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
+        //         })
+        //         ->rawColumns(['id', 'razon_social', 'titular', 'emisor', 'seguimiento', 'categoria', 'borrar'])
+        //         ->make(true);
+        // }
+        return view('admin.empresas.indexAdmin');
+    }
 
-        if ($request->ajax()) {
-            $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->get();
+    public function getEmpresas(Request $request)
+    {
+        $totalData     = $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->count();
+        $totalFiltered = $totalData;
+        $limit         = $request->input('length');
+        $start         = $request->input('start');
 
-            if ($empresa) {
-                return Datatables::of($empresa)
-                    ->addIndexColumn()
-                    ->editColumn('id', function ($empresa) {
-                        return '<a href= "' . route('empresa.edit', $empresa->id) . '"><i class="fas fa-pencil-alt"></i></a>';
-                    })
-                    ->editColumn('razon_social', function ($empresa) {
-                        return (isset($empresa->razon_social)) ? $empresa->razon_social : null;
-                    })
-                    ->addColumn('titular', function ($empresa) {
-                        return (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
-                    })
-                    // ->addColumn('actividad', function ($empresa) {
-                    //     return (isset($empresa->actividad1)) ? '<div class="rowspanning">' . $empresa->actividad1 . '</div>' : null;
-                    // })
-                    // ->addColumn('interes', function ($empresa) {
-                    //     return ($empresa->intereses()) ? $empresa->intereses(): null;
-                    // })
-                    // ->addColumn('novedad', function ($empresa) {
-                    //     $novedad = EmpresaSeguimiento::where('empresa', '=', $empresa->id)->orderBy('id', 'desc')->first();
-                    //     return (isset($novedad->estadoTipo)) ? $novedad->EstadoTipo->estado : null;
-                    // })
-                    ->addColumn('emisor', function ($empresa) {
-                        $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
-                        return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
-                    })
-                    ->addColumn('seguimiento', function ($empresa) {
-                        return '<a href= "' . route('seguimiento.index', $empresa->id) . '"><span class="fa fa-eye"></span></a>';
-                    })
-                    ->addColumn('categoria1', function ($empresa) {
-                        return ($empresa->categoria1) ? $empresa->Categoria1->categoria : null;
-                    })
-                    ->editColumn('ciudad', function ($empresa) {
-                        return ($empresa->ciudad) ? $empresa->Ciudad->nombre : null;
-                    })
-                    ->addColumn('borrar', function ($empresa) {
-                        return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
-                    })
-                    ->rawColumns(['id', 'razon_social', 'titular', 'emisor', 'seguimiento', 'categoria', 'borrar'])
-                    ->make(true);
-            } else {
-                return Datatables::of($empresa)
-                    ->addIndexColumn()
-                    ->make(true);
+        if (empty($request->input('search.value'))) {
+            $empresas = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')
+                ->offset($start)
+                ->limit($limit)
+                ->orderBy('razon_social', 'asc')
+                ->get();
+        } else {
+            $search = $request->input('search.value');
+
+            $empresas = Empresa::
+                leftJoin('tipo_categoria', 'tipo_categoria.id', '=', 'empresa.categoria1')
+                ->leftJoin('ciudad_all', 'ciudad_all.id', '=', 'empresa.ciudad')
+                ->leftJoin('users', 'users.id', '=', 'empresa.titular')
+                ->where('razon_social', 'LIKE', "%{$search}%")
+                ->orWhere('cuit', 'LIKE', "%{$search}%")
+                ->orWhere('tipo_categoria.categoria', 'LIKE', "%{$search}%")
+                ->orWhere('ciudad_all.nombre', 'LIKE', "%{$search}%")
+                ->orWhere('users.apellido', 'LIKE', "%{$search}%")
+                ->offset($start)
+                ->limit($limit)
+                ->orderBy('razon_social', 'asc')
+                ->get();
+
+            $totalFiltered = Empresa::
+                leftJoin('tipo_categoria', 'tipo_categoria.id', '=', 'empresa.categoria1')
+                ->leftJoin('ciudad_all', 'ciudad_all.id', '=', 'empresa.ciudad')
+                ->leftJoin('users', 'users.id', '=', 'empresa.titular')
+                ->where('razon_social', 'LIKE', "%{$search}%")
+                ->orWhere('cuit', 'LIKE', "%{$search}%")
+                ->orWhere('tipo_categoria.categoria', 'LIKE', "%{$search}%")
+                ->orWhere('ciudad_all.nombre', 'LIKE', "%{$search}%")
+                ->orWhere('users.apellido', 'LIKE', "%{$search}%")
+                ->count();
+        }
+
+        $data = [];
+        if (!empty($empresas)) {
+            foreach ($empresas as $empresa) {
+                $seguimiento          = route('seguimiento.index', $empresa->id);
+                $Data['id']           = "<a href= '" . route('empresa.edit', $empresa->id) . "'><i class='fas fa-pencil-alt'></i></a>";
+                $Data['razon_social'] = $empresa->razon_social;
+                $Data['cuit']         = $empresa->cuit;
+                $Data['titular']      = (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
+                $origen               = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
+                $Data['emisor']       = (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
+                $Data['seguimiento']  = "<a href='{$seguimiento}' title='Seguimiento' ><span class='fa fa-eye'></span></a>";
+                $Data['categoria1']   = ($empresa->categoria1) ? $empresa->Categoria1->categoria : null;
+                $Data['ciudad']       = ($empresa->ciudad) ? $empresa->Ciudad->nombre : null;
+                $Data['borrar']       = "<a href='javascript:void(0)' title='Elimina empresa'><i class='fas fa-trash text-danger borrar' id='" . $empresa['id'] . "'></i></a>";
+
+                $data[] = $Data;
             }
         }
 
-        return view('admin.empresas.indexAdmin');
+        $json_data = [
+            'draw'            => intval($request->input('draw')),
+            'recordsTotal'    => intval($totalData),
+            'recordsFiltered' => intval($totalFiltered),
+            'data'            => $data,
+        ];
+
+        print json_encode($json_data);
     }
 
     // Listado de empresa pensado en USUARIOS
@@ -237,11 +285,11 @@ class EmpresaController extends Controller
     {
         $origenEmpresa = EmpresaOrigen::find($origen);
 
-        $origenEmpresa->origen = $request->origen;
-        $origenEmpresa->emisor = $request->emisor;
+        $origenEmpresa->origen      = $request->origen;
+        $origenEmpresa->emisor      = $request->emisor;
         $origenEmpresa->descripcion = $request->descripcion;
-        $origenEmpresa->fecha = $request->fecha;
-        $origenEmpresa->save();        
+        $origenEmpresa->fecha       = $request->fecha;
+        $origenEmpresa->save();
 
         return redirect()->route('empresa.edit', $request->empresa);
     }

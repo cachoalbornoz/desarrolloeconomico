@@ -269,6 +269,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         //////////  EMPRESA
 
         Route::get('empresa/admin/', 'EmpresaController@indexAdmin')->name('empresa.indexAdmin')->middleware('permission:AdminEmpresaAdmin');
+        Route::get('empresa/admin/getEmpresas', 'EmpresaController@getEmpresas')->name('empresa.getEmpresas')->middleware('permission:AdminEmpresaAdmin');
         Route::post('empresa/agregar/interes', 'EmpresaController@addInteres')->name('empresa.addInteres');
         Route::post('empresa/quitar/interes', 'EmpresaController@removeInteres')->name('empresa.removeInteres');
         Route::get('empresa/origen/edit/{origen}', 'EmpresaController@origenEdit')->name('empresa.origenEdit');

@@ -26,10 +26,10 @@
             {!! Form::close() !!}
 
             <div class="table-responsive">
-                <table class="table table-bordered table-hover table-sm" style="font-size: smaller" id="empresa">
+                <table class="table table-bordered table-hover table-sm text-center" style="font-size: smaller" id="empresa">
                     <thead>
                         <tr>
-                            <th>Editar</th>
+                            <th>Editar </th>
                             <th>Razón Social </th>
                             <th>Titular</th>
                             <th>Emisor</th>
@@ -56,72 +56,29 @@
     <script>
         var table = $('#empresa').DataTable({
             lengthMenu: [
-                [5, 10, 25, 50, -1],
-                [5, 10, 25, 50, "Todos"]
+                [10, 25, 50, 100],
+                [10, 25, 50, 100]
             ],
-            //dom: '<"wrapper"Brflit>',
-            "dom": 'Blrftip',
+            dom: 'Blrftip',
             buttons: ['copy', 'excel', 'pdf', 'colvis'],
-            order: [
-                [1, "asc"]
-            ],
+            ordering: false,
             stateSave: true,
             processing: true,
             serverSide: true,
             language: {
                 "url": "{{ url('public/DataTables/spanish.json') }}"
             },
-            ajax: "{{ route('empresa.indexAdmin') }}",
-            columns: [{
-                    data: 'id',
-                    orderable: false,
-                    searchable: false,
-                    class: "text-center"
-                },
-                {
-                    data: 'razon_social',
-                    orderable: true,
-                    searchable: true,
-                },
-                {
-                    data: 'titular',
-                    orderable: true,
-                    searchable: true,
-                },
-                {
-                    data: 'emisor',
-                    orderable: true,
-                    searchable: true,
-                    class: "text-center"
-                },
-                {
-                    data: 'seguimiento',
-                    orderable: false,
-                    searchable: false,
-                    class: "text-center"
-                },
-                {
-                    data: 'cuit',
-                    orderable: false,
-                    searchable: true,
-                    class: "text-center"
-                },
-                {
-                    data: 'categoria1',
-                    orderable: true,
-                    searchable: false,
-                },
-                {
-                    data: 'ciudad',
-                    orderable: true,
-                    searchable: true,
-                },
-                {
-                    data: 'borrar',
-                    orderable: false,
-                    searchable: false,
-                    class: "text-center"
-                },
+            ajax: "{{ route('empresa.getEmpresas') }}",
+            columns: [
+                {data: 'id'},
+                {data: 'razon_social', 'class':'text-left'  },
+                {data: 'titular', 'class':'text-left' },
+                {data: 'emisor',   },
+                {data: 'seguimiento',   },
+                {data: 'cuit',   },
+                {data: 'categoria1',   },
+                {data: 'ciudad', 'class':'text-left' },
+                {data: 'borrar',   },
             ]
         });
 
