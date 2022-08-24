@@ -255,8 +255,11 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="dropdown-item" href="{{ route('expediente.index') }}">Listado
-                            Expedientes</a>
+                        <a class="dropdown-item" href="{{ route('expediente.index') }}">Listado expedientes</a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('pago.resumenCta') }}">Resumen de cuenta</a>
                     </li>
                     <li class="dropdown-divider"></li>
                 </ul>

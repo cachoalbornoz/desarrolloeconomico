@@ -71,6 +71,8 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/cuota/borrarPlan/{expediente}', 'CuotaController@borrarPlan')->name('cuota.borrarPlan');
 
         //////////// PAGOS
+        Route::get('/pago/resumen-cuenta', 'PagoController@resumenCta')->name('pago.resumenCta');
+        Route::get('/pago/resumen-cuenta/getpagos', 'PagoController@getPagos')->name('pago.getPagos');
         Route::get('/pago/{id?}', 'PagoController@index')->name('pago.index');
         Route::get('/pago/create/{id?}', 'PagoController@create')->name('pago.create');
         Route::post('/pago/store', 'PagoController@store')->name('pago.store');

@@ -14,6 +14,76 @@ use Illuminate\Support\Facades\Schema;
 
 class PagoController extends Controller
 {
+    public function resumenCta()
+    {
+        return view('admin.pago.resumenCta');
+    }
+
+    public function getPagos(Request $request)
+    {
+        $totalData     = ExpedientePago::select('id', 'fecha', 'expediente', 'monto', 'cuenta', 'tipopago', 'nro_operacion')->count();
+        $totalFiltered = $totalData;
+        $limit         = $request->input('length');
+        $start         = $request->input('start');
+
+        if (empty($request->input('search.value'))) {
+            $pagos = ExpedientePago::select('id', 'fecha', 'expediente', 'monto', 'cuenta', 'tipopago', 'nro_operacion')
+                ->offset($start)
+                ->limit($limit)
+                ->orderBy('fecha', 'desc')
+                ->get();
+        } else {
+            $search = $request->input('search.value');
+
+            $pagos = ExpedientePago::join('expediente', 'expediente.id', '=', 'expediente_pago.expediente')
+                ->join('users', 'users.id', '=', 'expediente.titular')
+                ->where("users.apellido", "LIKE", "%{$search}%")
+                ->orWhere("users.nombre", "LIKE", "%{$search}%")
+                ->offset($start)
+                ->limit($limit)
+                ->orderBy('fecha', 'asc')
+                ->get();
+
+            $totalFiltered = ExpedientePago::join('expediente', 'expediente.id', '=', 'expediente_pago.expediente')
+                ->join('users', 'users.id', '=', 'expediente.titular')
+                ->where("users.apellido", "LIKE", "%{$search}%")
+                ->orWhere("users.nombre", "LIKE", "%{$search}%")
+                ->count();
+        }
+
+        $data = [];
+        if (!empty($pagos)) {
+            foreach ($pagos as $pago) {
+                // Datos de los pagos
+                $anio = date('Y', strtotime($pago->Expediente->fecha_otorgamiento));
+                $expediente = $pago->Expediente->proyecto.'/'.$anio;
+
+                $titular    = $pago->Expediente->Titular->apellido .', '.$pago->Expediente->Titular->nombre;
+
+                $tipopago   = $pago->Tipopago->pago;
+
+                $Data['id']             = $pago->id;
+                $Data['fecha']          = $pago->fecha;
+                $Data['expediente']     = $expediente;
+                $Data['titular']        = $titular;
+                $Data['monto']          = $pago->monto;
+                $Data['cuenta']         = $pago->cuenta;
+                $Data['tipopago']       = $tipopago;
+                $Data['nro_operacion']  = $pago->nro_operacion;
+                $data[] = $Data;
+            }
+        }
+
+        $json_data = [
+            'draw'            => intval($request->input('draw')),
+            'recordsTotal'    => intval($totalData),
+            'recordsFiltered' => intval($totalFiltered),
+            'data'            => $data,
+        ];
+
+        print json_encode($json_data);
+    }
+
     public function index(Request $request)
     {
         $expediente = Expediente::find($request->id);
