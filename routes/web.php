@@ -71,8 +71,6 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/cuota/borrarPlan/{expediente}', 'CuotaController@borrarPlan')->name('cuota.borrarPlan');
 
         //////////// PAGOS
-        Route::get('/pago/resumen-cuenta', 'PagoController@resumenCta')->name('pago.resumenCta');
-        Route::get('/pago/resumen-cuenta/getpagos', 'PagoController@getPagos')->name('pago.getPagos');
         Route::get('/pago/{id?}', 'PagoController@index')->name('pago.index');
         Route::get('/pago/create/{id?}', 'PagoController@create')->name('pago.create');
         Route::post('/pago/store', 'PagoController@store')->name('pago.store');
@@ -127,6 +125,16 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::get('/expediente/edit/{id}', 'ExpedienteController@edit')->name('expediente.edit');
         Route::put('/expediente/update/{id}', 'ExpedienteController@update')->name('expediente.update');
         Route::post('/expediente/destroy', 'ExpedienteController@destroy')->name('expediente.destroy');
+
+        // 
+        Route::get('/pago/resumen-cuenta', 'PagoController@resumenCta')->name('pago.resumenCta');
+        Route::get('/pago/resumen-cuenta/getpagos', 'PagoController@getPagos')->name('pago.getPagos');
+
+        Route::get('/ingreso/futuro', 'IngresoController@index')->name('ingresos.futuro');
+        Route::get('/ingreso/fututo/getingresos', 'IngresoController@getIngresosFuturos')->name('ingresos.getIngresosFuturos');
+
+
+        //
 
         //////////// EMISOR
         Route::get('/emisor', 'TipoEmisorController@index')->name('emisor.index');

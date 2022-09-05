@@ -262,6 +262,10 @@
                         <a class="dropdown-item" href="{{ route('pago.resumenCta') }}">Resumen de cuenta</a>
                     </li>
                     <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('ingreso.futuro') }}">Ingresos futuros</a>
+                    </li>
+                    <li class="dropdown-divider"></li>
                 </ul>
             </li>
 
