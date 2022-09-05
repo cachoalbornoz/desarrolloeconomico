@@ -127,8 +127,8 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/expediente/destroy', 'ExpedienteController@destroy')->name('expediente.destroy');
 
         // 
-        Route::get('/pago/resumen-cuenta', 'PagoController@resumenCta')->name('pago.resumenCta');
-        Route::get('/pago/resumen-cuenta/getpagos', 'PagoController@getPagos')->name('pago.getPagos');
+        Route::get('/resumen/resumen-cuenta', 'PagoController@resumenCta')->name('pago.resumenCta');
+        Route::get('/resumen/resumen-cuenta/getpagos', 'PagoController@getPagos')->name('pago.getPagos');
 
         Route::get('/ingreso/futuro', 'IngresoController@index')->name('ingresos.futuro');
         Route::get('/ingreso/fututo/getingresos', 'IngresoController@getIngresosFuturos')->name('ingresos.getIngresosFuturos');

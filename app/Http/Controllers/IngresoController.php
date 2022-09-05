@@ -18,25 +18,29 @@ class IngresoController extends Controller
      {
          $fecha = Carbon::now()->toDateTimeString();
 
-         $totalData = ExpedienteCuota::select(DB::raw('sum(monto) as `ingresos`'), DB::raw('YEAR(fechaVcto) anio, MONTH(fechaVcto) mes'))
-             ->where('fechaVcto', '>', $fecha)
-             ->where('estado', '=', 0)
-             ->groupby('anio', 'mes')
-             ->get()
-             ->count();
+         $totalData = ExpedienteCuota::select(DB::raw('sum(expediente_cuota.monto) as `ingresos`'), DB::raw('YEAR(fechaVcto) anio, MONTH(fechaVcto) mes'))
+            ->join('expediente', 'expediente.id', '=','expediente_cuota.expediente')
+            ->where('fechaVcto', '>', $fecha)
+            ->where('expediente_cuota.estado', '=', 0)
+            ->whereIn('expediente.estado', ['1', '6'])
+            ->groupby('anio', 'mes')
+            ->get()
+            ->count();
 
          $totalFiltered = $totalData;
          $limit         = $request->input('length');
          $start         = $request->input('start');
 
          if (empty($request->input('search.value'))) {
-             $ingresos = ExpedienteCuota::select(DB::raw('sum(monto) as `ingresos`'), DB::raw('YEAR(fechaVcto) anio, MONTH(fechaVcto) mes'))
-                 ->where('fechaVcto', '>', $fecha)
-                 ->where('estado', '=', 0)
-                 ->offset($start)
-                 ->limit($limit)
-                 ->groupby('anio', 'mes')
-                 ->get();
+            $ingresos = ExpedienteCuota::select(DB::raw('sum(expediente_cuota.monto) as `ingresos`'), DB::raw('YEAR(fechaVcto) anio, MONTH(fechaVcto) mes'))
+                ->join('expediente', 'expediente.id', '=','expediente_cuota.expediente')
+                ->where('fechaVcto', '>', $fecha)
+                ->where('expediente_cuota.estado', '=', 0)
+                ->whereIn('expediente.estado', ['1', '6'])
+                ->offset($start)
+                ->limit($limit)
+                ->groupby('anio', 'mes')
+                ->get();
          }
 
          $data = [];
