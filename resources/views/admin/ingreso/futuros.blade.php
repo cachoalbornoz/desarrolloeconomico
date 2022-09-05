@@ -46,10 +46,10 @@
         var table = $('#ingresos').DataTable({
             scrollCollapse: true, //Esto sirve que se auto ajuste la tabla al aplicar un filtro
             lengthMenu: [
-                [10, 25, 50, 500],
-                [10, 25, 50, 500]
+                [12, 24, 36, 48],
+                [12, 24, 36, 48]
             ],
-            dom: 'Blrftip',
+            dom: 'Blrtip',
             buttons: ['copy', 'excel', 'pdf', 'colvis'],
             ordering: false,
             stateSave: true,
@@ -58,7 +58,7 @@
             language: {
                 "url": "{{ url('public/DataTables/spanish.json') }}"
             },
-            ajax: "{{ route('ingresos.getIngresos') }}",
+            ajax: "{{ route('ingresos.getIngresosFuturos') }}",
             columns: [
                 {data: 'mes'},
                 {data: 'anio'},
