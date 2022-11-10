@@ -113,6 +113,7 @@
                             'min' => 0,
                             'max' => '99999999',
                             'onkeyup' => 'imposeMinMax(this)',
+                            'step' => 'any',
                         ]) !!}
                     </div>
                 </div>
