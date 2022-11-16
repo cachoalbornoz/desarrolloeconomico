@@ -49,7 +49,7 @@ class EvaluacionController extends Controller
                         return ($evaluacion->Proyecto->Titular)?$evaluacion->Proyecto->Titular->nombre_completo:null;
                     })
                     ->addColumn('razonsocial', function ($evaluacion) {
-                        return $evaluacion->Proyecto->Empresa->razon_social;
+                        return ($evaluacion->Proyecto->Empresa)?$evaluacion->Proyecto->Empresa->razon_social:null;
                     })
                     ->editColumn('estado', function ($evaluacion) {
 

@@ -53,7 +53,7 @@ class DocumentacionController extends Controller
 
                     ->addColumn('tiposociedad', function ($documentacion) {
 
-                        return ($documentacion->Proyecto->Empresa->tiposociedad) ? $documentacion->Proyecto->Empresa->Tiposociedad->sociedad : null;
+                        return ($documentacion->Proyecto->Empresa) ? $documentacion->Proyecto->Empresa->Tiposociedad->sociedad : null;
                     })
                     ->editColumn('estado', function ($documentacion) {
 
