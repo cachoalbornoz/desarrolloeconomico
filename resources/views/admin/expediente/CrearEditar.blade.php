@@ -98,36 +98,17 @@
                 </div>
             </div>
 
-            <div class="row mb-5">
-                <div class="col-xs-12 col-md-4 col-lg-4">
-                    <div class="input-group">
-                        <div class=" input-group-prepend">
-                            <span class="input-group-text">
-                                Monto $
-                            </span>
-                        </div>
-                        {!! Form::number('monto', null, [
-                            'id' => 'monto',
-                            'required',
-                            'class' => 'form-control text-center',
-                            'min' => 0,
-                            'max' => '99999999',
-                            'onkeyup' => 'imposeMinMax(this)',
-                            'step' => 'any',
-                        ]) !!}
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-4 col-lg-4">
-
-                    @if (isset($expediente))
+            <div class="card p-3 border-info">
+                <div class="row mt-2 mb-2">
+                    <div class="col-xs-12 col-md-3">
                         <div class="input-group">
                             <div class=" input-group-prepend">
-                                <span class="input-group-text text-danger">
-                                    Saldo crédito
+                                <span class="input-group-text">
+                                    Monto otorgado $
                                 </span>
                             </div>
-                            {!! Form::number('saldo', null, [
-                                'id' => 'saldo',
+                            {!! Form::number('monto', null, [
+                                'id' => 'monto',
                                 'required',
                                 'class' => 'form-control text-center',
                                 'min' => 0,
@@ -136,21 +117,63 @@
                                 'step' => 'any',
                             ]) !!}
                         </div>
-                    @endif
-                </div>
-                <div class="col-xs-12 col-md-4 col-lg-4">
-                    <div class="input-group">
-                        <div class=" input-group-prepend">
-                            <span class="input-group-text">
-                                Fecha otorgamiento
-                            </span>
-                        </div>
-                        {!! Form::date('fecha_otorgamiento', null, ['class' => 'form-control', 'required']) !!}
                     </div>
+
+                    <div class="col-xs-12 col-md-3">
+                        <div class="input-group">
+                            <div class=" input-group-prepend">
+                                <span class="input-group-text">
+                                    Monto devolver $
+                                </span>
+                            </div>
+                            {!! Form::number('monto_devolver', null, [
+                                'id' => 'monto',
+                                'required',
+                                'class' => 'form-control text-center',
+                                'min' => 0,
+                                'max' => '99999999',
+                                'onkeyup' => 'imposeMinMax(this)',
+                                'step' => 'any',
+                            ]) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-3">
+                        <div class="input-group">
+                            <div class=" input-group-prepend">
+                                <span class="input-group-text">
+                                    Fecha otorgamiento
+                                </span>
+                            </div>
+                            {!! Form::date('fecha_otorgamiento', null, ['class' => 'form-control', 'required']) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-3">
+                        @if (isset($expediente))
+                            <div class="input-group">
+                                <div class=" input-group-prepend">
+                                    <span class="input-group-text text-danger">
+                                        Saldo crédito
+                                    </span>
+                                </div>
+                                {!! Form::number('saldo', null, [
+                                    'id' => 'saldo',
+                                    'required',
+                                    'class' => 'form-control text-center',
+                                    'min' => 0,
+                                    'max' => '99999999',
+                                    'onkeyup' => 'imposeMinMax(this)',
+                                    'step' => 'any',
+                                ]) !!}
+                            </div>
+                        @endif
+                    </div>
+
                 </div>
             </div>
 
-            <div class="row mb-5">
+            <div class="row mt-5 mb-5">
                 <div class="col-xs-12 col-md-4 col-lg-4">
                     <label>Provincia</label>
                     {!! Form::select('provincia', $provincia, $idprovincia, [

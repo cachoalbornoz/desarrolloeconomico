@@ -6,12 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Expediente extends Model
 {
-
     public $timestamps = true;
 
     protected $table = 'expediente';
 
-    protected $fillable = ['id', 'titular', 'proyecto', 'nro_expediente', 'nro_exp_madre', 'nro_exp_control', 'monto', 'saldo', 'rubro', 'estado', 'observaciones', 'fecha_otorgamiento', 'ciudad'];
+    protected $fillable = [
+        'id',
+        'titular',
+        'proyecto',
+        'nro_expediente',
+        'nro_exp_madre',
+        'nro_exp_control',
+        'monto',
+        'monto_devolver',
+        'saldo',
+        'rubro',
+        'estado',
+        'observaciones',
+        'fecha_otorgamiento',
+        'ciudad'
+    ];
 
     public function titular()
     {
