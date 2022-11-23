@@ -127,7 +127,7 @@
                                 </span>
                             </div>
                             {!! Form::number('monto_devolver', null, [
-                                'id' => 'monto',
+                                'id' => 'monto_devolver',
                                 'required',
                                 'class' => 'form-control text-center',
                                 'min' => 0,

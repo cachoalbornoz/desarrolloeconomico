@@ -126,7 +126,6 @@ class ExpedienteController extends Controller
     public function edit($id)
     {
         $expediente     = Expediente::find($id);
-
         $estados        = ['24'];
         $usuarios= DB::table('users')->where('habilitado', 1)
             ->selectRaw('id, CONCAT(apellido," ",nombre) as titular')

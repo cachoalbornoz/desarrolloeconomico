@@ -29,8 +29,26 @@
                             <label>Monto crédito </label>
                         </div>
                         <div class="col-2">
-                            <input type="number" readonly="true" name="montop" id="montop"
+                            <input type="number" readonly="true"
                                 value="{{ $expediente->monto }}" class="form-control text-danger text-center text-bold" />
+                        </div>
+                        <div class="col-2">
+                            <label>Período de gracia</label>
+                        </div>
+                        <div class="col-2">
+                            <select id="pgracia" name="pgracia" class="form-control text-center">
+                                <option value="6">6</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <label>Monto devolver </label>
+                        </div>
+                        <div class="col-2">
+                            <input type="number" readonly="true" name="montop" id="montop" 
+                                value="{{ $expediente->monto_devolver }}" class="form-control text-danger text-center font-weight-bolder" />
                         </div>
                     </div>
                     <div class="row ">
@@ -40,17 +58,6 @@
                         <div class="col-2">
                             <input type="date" readonly="true" name="fechao" id="fechao"
                                 value="{{ $expediente->fecha_otorgamiento }}" class="form-control text-center">
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-2">
-                            <label>Período gracia</label>
-                        </div>
-                        <div class="col-1">
-                            <select id="pgracia" name="pgracia" class="form-control text-center">
-                                <option value="6">6</option>
-                                <option value="12">12</option>
-                            </select>
                         </div>
                     </div>
 

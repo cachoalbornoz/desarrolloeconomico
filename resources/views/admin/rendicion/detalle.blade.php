@@ -35,7 +35,14 @@
             <tr>
                 <th></th>
                 <th>{{ number_format($rendiciones->sum('importe'), 2)}}</th>
-                <th>{{ number_format(($rendiciones->sum('importe') / $expediente->monto)*100, 2)}} %</th>
+                <th>
+                    @if ((($rendiciones->sum('importe') / $expediente->monto)*100) >= 100)
+                        100
+                    @else
+                        {{ number_format(($rendiciones->sum('importe') / $expediente->monto)*100, 2)}}    
+                    @endif
+                    %
+                </th>
                 <th @if (($rendiciones->sum('importe') / $expediente->monto) > 0.74)
                     class="bg-success"
                     @else

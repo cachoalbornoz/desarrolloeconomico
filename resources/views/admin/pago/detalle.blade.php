@@ -42,10 +42,10 @@
 
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2">
-        Total prestado
+        Total devolver
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2">
-        {{ number_format($expediente->monto,2) }}
+        {{ number_format($expediente->monto_devolver,2) }}
     </div>
 </div>
 
@@ -87,6 +87,6 @@
         Saldo
     </div>
     <div class="col-xs-12 col-sm-2 col-xs-2 text-bold text-danger">
-        {{ number_format($expediente->monto - $pagos->sum('monto'),2 ) }}
+        {{ number_format($expediente->monto_devolver - $pagos->sum('monto'),2 ) }}
     </div>
 </div>
