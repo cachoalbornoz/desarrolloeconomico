@@ -130,8 +130,8 @@ class PagoController extends Controller
 
             // // Reviso el pago total e informo
             $expediente = Expediente::find($request->expediente);
-            if (($expediente->monto - $pagos->sum('monto') > 0)) {
-                $expediente->saldo = $expediente->monto - $pagos->sum('monto');
+            if (($expediente->monto_devolver - $pagos->sum('monto') > 0)) {
+                $expediente->saldo = $expediente->monto_devolver - $pagos->sum('monto');
                 $expediente->save();
             } else {
                 $expediente->estado = 3;
@@ -174,7 +174,7 @@ class PagoController extends Controller
         $expediente = Expediente::find($request->expediente);
         $pagos      = ExpedientePago::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->get();
 
-        $expediente->saldo = $expediente->monto - $pagos->sum('monto');
+        $expediente->saldo = $expediente->monto_devolver - $pagos->sum('monto');
         $expediente->save();
 
         $view = view('admin.pago.detalle', compact('expediente', 'pagos'))->render();

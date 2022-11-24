@@ -37,10 +37,6 @@
 
                     <div class="row mb-3">
                         <div class="col-xs-12 col-md-3 col-lg-3">
-                            {!! Form::hidden('expediente', $expediente->id, ['id' => 'expediente']) !!}
-                            {!! Form::text('estadoAnt', $expediente->estado, ['id' => 'estadoAnt']) !!}
-                        </div>
-                        <div class="col-xs-12 col-md-3 col-lg-3">
                             {!! Form::date('fecha', null, ['class' => 'form-control', 'required']) !!}
                         </div>
                         <div class="col-xs-12 col-md-3 col-lg-3">
@@ -48,6 +44,10 @@
                         </div>
                         <div class="col-xs-12 col-md-3 col-lg-3 text-center">
                             {!! Form::submit('Guardar', ['class' => 'btn btn-secondary']) !!}
+                        </div>
+                        <div class="col-xs-12 col-md-3 col-lg-3">
+                            {!! Form::hidden('expediente', $expediente->id, ['id' => 'expediente']) !!}
+                            {!! Form::hidden('estadoAnt', $expediente->estado, ['id' => 'estadoAnt']) !!}
                         </div>
                     </div>
 

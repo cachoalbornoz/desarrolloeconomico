@@ -18,7 +18,7 @@
                 <td class="w-25">{{$rendicion->Rendicion->rendicion}}</td>
                 <td class="w-25">
                     <a href="javascript:borrar({{$rendicion->id}})" title="Elimina">
-                        <i class="fas fa-trash text-danger"></i>
+                        <i class="fas fa-trash text-secondary"></i>
                     </a>
                 </td>
             </tr>

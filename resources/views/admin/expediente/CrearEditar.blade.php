@@ -103,7 +103,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="input-group">
                             <div class=" input-group-prepend">
-                                <span class="input-group-text">
+                                <span class="input-group-text text-primary">
                                     Monto otorgado $
                                 </span>
                             </div>
@@ -122,7 +122,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="input-group">
                             <div class=" input-group-prepend">
-                                <span class="input-group-text">
+                                <span class="input-group-text text-primary font-weight-bolder">
                                     Monto devolver $
                                 </span>
                             </div>
@@ -142,7 +142,7 @@
                         <div class="input-group">
                             <div class=" input-group-prepend">
                                 <span class="input-group-text">
-                                    Fecha otorgamiento
+                                    Fecha
                                 </span>
                             </div>
                             {!! Form::date('fecha_otorgamiento', null, ['class' => 'form-control', 'required']) !!}
@@ -153,8 +153,8 @@
                         @if (isset($expediente))
                             <div class="input-group">
                                 <div class=" input-group-prepend">
-                                    <span class="input-group-text text-danger">
-                                        Saldo crédito
+                                    <span class="input-group-text text-danger font-weight-bolder">
+                                        Saldo
                                     </span>
                                 </div>
                                 {!! Form::number('saldo', null, [
