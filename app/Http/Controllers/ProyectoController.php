@@ -209,7 +209,6 @@ class ProyectoController extends Controller
         $proyecto   = Proyecto::find($request->proyecto);
 
         if (count($asociado) > 0) {
-
             $proyecto->users()->attach($asociado);
         }
 

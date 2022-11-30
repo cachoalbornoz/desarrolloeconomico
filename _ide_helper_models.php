@@ -575,6 +575,7 @@ namespace App\Models{
  * @property int|null $nro_exp_madre
  * @property int|null $nro_exp_control
  * @property string|null $monto
+ * @property string|null $monto_devolver
  * @property string|null $saldo
  * @property \App\Models\TipoRubro|null $rubro
  * @property \App\Models\TipoEstado|null $estado
@@ -596,6 +597,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereFechaOtorgamiento($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereMonto($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereMontoDevolver($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereNroExpControl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereNroExpMadre($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Expediente whereNroExpediente($value)
@@ -1092,6 +1094,25 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ProyectoPlanilla whereRp($value)
  */
 	class ProyectoPlanilla extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ProyectoUser
+ *
+ * @property int $id
+ * @property int|null $proyecto_id
+ * @property int|null $user_id
+ * @property-read \App\Models\Proyecto $proyectos
+ * @property-read \App\User $users
+ * @method static \Illuminate\Database\Eloquent\Builder|ProyectoUser newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProyectoUser newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProyectoUser query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProyectoUser whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProyectoUser whereProyectoId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProyectoUser whereUserId($value)
+ */
+	class ProyectoUser extends \Eloquent {}
 }
 
 namespace App\Models{

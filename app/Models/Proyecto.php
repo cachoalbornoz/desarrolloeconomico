@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proyecto extends Model
 {
-
     public $timestamps = true;
 
     protected $table = 'proyecto';
@@ -88,7 +87,7 @@ class Proyecto extends Model
 
     public function users()
     {
-        return $this->belongsToMany(\App\User::class, 'proyecto_user', 'proyecto_id', 'user_id');
+        return $this->belongsToMany(\App\User::class, ProyectoUser::class);
     }
 
     public function TieneVacios()

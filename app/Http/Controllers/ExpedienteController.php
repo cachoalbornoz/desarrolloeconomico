@@ -11,6 +11,7 @@ use App\Models\ExpedienteUbicacion;
 use App\Models\ExpedienteEstado;
 use App\Models\CiudadAll;
 use App\Models\Provincia;
+use App\Models\ProyectoUser;
 use App\Models\TipoRubro;
 
 use DB;
@@ -77,7 +78,7 @@ class ExpedienteController extends Controller
         $estados        = ['19', '20', '24'];
         $usuarios= DB::table('users')->where('habilitado', 1)
             ->selectRaw('id, CONCAT(apellido," ",nombre) as titular')
-            ->orderBy('titular')->pluck('titular', 'id');            
+            ->orderBy('titular')->pluck('titular', 'id');
 
         $proyectos      =    DB::table('proyecto as p')
             ->whereIn('p.estado', $estados)
@@ -100,6 +101,11 @@ class ExpedienteController extends Controller
         $expediente->saldo = $request->monto;
 
         $expediente->save();
+
+        ProyectoUser::create([
+            'proyecto_id' => $expediente->proyecto,
+            'user_id' => $expediente->titular,
+        ]);
 
         ExpedienteUbicacion::create([
             'expediente'    => $expediente->id,
@@ -129,7 +135,7 @@ class ExpedienteController extends Controller
         $estados        = ['24'];
         $usuarios= DB::table('users')->where('habilitado', 1)
             ->selectRaw('id, CONCAT(apellido," ",nombre) as titular')
-            ->orderBy('titular')->pluck('titular', 'id'); 
+            ->orderBy('titular')->pluck('titular', 'id');
 
         //$proyectos      = Proyecto::where('estado', 24)->get()->pluck('DenominacionCompleta', 'id');
         $estados        = ['19', '20', '24'];

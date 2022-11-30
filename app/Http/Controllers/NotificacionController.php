@@ -4,25 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User,
-    App\Models\TipoNotificacion,
-    App\Models\TipoPostal,
-    App\Models\TipoParentesco,
-    App\Models\ExpedienteNotificacion,
-    App\Models\Expediente;
+use App\User;
+use App\Models\TipoNotificacion;
+use App\Models\TipoPostal;
+use App\Models\TipoParentesco;
+use App\Models\ExpedienteNotificacion;
+use App\Models\Expediente;
 
 use Yajra\DataTables\Facades\DataTables;
 
 class NotificacionController extends Controller
 {
-
     public function index(Request $request)
     {
         $expediente         = Expediente::find($request->id);
-        $asociados          = $expediente->Proyecto->users()->orderBy('apellido')->get()->pluck('nombrecompleto', 'id');;
+        $asociados          = $expediente->Proyecto->users()->orderBy('apellido')->get()->pluck('nombrecompleto', 'id');
         $notificaciones     = ExpedienteNotificacion::where('expediente', $request->id)->orderBy('id', 'desc')->get();
         $tiponotificacion   = TipoNotificacion::orderBy('notificacion')->pluck('notificacion', 'id');
-        $tipoparentesco     = TipoParentesco::orderBy('parentesco')->pluck('parentesco', 'id');
+        $tipoparentesco     = TipoParentesco::orderBy('id')->pluck('parentesco', 'id');
         $tipopostal         = TipoPostal::orderBy('postal')->pluck('postal', 'id');
 
         return view('admin.notificacion.index', compact(
