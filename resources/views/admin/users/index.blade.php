@@ -63,7 +63,7 @@
                 language        : { "url": "{{ url('public/DataTables/spanish.json') }}" },
                 ajax: "{{ route('users.index') }}",
                 columns: [
-                    {data: 'id', name: 'id', orderable: false, searchable: false, class:"text-center"},
+                    {data: 'id', name: 'id', orderable: true, searchable: false, class:"text-center"},
                     {data: 'apellido', name: 'apellido', orderable: true, searchable: true},
                     {data: 'nombre', name: 'nombre', orderable: true, searchable: true},
                     {data: 'dni', name: 'dni', orderable: false, class:"text-center"},
