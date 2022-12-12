@@ -138,7 +138,7 @@ class PagoController extends Controller
                 $expediente->saldo  = 0;
                 $expediente->save();
                 // Obtengo el estado que tenia
-                $estado    = ExpedienteEstado::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->limit(1);
+                $estado    = ExpedienteEstado::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->first();
                 $estadoAnt = ($estado->estadoAnt) ? $estado->estadoAnt : 1;
                 ExpedienteEstado::create([
                     'expediente' => $request->expediente,
@@ -171,12 +171,31 @@ class PagoController extends Controller
     {
         ExpedientePago::findOrFail($request->id)->delete();
 
+
+        ///////////////////////////////////////
+        $pagos = ExpedientePago::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->get();
+        $total_cobrado = $pagos->sum('monto');
+        $cuotas = ExpedienteCuota::where('expediente', $request->expediente)->orderBy('nroCuota', 'asc')->get();
+
+        foreach ($cuotas as $cuota) {
+            if ($total_cobrado >= $cuota->monto) {
+                $cuota->pago           = $cuota->nroCuota;
+                $cuota->estado         = 1;
+                $cuota->entregaParcial = 0;
+                $cuota->save();
+            } else {
+                $cuota->estado         = 0;
+                $cuota->entregaParcial = ($total_cobrado >= 0)?$total_cobrado:0;
+                $cuota->save();
+            }
+            $total_cobrado = $total_cobrado - $cuota->monto;
+        }
+        ///////////////////////////////////////
+
         $expediente = Expediente::find($request->expediente);
-        $pagos      = ExpedientePago::where('expediente', $request->expediente)->orderBy('fecha', 'desc')->get();
-
-        $expediente->saldo = $expediente->monto_devolver - $pagos->sum('monto');
+        $expediente->saldo = $expediente->monto_devolver - $total_cobrado;
         $expediente->save();
-
+        
         $view = view('admin.pago.detalle', compact('expediente', 'pagos'))->render();
 
         return response()->json($view);

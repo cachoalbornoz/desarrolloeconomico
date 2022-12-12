@@ -13,12 +13,12 @@ class ExpedientePago extends Model
 
     protected $fillable = ['expediente', 'fecha', 'monto', 'nro_operacion', 'cuenta', 'tipopago'];
 
-    public function expediente()
+    public function Expediente()
     {
         return $this->belongsTo(\App\Models\Expediente::class, 'expediente', 'id');
     }
 
-    public function tipopago()
+    public function Tipopago()
     {
         return $this->belongsTo(\App\Models\TipoPago::class, 'tipopago', 'id');
     }

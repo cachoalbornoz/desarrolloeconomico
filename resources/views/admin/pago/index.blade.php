@@ -58,7 +58,7 @@
                         {!! Form::text('cuenta', '62298851', ['class' => 'form-control text-center', 'required' => 'true']) !!}
                     </div>
                     <div class="col-xs-12 col-sm-2 col-xs-2">
-                        {!! Form::select('tipopago', $tipopago, null, ['class' => 'form-control text-center', 'required' => 'true']) !!}
+                        {!! Form::select('tipopago', $tipopago, 2, ['class' => 'form-control text-center', 'required' => 'true']) !!}
                     </div>
                     <div class="col-xs-12 col-sm-2 col-xs-2">
                         {!! Form::text('nro_operacion', null, ['class' => 'form-control text-center', 'required' => 'true']) !!}
