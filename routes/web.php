@@ -58,7 +58,9 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::post('/noticias/store', 'NoticiaController@store')->name('noticias.store');
         Route::get('/noticias/edit', 'NoticiaController@edit')->name('noticias.edit');
         Route::put('/noticias/update', 'NoticiaController@update')->name('noticias.update');
+        Route::get('/noticias/publicar', 'NoticiaController@publicar')->name('noticias.publicar');
         Route::post('/noticias/destroy', 'NoticiaController@destroy')->name('noticias.destroy');
+
 
         //////////// CUOTAS
         Route::get('/cuota/{id?}', 'CuotaController@index')->name('cuota.index');

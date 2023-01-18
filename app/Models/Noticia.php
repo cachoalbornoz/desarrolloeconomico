@@ -16,4 +16,9 @@ class Noticia extends Model
     {
         return $this->belongsTo(\App\Models\NoticiaCategoria::class, 'categoria', 'id');
     }
+
+    public function toggleActive()
+    {
+        $this->update([ 'active' => !$this->active ]);
+    }
 }

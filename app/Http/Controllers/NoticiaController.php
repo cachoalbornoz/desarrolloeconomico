@@ -24,13 +24,14 @@ class NoticiaController extends Controller
                     return (isset($noticia->fecha_publicacion)) ? date('d-m-Y', strtotime($noticia->fecha_publicacion)) : date('d-m-Y', strtotime(now()));
                 })
                 ->addColumn('estado', function ($noticia) {
-                    return ($noticia->active == 1) ? '<i class="fa fa-check-circle text-success"></i>' : '<i class="fa fa-ban text-danger"></i>';
+                    $active = ($noticia->active == 1) ? '<i class="fa fa-check-circle text-success"></i>' : '<i class="fa fa-ban text-danger"></i>';
+                    return '<a href="javascript:publicar('.$noticia->id.')" title="Publica o no noticia">' . $active . '</a>';
                 })
                 ->addColumn('editar', function ($noticia) {
-                    return '<a href="' . route('noticias.edit', ['id' => $noticia->id]) . '" title="Modifica noticia">Editar</a>';
+                    return '<a href="' . route('noticias.edit', ['id' => $noticia->id]) . '" title="Modifica noticia"> <i class="fa fa-pen"></i> </a>';
                 })
                 ->addColumn('borrar', function ($noticia) {
-                    return '<a href="' . route('noticias.destroy', ['id' => $noticia->id]) . '" title="Elimina noticia">Borrar</a>';
+                    return '<a href="' . route('noticias.destroy', ['id' => $noticia->id]) . '" title="Elimina noticia"> <i class="fa fa-trash text-danger"></i> </a>';
                 })
                 ->rawColumns(['fecha', 'titulo', 'estado', 'editar', 'borrar'])
                 ->make(true);
@@ -100,7 +101,7 @@ class NoticiaController extends Controller
         $noticia->save();
 
         $notification = [
-            'message'    => 'Noticia actualizado !',
+            'message'    => 'Noticia actualizada !',
             'alert-type' => 'success',
         ];
 
@@ -117,5 +118,11 @@ class NoticiaController extends Controller
     {
         $noticias = DB::table('noticia')->take(3)->orderByDesc('id')->get();
         return view('base.frontendnoticias', compact('noticias'));
+    }
+
+    public function publicar(Request $request)
+    {
+        Noticia::find($request->id)->toggleActive();
+        return response()->json();
     }
 }
