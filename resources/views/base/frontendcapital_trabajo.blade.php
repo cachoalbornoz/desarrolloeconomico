@@ -33,114 +33,13 @@
         </div>
 
         <div class="accordion" id="accordionExample">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link text-left" type="button" data-toggle="collapse"
-                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Línea crédito #1 - Financiación de la <b>adquisición y ampliación de capital de trabajo.</b>
-                        </button>
-                    </h2>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                &nbsp;
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <p>
-                                    Convenio del Gobierno de Entre Ríos con el Banco de Entre Ríos para la puesta en
-                                    vigencia de una nueva línea de financiamiento destinada a las micro, pequeñas y medianas
-                                    empresas de la provincia. La línea surge de un trabajo articulado con el Gobierno
-                                    Nacional y cuenta con las siguientes características:
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Destino</b>: financiación de la adquisición y ampliación de capital de trabajo.
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Monto de la línea</b>: $200.000.000 (PESOS Doscientos millones).
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Destinatarios</b>: micro, pequeñas y medianas empresas de acuerdo a la Resolución
-                                Nacional N° 220/19
-                                SEPYME,
-                                radicadas en Entre Ríos y con certificado MiPyME vigente.
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Tasa de interés</b>: tasa fija subsidiada de 9,9 puntos porcentuales anuales, subsidiada
-                                por el Gobierno
-                                de
-                                Entre Ríos y FONDEP (Ministerio de Desarrollo Productivo de la Nación).
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Monto máximo por beneficiario</b>: hasta la suma de $2.000.000.
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Garantías</b>: 50% de los créditos serán garantizados por el FOGAER (Fondo de Garantías
-                                de Entre Ríos) y
-                                el 50%
-                                restante por el FOGAR (Fondo Argentino de Garantías) del Ministerio de Desarrollo Productivo
-                                de la Nación.
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Sistema</b>: francés.
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Plazo y frecuencia de Amortización</b>: plazo de gracia de hasta 6 meses para la
-                                amortización del
-                                capital. Para
-                                la amortización de capital e intereses el plazo máximo es de 18 (dieciocho) meses, y los
-                                vencimientos
-                                operarán mensualmente hasta su total amortización.
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Cupo para empresas lideradas o propiedad de mujeres</b>: 20% del cupo total de la línea.
-                            </div>
-                        </div>
-                        <div class="row mb-5">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <b>Vigencia de la línea</b>: hasta agotar el cupo máximo disponible o hasta el 30 de
-                                septiembre de 2021.
-                            </div>
-                        </div>
-                        <div class="row mb-5">
-                            <div class="col-xs-12 col-sm-12 col-lg-12">
-                                <hr />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="card">
                 <div class="card-header text-left" id="headingTwo">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed  text-left" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Línea crédito #2 - Adquisición de capital de trabajo por parte de micro, pequeñas y
+                            Línea crédito - Adquisición de capital de trabajo por parte de micro, pequeñas y
                             medianas empresas entrerrianas de la <b>producción tambera provincial.</b>
                         </button>
                     </h2>
@@ -245,12 +144,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed  text-left" type="button" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Línea crédito #3 - Adquisición de bienes de capital por parte de micro, pequeñas y
+                            Línea crédito - Adquisición de bienes de capital por parte de micro, pequeñas y
                             medianas empresas entrerrianas del <b>sector del transporte de cargas de alimentos,
                                 combustibles, cereales, oleaginosas y cargas generales. </b>
                         </button>
@@ -349,12 +249,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="card">
                 <div class="card-header text-left" id="headingFour">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed  text-left" type="button" data-toggle="collapse"
                             data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Línea crédito #4 - Adquisición de capital de trabajo por parte de micro, pequeñas y
+                            Línea crédito - Adquisición de capital de trabajo por parte de micro, pequeñas y
                             medianas empresas para <b>integrados avícolas entrerrianos.</b>
                         </button>
                     </h2>
