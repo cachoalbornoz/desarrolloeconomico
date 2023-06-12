@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  economico:
+    container_name: economico
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'php artisan serve'
+    volumes:
+      - .:/app    
+    ports:
+      - 8005:8000
+    networks:
+      - parana-medio
+
+networks:
+  parana-medio:
+    external: true
+
