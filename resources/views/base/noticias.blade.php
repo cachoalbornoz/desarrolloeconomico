@@ -2,20 +2,21 @@
 
 
     <div class="row mt-5 mb-5">
-        <h2 class="favenir">
-            Noticias recientes
-        </h2>
+        <div class="offset-2 col-8">
+            <h4 class="favenir">
+                Noticias recientes
+            </h4>
 
-        <a class="ml-2 mt-2" href="{{ route('noticias.publicacion') }}">
-            (+ info)
-        </a>
-
+            <a class="ml-2 mt-1" href="{{ route('noticias.publicacion') }}">
+                (+ info)
+            </a>
+        </div>
     </div>
 
 
 
     <div class="row mt-5 mb-5">
-        <div class="col-xs-12 col-sm-12 col-lg-12">
+        <div class="offset-2 col-8">
 
             @foreach ($noticias->take(3) as $index => $noticia)
                 @if ($index == 0)
@@ -44,7 +45,7 @@
             @endforeach
 
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators m-0">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 </ol>
