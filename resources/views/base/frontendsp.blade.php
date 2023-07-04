@@ -113,7 +113,7 @@
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <a class="text-dark" href={{ route('pafinanciera') }}>
                     <h5 class="favenir mb-3">
-                        PROGRAMA DE ASISTENCIA FINANCIERA PARA LA CONSOLIDACIÓN PRODUCTIVA
+                        Asistencia Financiera a MiPyMEs
                     </h5>
                     <img src="{{ asset('public/images/frontend/prog_financ.png') }}" class=" img-fluid" />
                 </a>
@@ -121,7 +121,7 @@
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <a class="text-dark" href={{ route('patecnica') }}>
                     <h5 class="favenir mb-3">
-                        PROGRAMA DE ASISTENCIA TECNICA PARA EL FORTALECIMIENTO MiPYME
+                        Asistencia Técnica a MiPyMEs
                     </h5>
                     <img src="{{ asset('public/images/frontend/prog_asistencia.png') }}" class=" img-fluid" />
                 </a>
@@ -132,7 +132,7 @@
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <a class="text-dark" href="{{ route('pcooperativas') }}">
                     <h5 class="favenir mb-3">
-                        PROGRAMA DE FINANCIAMIENTO PARA COOPERATIVAS DE TRABAJO
+                        Asistencia a Cooperativas
                     </h5>
                     <img src="{{ asset('public/images/frontend/prog_financ_cooperativas_grande.jpeg') }}"
                         class=" img-fluid" />
@@ -141,7 +141,7 @@
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <a class="text-dark" href="{{ route('pcapitalTrabajo') }}">
                     <h5 class="favenir mb-3">
-                        LÍNEAS DE CRÉDITO A TASA SUBSIDIADA JUNTO AL BANCO DE ENTRE RÍOS
+                        Créditos del Banco Entre Ríos
                     </h5>
                     <img src="{{ asset('public/images/frontend/prog_cap_reactivacion.png') }}" class=" img-fluid" />
                 </a>
@@ -152,7 +152,7 @@
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <a class="text-dark" href="{{ route('pestrategicos') }}">
                     <h5 class="favenir mb-3">
-                        LÍNEAS DE CRÉDITOS PARA PROYECTOS ESTRATÉGICOS
+                        Créditos del Banco Nación
                     </h5>
                     <img src="{{ asset('public/images/frontend/prog_proyecto_estrategico.png') }}" class=" img-fluid" />
                 </a>
