@@ -109,8 +109,8 @@
             </div>
         </div>
 
-        <div class="row mt-3 mb-5">
-            <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6 mt-3 mb-5">
                 <a class="text-dark" href={{ route('pafinanciera') }}>
                     <h5 class="favenir mb-3">
                         Asistencia Financiera a MiPyMEs
@@ -118,7 +118,7 @@
                     <img src="{{ asset('public/images/frontend/prog_financ.png') }}" class=" img-fluid" />
                 </a>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-md-6 col-lg-6 mt-3 mb-5">
                 <a class="text-dark" href={{ route('patecnica') }}>
                     <h5 class="favenir mb-3">
                         Asistencia Técnica a MiPyMEs
@@ -128,8 +128,8 @@
             </div>
         </div>
 
-        <div class="row mt-5 mb-3">
-            <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6 mt-3 mb-5">
                 <a class="text-dark" href="{{ route('pcooperativas') }}">
                     <h5 class="favenir mb-3">
                         Asistencia a Cooperativas
@@ -138,7 +138,7 @@
                         class=" img-fluid" />
                 </a>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-md-6 col-lg-6 mt-3 mb-5">
                 <a class="text-dark" href="{{ route('pcapitalTrabajo') }}">
                     <h5 class="favenir mb-3">
                         Créditos del Banco Entre Ríos
@@ -148,8 +148,8 @@
             </div>
         </div>
 
-        <div class="row mt-5 mb-3">
-            <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6 mt-3 mb-5">
                 <a class="text-dark" href="{{ route('pestrategicos') }}">
                     <h5 class="favenir mb-3">
                         Créditos del Banco Nación
@@ -157,7 +157,7 @@
                     <img src="{{ asset('public/images/frontend/prog_proyecto_estrategico.png') }}" class=" img-fluid" />
                 </a>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-6">
+            <div class="col-xs-12 col-md-6 col-lg-6 mt-3 mb-5">
 
             </div>
         </div>
