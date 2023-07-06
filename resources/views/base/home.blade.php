@@ -76,10 +76,11 @@
                                 </a>
                             </h5>
 
-                            Crédito de hasta $3.000.000 y a tasa subsidiada para MiPyMEs entrerrianas en marcha, destinados
-                            a capital de trabajo o proyectos de inversión y capital de trabajo asociado.
-                            </br>
-                            &nbsp;
+                            Crédito de hasta <strong> $8.000.000 </strong> y a tasa subsidiada para MiPyMEs entrerrianas en marcha,
+                                destinados
+                                a capital de trabajo o proyectos de inversión y capital de trabajo asociado.
+                                </br>
+                                &nbsp;
                         </div>
                     </div>
                 </div>

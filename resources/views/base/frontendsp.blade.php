@@ -44,9 +44,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                            <a class="dropdown-item" href={{ route('programarp') }}>
-                                PROGRAMA FEDERAL DE FORTALECIMIENTO DE LA REACTIVACION PRODUCTIVA
-                            </a>
                             <a class="dropdown-item" href={{ route('pafinanciera') }}>
                                 ASISTENCIA FINANCIERA PARA LA CONSOLIDACION PRODUCTIVA
                             </a>

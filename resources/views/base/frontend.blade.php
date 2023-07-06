@@ -74,9 +74,6 @@
                                     <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
                                         - Banco de Entre Ríos
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('programarp') }}">
-                                        - Reactivación Productiva
-                                    </a>
 
                                 </div>
                             </li>
