@@ -32,45 +32,45 @@
                         NOTICIAS
                     </a>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        PROGRAMAS
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                {{-- 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            PROGRAMAS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                        <a class="dropdown-item" href={{ route('programarp') }}>
-                            PROGRAMA FEDERAL DE FORTALECIMIENTO DE LA REACTIVACION PRODUCTIVA
-                        </a>
-                        <a class="dropdown-item" href={{ route('pafinanciera') }}>
-                            ASISTENCIA FINANCIERA PARA LA CONSOLIDACION PRODUCTIVA
-                        </a>
-                        <a class="dropdown-item" href={{ route('patecnica') }}>
-                            ASISTENCIA TECNICA PARA EL FORTALECIMIENTO MIPyME
-                        </a>
-                        <a class="dropdown-item" href="{{ route('pcooperativas') }}">
-                            PROGRAMA DE FINANCIAMIENTO PARA COOPERATIVAS DE TRABAJO
-                        </a>
-                        <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
-                            LÍNEAS DE CRÉDITO A TASA SUBSIDIADA JUNTO AL BANCO DE ENTRE RÍOS
-                        </a>
-                        <a class="dropdown-item" href="{{ route('pestrategicos') }}">
-                            LÍNEAS DE CRÉDITOS PARA PROYECTOS ESTRATÉGICOS
-                        </a>
+                            <a class="dropdown-item" href={{ route('pafinanciera') }}>
+                                Consolidación Productiva
+                            </a>
+                            <a class="dropdown-item" href={{ route('patecnica') }}>
+                                Fortalecimiento MiPyME
+                            </a>
+                            <a class="dropdown-item" href="{{ route('pcooperativas') }}">
+                                Cooperativas de Trabajo
+                            </a>
+                            <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
+                                Banco de Entre Ríos
+                            </a>
+                            <a class="dropdown-item" href="{{ route('pestrategicos') }}">
+                                Banco Nación
+                            </a>
 
-                    </div>
-                </li>
+                        </div>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="{{ url('register') }}" class="nav-link">
-                        REGISTRO
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="{{ url('register') }}" class="nav-link">
+                            REGISTRO
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link text-white">
-                        INGRESAR
-                    </a>
-                </li> --}}
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link text-white">
+                            INGRESAR
+                        </a>
+                    </li> 
+                --}}
             </ul>
         </div>
     </nav>
