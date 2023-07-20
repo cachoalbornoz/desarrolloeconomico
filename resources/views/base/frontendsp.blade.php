@@ -45,19 +45,19 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                             <a class="dropdown-item" href={{ route('pafinanciera') }}>
-                                Consolidación Productiva
+                                CONSOLIDACIÓN PRODUCTIVA
                             </a>
                             <a class="dropdown-item" href={{ route('patecnica') }}>
-                                Fortalecimiento MiPyME
+                                FORTALECIMIENTO MIPYME
                             </a>
                             <a class="dropdown-item" href="{{ route('pcooperativas') }}">
-                                Cooperativas de Trabajo
+                                COOPERATIVAS DE TRABAJO
                             </a>
                             <a class="dropdown-item" href="{{ route('pcapitalTrabajo') }}">
-                                Banco de Entre Ríos
+                                CRÉDITOS BERSA
                             </a>
                             <a class="dropdown-item" href="{{ route('pestrategicos') }}">
-                                Banco Nación
+                                CRÉDITOS BNA
                             </a>
 
                         </div>

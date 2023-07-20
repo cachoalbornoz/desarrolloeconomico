@@ -42,7 +42,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    CREDITOS PRODUCTIVOS
+                                    FINANCIAMIENTO
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('pafinanciera') }}">
@@ -52,7 +52,7 @@
                                         - Cooperativas
                                     </a>
                                     <hr>
-                                    <h6 class="ml-2">Emprendedores</h6>
+                                    <p class="ml-2 block">Emprendedores</p>
 
                                     <a class="dropdown-item"
                                         href="https://www.entrerios.gov.ar/desarrolloemprendedor/frontend/programa_jovenes.php">
@@ -81,7 +81,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    CAPACITACIONES y ASISTENCIA TECNICA
+                                    CAPACITACIONES
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
@@ -162,8 +162,8 @@
                     <div class="col-6">
                         <h4 class="mt-5 mb-3">Micro Digital Tecnología Forense</h4>
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe src="https://www.youtube.com/embed/uUIdZDCtF-A"
-                                title="Micro Digital Tecnología Forense" frameborder="0"
+                            <iframe src="https://www.youtube.com/embed/uUIdZDCtF-A" title="Micro Digital Tecnología Forense"
+                                frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
                         </div>

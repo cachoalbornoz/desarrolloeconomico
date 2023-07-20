@@ -78,7 +78,8 @@ class EmpresaController extends Controller
             $search = $request->input('search.value');
 
             $empresas = Empresa::
-                leftJoin('tipo_categoria', 'tipo_categoria.id', '=', 'empresa.categoria1')
+                select('empresa.id', 'empresa.razon_social', 'empresa.titular', 'empresa.cuit', 'empresa.actividad1', 'empresa.categoria1', 'empresa.ciudad')
+                ->leftJoin('tipo_categoria', 'tipo_categoria.id', '=', 'empresa.categoria1')
                 ->leftJoin('ciudad_all', 'ciudad_all.id', '=', 'empresa.ciudad')
                 ->leftJoin('users', 'users.id', '=', 'empresa.titular')
                 ->where('razon_social', 'LIKE', "%{$search}%")
