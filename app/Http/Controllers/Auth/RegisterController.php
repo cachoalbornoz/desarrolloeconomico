@@ -95,12 +95,12 @@ class RegisterController extends Controller
 
         //// NOTIFICAR AL USUARIO QUE SE REGISTRO CORRECTAMENTE
 
-        $datos = [
-            'apellido'  => $user->apellido,
-            'nombre'    => $user->nombre,
-        ];
+        // $datos = [
+        //     'apellido'  => $user->apellido,
+        //     'nombre'    => $user->nombre,
+        // ];
 
-        $user->notify(new NuevoUsuario($datos));
+        // $user->notify(new NuevoUsuario($datos));
 
         return $user;
     }
