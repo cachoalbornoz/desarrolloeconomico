@@ -15,7 +15,7 @@ class AuditoriaController extends Controller{
 
         if ($request->ajax()) {
 
-            $auditoria = AuditoriaSistema::all();
+            $auditoria = AuditoriaSistema::where('tabla', '=', 'EXPEDIENTE')->get();
 
             return Datatables::of($auditoria)
             ->addIndexColumn()

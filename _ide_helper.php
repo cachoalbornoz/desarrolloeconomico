@@ -14941,7 +14941,7 @@
          * DataTables using Query.
          *
          * @param \Illuminate\Database\Query\Builder|mixed $builder
-         * @return \Yajra\DataTables\QueryDataTable|\Yajra\DataTables\DataTableAbstract 
+         * @return \Yajra\DataTables\DataTableAbstract|\Yajra\DataTables\QueryDataTable 
          * @static 
          */ 
         public static function query($builder)
@@ -14953,7 +14953,7 @@
          * DataTables using Eloquent Builder.
          *
          * @param \Illuminate\Database\Eloquent\Builder|mixed $builder
-         * @return \Yajra\DataTables\EloquentDataTable|\Yajra\DataTables\DataTableAbstract 
+         * @return \Yajra\DataTables\DataTableAbstract|\Yajra\DataTables\EloquentDataTable 
          * @static 
          */ 
         public static function eloquent($builder)
@@ -14965,7 +14965,7 @@
          * DataTables using Collection.
          *
          * @param \Illuminate\Support\Collection|array $collection
-         * @return \Yajra\DataTables\CollectionDataTable|\Yajra\DataTables\DataTableAbstract 
+         * @return \Yajra\DataTables\DataTableAbstract|\Yajra\DataTables\CollectionDataTable 
          * @static 
          */ 
         public static function collection($collection)
@@ -14977,7 +14977,7 @@
          * DataTables using Collection.
          *
          * @param \Illuminate\Http\Resources\Json\AnonymousResourceCollection|array $collection
-         * @return \Yajra\DataTables\ApiResourceDataTable|\Yajra\DataTables\DataTableAbstract 
+         * @return \Yajra\DataTables\DataTableAbstract|\Yajra\DataTables\ApiResourceDataTable 
          * @static 
          */ 
         public static function resource($resource)

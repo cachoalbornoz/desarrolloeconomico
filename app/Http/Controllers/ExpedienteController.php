@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AuditoriaSistema;
 use Illuminate\Http\Request;
 
 use App\User;
@@ -13,7 +14,7 @@ use App\Models\CiudadAll;
 use App\Models\Provincia;
 use App\Models\ProyectoUser;
 use App\Models\TipoRubro;
-
+use Auth;
 use DB;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Yajra\DataTables\Facades\DataTables;
@@ -23,7 +24,7 @@ class ExpedienteController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $expediente    = expediente::all();
+            $expediente    = expediente::where("estado", "!=", "99")->get();
 
             if ($expediente) {
                 return Datatables::of($expediente)
@@ -170,8 +171,12 @@ class ExpedienteController extends Controller
 
     public function destroy(Request $request)
     {
-        $expediente = Expediente::find($request->id);
-        $expediente->delete();
+        Expediente::find($request->id)->update(['estado' => 99]);
+        AuditoriaSistema::create([
+            'codigo' => '4',                    // Elimina
+            'tabla' => 'EXPEDIENTE',            // Tabla donde elimina registros
+            'usuario' => Auth::user()->id
+        ]);
 
         return response()->json();
     }
