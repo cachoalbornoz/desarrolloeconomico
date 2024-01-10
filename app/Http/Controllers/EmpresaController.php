@@ -26,38 +26,6 @@ class EmpresaController extends Controller
     // Listado de empresa pensado en ADMINISTRADORES
     public function indexAdmin(Request $request)
     {
-        // if ($request->ajax()) {
-        //     $empresa = Empresa::select('id', 'razon_social', 'titular', 'cuit', 'actividad1', 'categoria1', 'ciudad')->get();
-        //     return Datatables::of($empresa)
-        //         ->addIndexColumn()
-        //         ->editColumn('id', function ($empresa) {
-        //             return '<a href= "' . route('empresa.edit', $empresa->id) . '"><i class="fas fa-pencil-alt"></i></a>';
-        //         })
-        //         ->editColumn('razon_social', function ($empresa) {
-        //             return (isset($empresa->razon_social)) ? $empresa->razon_social : null;
-        //         })
-        //         ->addColumn('titular', function ($empresa) {
-        //             return (isset($empresa->titular)) ? $empresa->Titular->NombreCompleto : null;
-        //         })
-        //         ->addColumn('emisor', function ($empresa) {
-        //             $origen = EmpresaOrigen::where('empresa', '=', $empresa->id)->first();
-        //             return (isset($origen->emisor)) ? $origen->Emisor->emisor : null;
-        //         })
-        //         ->addColumn('seguimiento', function ($empresa) {
-        //             return '<a href= "' . route('seguimiento.index', $empresa->id) . '"><span class="fa fa-eye"></span></a>';
-        //         })
-        //         ->addColumn('categoria1', function ($empresa) {
-        //             return ($empresa->categoria1) ? $empresa->Categoria1->categoria : null;
-        //         })
-        //         ->editColumn('ciudad', function ($empresa) {
-        //             return ($empresa->ciudad) ? $empresa->Ciudad->nombre : null;
-        //         })
-        //         ->addColumn('borrar', function ($empresa) {
-        //             return '<a href="javascript:void(0)" title="Elimina empresa"><i class="fas fa-trash text-danger borrar" id="' . $empresa['id'] . '"></i></a>';
-        //         })
-        //         ->rawColumns(['id', 'razon_social', 'titular', 'emisor', 'seguimiento', 'categoria', 'borrar'])
-        //         ->make(true);
-        // }
         return view('admin.empresas.indexAdmin');
     }
 

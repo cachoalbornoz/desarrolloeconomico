@@ -33,7 +33,7 @@ class ExpedienteController extends Controller
                         return '<a href= "' . route('expediente.edit', $expediente->id) . '">' . $expediente->id . '</a>';
                     })
                     ->addColumn('titular', function ($expediente) {
-                        return $expediente->Titular->NombreCompleto;
+                        return ($expediente->titular) ? substr($expediente->Titular->NombreCompleto,0,20): null;
                     })
                     ->addColumn('dni', function ($expediente) {
                         return ($expediente->Titular->dni);
@@ -49,11 +49,11 @@ class ExpedienteController extends Controller
                         return $date;
                     })
                     ->editColumn('rubro', function ($expediente) {
-                        return ($expediente->rubro) ? $expediente->Rubro->rubro : null;
+                        return ($expediente->rubro) ? substr($expediente->Rubro->rubro,0,20) : null;
                         ;
                     })
                     ->editColumn('ciudad', function ($expediente) {
-                        return ($expediente->ciudad) ? $expediente->Ciudad->nombre : null;
+                        return ($expediente->ciudad) ? substr($expediente->Ciudad->nombre,0,20) : null;
                     })
                     ->addColumn('borrar', function ($expediente) {
                         return '<a href="javascript:void(0)" title="Elimina expediente"><i class="fas fa-trash text-danger borrar" id="' . $expediente['id'] . '"></i></a>';

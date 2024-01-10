@@ -29,7 +29,8 @@
                         <table class="table table-bordered table-hover table-sm" style="font-size: smaller" id="expediente">
                             <thead>
                                 <tr>
-                                    <th>Expediente</th>
+                                    <th>Exp</th>
+                                    <th>ExpMadre</th>
                                     <th>Titular</th>
                                     <th>Dni</th>
                                     <th>Icono</th>
@@ -75,11 +76,19 @@
                 "url": "{{ url('public/DataTables/spanish.json') }}"
             },
             ajax: "{{ route('expediente.index') }}",
-            columns: [{
+            columns: [
+                {
                     data: 'id',
                     name: 'id',
-                    orderable: true,
-                    searchable: true,
+                    orderable: false,
+                    searchable: false,
+                    class: "text-center"
+                },
+                {
+                    data: 'nro_exp_madre',
+                    name: 'id',
+                    orderable: false,
+                    searchable: false,
                     class: "text-center"
                 },
                 {
@@ -91,7 +100,7 @@
                 {
                     data: 'dni',
                     name: 'dni',
-                    orderable: true,
+                    orderable: false,
                     searchable: true,
                     class: "text-center"
                 },
@@ -105,7 +114,7 @@
                 {
                     data: 'estado',
                     name: 'estado',
-                    orderable: true,
+                    orderable: false,
                     searchable: true,
                     class: "text-center"
                 },
@@ -126,7 +135,7 @@
                 {
                     data: 'rubro',
                     name: 'rubro',
-                    orderable: true,
+                    orderable: false,
                     searchable: true,
                 },
                 {
@@ -146,15 +155,14 @@
                 {
                     data: 'ciudad',
                     name: 'ciudad',
-                    orderable: true,
+                    orderable: false,
                     searchable: true,
-                    class: "text-center"
                 },
                 {
                     data: 'borrar',
                     name: 'borrar',
-                    orderable: true,
-                    searchable: true,
+                    orderable: false,
+                    searchable: false,
                     class: "text-center"
                 },
             ]
