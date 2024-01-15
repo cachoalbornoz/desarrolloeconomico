@@ -165,12 +165,7 @@
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Empresas</a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('empresaEmpleo.indexAdmin') }}">
-                                    Empresas - Programa de Fortalecimiento Productivo
-                                </a>
-                            </li>
-                            <div class="dropdown-divider"></div>
+                            
                             <li>
                                 <a class="dropdown-item" href="{{ route('empresa.create', 2) }}">Crear
                                     empresas (sin titular)
