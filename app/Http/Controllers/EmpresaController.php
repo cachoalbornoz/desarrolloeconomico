@@ -203,6 +203,7 @@ class EmpresaController extends Controller
 
     public function update(EmpresaUpdateRequest $request, $id)
     {
+        
         $empresa = Empresa::find($id);
         $empresa->fill($request->all());
         isset($request->activo) ? $empresa->activo = 1 : $empresa->activo = 0;

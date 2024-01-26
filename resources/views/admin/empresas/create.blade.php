@@ -56,7 +56,8 @@
             </div>
 
             <div class="row mt-5 mb-5">
-                <div class="col-xs-12 col-md-4 col-lg-4 mb-2">
+                
+                <div class="col-xs-12 col-md-6 col-lg-6 mb-2">
                     <div class="input-group">
                         <div class=" input-group-prepend">
                             <span class="input-group-text">
@@ -65,9 +66,31 @@
                         </div>
                         {!! Form::text('email', null, ['class' => 'form-control']) !!}
                     </div>
+                </div>                
+                
+                <div class="col-xs-12 col-sm-3 col-lg-3">
+                    <div class="input-group">
+                        <div class=" input-group-prepend">
+                            <span class="input-group-text">
+                                Latitud
+                            </span>
+                        </div>
+                        {!! Form::text('latitud', null, ['class' => 'form-control']) !!}
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-lg-4">
+
+                <div class="col-xs-12 col-sm-3 col-lg-3">
+        
+                    <div class="input-group">
+                        <div class=" input-group-prepend">
+                            <span class="input-group-text">
+                                Longitud
+                            </span>
+                        </div>
+                        {!! Form::text('longitud', null, ['class' => 'form-control']) !!}
+                    </div>
                 </div>
+
             </div>
 
 

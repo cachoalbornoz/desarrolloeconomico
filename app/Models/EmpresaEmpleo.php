@@ -15,6 +15,8 @@ class EmpresaEmpleo extends Model
         'razon_social',
         'titular',
         'estado',
+        'latitud',
+        'longitud',
         'cuit',
         'tipo_sociedad',
         'tipopyme',
@@ -98,9 +100,9 @@ class EmpresaEmpleo extends Model
 
     public function completa()
     {
-        $columns = $this->getFillable();
+        $columns    = $this->getFillable();
         $attributes = $this->getAttributes();
-        $arrTabla = [];
+        $arrTabla   = [];
 
         foreach ($attributes as $campo) {
             if (is_null($campo) || strlen($campo) == 0) {

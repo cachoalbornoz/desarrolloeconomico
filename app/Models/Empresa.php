@@ -4,18 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
 
 class Empresa extends Model
 {
     public $timestamps = true;
-    protected $table = 'empresa';
+    protected $table   = 'empresa';
 
     protected $fillable = [
         'id',
         'razon_social',
         'titular',
         'estado',
+        'latitud',
+        'longitud',
         'cuit',
         'email',
         'tipo_sociedad',
@@ -56,7 +57,7 @@ class Empresa extends Model
     }
 
     public function intereses()
-    {	
+    {
         $interes = DB::table('empresa')
             ->join('empresa_interes', 'empresa.id', '=', 'empresa_interes.empresa')
             ->join('tipo_interes', 'tipo_interes.id', '=', 'empresa_interes.interes')
@@ -125,7 +126,7 @@ class Empresa extends Model
 
     public function completa()
     {
-        $columns = $this->getFillable();
+        $columns    = $this->getFillable();
         $attributes = $this->getAttributes();
         $arrEmpresa = [];
 
