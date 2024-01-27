@@ -39,7 +39,12 @@
                                 Razón social
                             </span>
                         </div>
-                        {!! Form::text('razon_social', null, ['autofocus' => 'true', 'class' => 'form-control', 'required', 'placeholder' => 'Razón social de la empresa']) !!}
+                        {!! Form::text('razon_social', null, [
+                            'autofocus' => 'true',
+                            'class' => 'form-control',
+                            'required',
+                            'placeholder' => 'Razón social de la empresa',
+                        ]) !!}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-lg-6">
@@ -56,7 +61,7 @@
             </div>
 
             <div class="row mt-5 mb-5">
-                
+
                 <div class="col-xs-12 col-md-6 col-lg-6 mb-2">
                     <div class="input-group">
                         <div class=" input-group-prepend">
@@ -65,29 +70,6 @@
                             </span>
                         </div>
                         {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>                
-                
-                <div class="col-xs-12 col-sm-3 col-lg-3">
-                    <div class="input-group">
-                        <div class=" input-group-prepend">
-                            <span class="input-group-text">
-                                Latitud
-                            </span>
-                        </div>
-                        {!! Form::text('latitud', null, ['class' => 'form-control']) !!}
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-3 col-lg-3">
-        
-                    <div class="input-group">
-                        <div class=" input-group-prepend">
-                            <span class="input-group-text">
-                                Longitud
-                            </span>
-                        </div>
-                        {!! Form::text('longitud', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
 
@@ -131,7 +113,12 @@
                 </div>
                 <div class="col-xs-12 col-sm-3 col-lg-2">
                     <label>Provincia</label>
-                    {!! Form::select('provincia', $provincia, null, ['id' => 'provincia', 'class' => 'form-control', 'placeholder' => 'Seleccione provincia', 'required' => 'true']) !!}
+                    {!! Form::select('provincia', $provincia, null, [
+                        'id' => 'provincia',
+                        'class' => 'form-control',
+                        'placeholder' => 'Seleccione provincia',
+                        'required' => 'true',
+                    ]) !!}
                 </div>
                 <div class="col-xs-12 col-md-2 col-lg-2 mb-2">
                     {!! Form::label('ciudad', 'Ciudad') !!}
@@ -173,6 +160,42 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="card p-2 border-info mb-2">
+
+                <div class="row">
+                    <div class="col-xs-12 col-dm-12 col-lg-12">
+                        Georreferencia de la empresa - Por favor brindenos su posición <b>GPS</b> En caso de no saber, acceda a éste  
+                        <a href="https://www.coordenadas-gps.com/" target="_blank">link</a> y cargue la dirección de su empresa
+                    </div>
+                </div>
+
+                <div class="row mt-5 mb-5">
+                    <div class="col-xs-12 col-sm-3 col-lg-3">
+                        <div class="input-group">
+                            <div class=" input-group-prepend">
+                                <span class="input-group-text">
+                                    Latitud
+                                </span>
+                            </div>
+                            {!! Form::text('latitud', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-lg-3">
+
+                        <div class="input-group">
+                            <div class=" input-group-prepend">
+                                <span class="input-group-text">
+                                    Longitud
+                                </span>
+                            </div>
+                            {!! Form::text('longitud', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

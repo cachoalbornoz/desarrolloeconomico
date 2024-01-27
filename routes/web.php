@@ -52,6 +52,9 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         //////////// HOME
         Route::get('/home', ['uses' => 'InicioController@index', 'as' => 'home']);
 
+        //////////// MAPAS
+        Route::get('/mapas/rubros', 'MapaController@mapaRubros')->name('mapas.rubros');
+
         //////////// NOTICIAS
         Route::get('/noticias/list', 'NoticiaController@index')->name('noticias.index');
         Route::get('/noticias/create', 'NoticiaController@create')->name('noticias.create');
@@ -60,7 +63,6 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::put('/noticias/update', 'NoticiaController@update')->name('noticias.update');
         Route::get('/noticias/publicar', 'NoticiaController@publicar')->name('noticias.publicar');
         Route::post('/noticias/destroy', 'NoticiaController@destroy')->name('noticias.destroy');
-
 
         //////////// CUOTAS
         Route::get('/cuota/{id?}', 'CuotaController@index')->name('cuota.index');
