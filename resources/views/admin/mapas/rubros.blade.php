@@ -1,36 +1,17 @@
-@extends('base.base')
+@extends('base.base-mapa')
 
 @section('title', 'Mapa')
 
-@section('breadcrumb')
 
-@endsection
 
 @section('content')
 
-    @include('errors.error')
+    <h5>Mapa de Empresas x Rubros </h5>
 
-
-
-
-    <div class="card">
-
-        <div class="card-header">
-            <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-6">
-                    <h5>Mapa de Empresas x Rubros </h5>
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="card-body">
-
-
-        </div>
+    <div id="map">
 
     </div>
 
+    <script src="{{ asset('/public/mapas/map-rubros.js') }}"></script>
 
 @endsection
