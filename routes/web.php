@@ -54,6 +54,7 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
 
         //////////// MAPAS
         Route::get('/mapas/rubros', 'MapaController@mapaRubros')->name('mapas.rubros');
+        Route::get('/mapas/rubros/get', 'MapaController@getRubros')->name('mapas.get.rubros');
 
         //////////// NOTICIAS
         Route::get('/noticias/list', 'NoticiaController@index')->name('noticias.index');

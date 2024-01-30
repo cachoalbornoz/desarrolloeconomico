@@ -36,6 +36,8 @@
 
 <body>
 
+    <!-- JQuery -->
+    <script src="{{ asset('/public/js/jquery-3.4.1.min.js') }}"></script>
 
     <!-- Bootstrap 4.3.1 -->
     <script src="{{ asset('/public/bootstrap-4.3.1/js/dist/popper.min.js') }}"></script>
