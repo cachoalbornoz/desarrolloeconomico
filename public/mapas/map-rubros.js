@@ -14,25 +14,6 @@ let streetView = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 // Obtener los datos de las empresas
-const url = APP_URL + '/mapas/rubros/get';
-let empresas = []
-
-let GetData = async () => {
-    try {
-        let res = await fetch(url);
-        let data = await res.json();
-        return data;
-    }
-    catch (err) {
-        throw ("ha ocurrido un error" + err);
-    }
-}
-
-GetData().then(datos => {
-    datos.forEach(empresa => {
-        empresas.push(empresa);
-    })
-});
 
 
 let marker = L.marker([-31.7718, -60.540148]).addTo(map)

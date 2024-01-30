@@ -4,19 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Empresa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\Types\This;
 
 class MapaController extends Controller{
 
     public function mapaRubros(Request $request)
     {	
+        $this->getRubros();
         return view('admin.mapas.rubros');
     }
 
-    public function getRubros(Request $request)
+    private function getRubros()
     {	
         $empresas = Empresa::select('razon_social', 'latitud', 'longitud')->whereNotNull('latitud')->whereNotNull('longitud')->get();
-        Storage::disk('local')->put('mapas/rubros.json', response()->json($empresas));
+        $filename = "public/mapas/rubros.json";
+        $handle = fopen($filename, 'w+');
+        fputs($handle, $empresas->toJson(JSON_PRETTY_PRINT));
+        fclose($handle);
     }
 
 }
