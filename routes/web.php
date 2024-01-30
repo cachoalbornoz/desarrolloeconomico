@@ -53,8 +53,8 @@ Route::group(['middleware' => 'preventBackHistory'], function () {
         Route::get('/home', ['uses' => 'InicioController@index', 'as' => 'home']);
 
         //////////// MAPAS
-        Route::get('/mapas/rubros', 'MapaController@mapaRubros')->name('mapas.rubros');
-        Route::get('/mapas/rubros/get', 'MapaController@getRubros')->name('mapas.get.rubros');
+        Route::get('/mapas/empresas/rubros', 'MapaController@mapaRubros')->name('mapas.rubros');
+        Route::get('/mapas/empresas/rubros/get', 'MapaController@getRubros')->name('mapas.get.rubros');
 
         //////////// NOTICIAS
         Route::get('/noticias/list', 'NoticiaController@index')->name('noticias.index');

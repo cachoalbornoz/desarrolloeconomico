@@ -1,17 +1,22 @@
 [
     {
         "razon_social": "GRASIANI GUSTAVO JAVIER Y FOLETTO DARIO GUILERMO JOSE S.H.",
-        "latitud": "-60.43227900",
-        "longitud": "-31.70221700"
+        "latitud": "-31.843841",
+        "longitud": "-60.430643"
     },
     {
         "razon_social": "DIE EISENBR\u00fcCKE",
-        "latitud": "-60.50980600",
-        "longitud": "-31.75485300"
+        "latitud": "-31.740857",
+        "longitud": "-60.319521"
     },
     {
-        "razon_social": "E.R. BREW S.A",
-        "latitud": "-60.39388300",
-        "longitud": "-31.82831600"
+        "razon_social": "COOPERATIVA DE TRABAJO DEL CENTRO LTDA",
+        "latitud": "-31.749019",
+        "longitud": "-60.517023"
+    },
+    {
+        "razon_social": "TERCEC SRL",
+        "latitud": "-31.759255",
+        "longitud": "60.486839"
     }
 ]

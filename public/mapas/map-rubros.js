@@ -1,3 +1,7 @@
+// Definir colores
+const colores = ["#000000", "#F2C357", "#FF0000", "#04B404", "#FE642E", "#FFFF00", "#FF00BF", "#BDBDBD", "#E6E6E6", "#B40404", "#80FF00", "#00FFFF", "#FA58F4",
+    "#FE2E9A", "#F6D8CE", "#38610B", "#86B404", "#8904B1", "#F5A9E1", "#F5A9A9", "#F3F781", "#E3CEF6"];
+
 // Definir el mapas
 let map = L.map('map', {
     fullscreenControl: true,
@@ -11,12 +15,6 @@ let streetView = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
-
-
-// Obtener los datos de las empresas
-
-
-let marker = L.marker([-31.7718, -60.540148]).addTo(map)
 
 var baseLayers = {
     "Politico": politico,
@@ -38,10 +36,10 @@ info.onAdd = function (map) {
     return div;
 };
 info.addTo(map);
-////////////////////////////////////////////////////////////////     
 
 // Overlay layers are grouped
 var groupedOverlays = {}
+var otrostitulos = []
 
 var options = {
     collapsed: false,
@@ -49,4 +47,64 @@ var options = {
 };
 
 L.control.layers(baseLayers, groupedOverlays, options).addTo(map);
+
+// Obtener datos de las empresas
+
+
+const getDatos = async (url) => {
+    let response = await fetch(url);
+    let data = await response.json()
+    return data;
+}
+
+const mapaRubros = async (url) => {
+    getDatos(url).then(
+
+        empresas => {
+
+            categoria_id = -1
+
+            empresas.forEach(function callback(empresa, index) {
+
+                console.log(`${index}: ${empresa.categoria_id}`);
+
+            });
+
+
+
+        });
+}
+
+let url = APP_URL + '/mapas/empresas/rubros/get';
+mapaRubros(url);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
