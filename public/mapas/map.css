@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
     width: 100%;
     height: 95%;
     margin: 0;
@@ -7,11 +8,11 @@ html, body{
 #map {
     width: 100%;
     height: 100%;
-    
+
 }
 
-h1{
-    color:darkblue;
+h1 {
+    color: darkblue;
     font-family: Verdana;
     text-align: center;
 }
@@ -21,18 +22,18 @@ h1{
     margin-left: 20px;
 }*/
 
-.info { 
-    padding: 6px 8px; 
-    font: 12px/14px Arial, Helvetica, sans-serif; 
-    background: white; 
-    background: rgba(255,255,255,0.8); 
-    box-shadow: 0 0 15px rgba(0,0,0,0.2); 
-    border-radius: 5px; 
-} 
+.info {
+    padding: 6px 8px;
+    font: 12px/14px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
 
-.info h5 { 
-    margin: 0 0 5px; 
-    color: #777; 
+.info h5 {
+    margin: 0 0 5px;
+    color: #777;
 }
 
 /* Para definir el diseño del objeto al pasar el mouse*/
@@ -44,4 +45,8 @@ h1{
 /* Para esconder un objeto*/
 .hidden {
     display: none;
+}
+
+.leaflet-tooltip-pane img {
+    max-width: 300px;
 }

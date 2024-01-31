@@ -26,15 +26,14 @@
     <link href="{{ asset('/public/mapas/libreria/Leaflet.MousePosition-master/src/L.Control.MousePosition.css') }}"
         rel="stylesheet">
 
-    <link href="{{ asset('/public/mapas/libreria/Leaflet.Legend-master/src/leaflet.legend.css') }}"
-        rel="stylesheet">
-    {{-- 
-    <link href="{{ asset('/public/mapas/libreria/leaflet-mapkey-icon-master/dist/L.Icon.Mapkey.css') }}"
-        rel="stylesheet">
+    <link href="{{ asset('/public/mapas/libreria/Leaflet.Legend-master/src/leaflet.legend.css') }}" rel="stylesheet">
+
+    {{-- <link href="{{ asset('/public/mapas/libreria/leaflet-mapkey-icon-master/dist/L.Icon.Mapkey.css') }}"
+        rel="stylesheet"> --}}
+
     <link
         href="{{ asset('/public/mapas/libreria/leaflet-groupedlayercontrol-gh-pages/src/leaflet.groupedlayercontrol.css') }}"
-        rel="stylesheet"> 
-    --}}
+        rel="stylesheet">
 
 
     <link rel="stylesheet" href="{{ asset('/public/font-awesome-5.9.0/css/all.min.css') }}">
@@ -54,16 +53,10 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
 
-    <script src="{{ asset('/public/mapas/libreria/Leaflet.MousePosition-master/src/L.Control.MousePosition.js') }}"></script>
+    <script src="{{ asset('/public/mapas/libreria/Leaflet.MousePosition-master/src/L.Control.MousePosition.js') }}">
+    </script>
     <script src="{{ asset('/public/mapas/libreria/Leaflet.Legend-master/src/leaflet.legend.js') }}"></script>
-    
-    {{-- 
-    <script src="{{ asset('/public/mapas/libreria/leaflet-mapkey-icon-master/dist/L.Icon.Mapkey.js') }}"></script>
-    <script src="{{ asset('/public/mapas/libreria/leaflet-groupedlayercontrol-gh-pages/src/leaflet.groupedlayercontrol.js') }}"></> 
-    --}}
-
-    <!-- Bing Layers -->
-    <script src="{{ asset('/public/mapas/libreria/leaflet-bing-layer-gh-pages/leaflet-bing-layer.js') }}"></script>
+    <script src="{{ asset('/public/mapas/libreria/leaflet-groupedlayercontrol-gh-pages/src/leaflet.groupedlayercontrol.js') }}"></script>
 
     <script>
         var APP_URL = {!! json_encode(url('/')) !!};
