@@ -27,10 +27,16 @@ class MapaController extends Controller{
 
     private function getRubrosFile()
     {	
-        $empresas = Empresa::select('razon_social', 'latitud', 'longitud')->whereNotNull('latitud')->whereNotNull('longitud')->get();
-        $filename = "public/mapas/rubros.json";
+        $empresas = Empresa::select('razon_social', 'latitud', 'longitud', 'tipo_categoria.id as categoria_id', 'categoria')
+            ->whereNotNull('latitud')->whereNotNull('longitud')
+            ->leftJoin('tipo_categoria', 'tipo_categoria.id', '=', 'empresa.categoria1')
+            ->orderBy('tipo_categoria.id')
+            ->get();
+
+        $filename = "public/mapas/empresas.js";
         $handle = fopen($filename, 'w+');
-        fputs($handle, $empresas->toJson(JSON_PRETTY_PRINT));
+        $contenido = "let empresas = " . $empresas . ";";
+        fputs($handle, $contenido);
         fclose($handle);
     }
 
