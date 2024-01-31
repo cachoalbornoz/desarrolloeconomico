@@ -25,6 +25,9 @@
 
     <link href="{{ asset('/public/mapas/libreria/Leaflet.MousePosition-master/src/L.Control.MousePosition.css') }}"
         rel="stylesheet">
+
+    <link href="{{ asset('/public/mapas/libreria/Leaflet.Legend-master/src/leaflet.legend.css') }}"
+        rel="stylesheet">
     {{-- 
     <link href="{{ asset('/public/mapas/libreria/leaflet-mapkey-icon-master/dist/L.Icon.Mapkey.css') }}"
         rel="stylesheet">
@@ -52,6 +55,8 @@
         crossorigin=""></script>
 
     <script src="{{ asset('/public/mapas/libreria/Leaflet.MousePosition-master/src/L.Control.MousePosition.js') }}"></script>
+    <script src="{{ asset('/public/mapas/libreria/Leaflet.Legend-master/src/leaflet.legend.js') }}"></script>
+    
     {{-- 
     <script src="{{ asset('/public/mapas/libreria/leaflet-mapkey-icon-master/dist/L.Icon.Mapkey.js') }}"></script>
     <script src="{{ asset('/public/mapas/libreria/leaflet-groupedlayercontrol-gh-pages/src/leaflet.groupedlayercontrol.js') }}"></> 

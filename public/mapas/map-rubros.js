@@ -41,6 +41,8 @@ new L.control.scale({ imperial: false }).addTo(map);
 
 // Dibujar marcadores de las empresas
 empresas.forEach(empresa => {
+
+    
     L.circleMarker(L.latLng(empresa.longitud, empresa.latitud), {
         radius: 6,
         fillColor: "#ff0000",
