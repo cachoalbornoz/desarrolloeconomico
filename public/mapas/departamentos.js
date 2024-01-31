@@ -1,4 +1,5 @@
 var departamentos = [
+    { nombre: 'Todos', coordenadas: [-31.88674, -59.38162] },
     { nombre: 'Colon', coordenadas: [-32.2245289, -58.1675946] },
     { nombre: 'Concordia', coordenadas: [-31.3785815, -58.082821] },
     { nombre: 'Diamante', coordenadas: [-32.06526, -60.60565] },

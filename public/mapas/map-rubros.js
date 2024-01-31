@@ -75,12 +75,13 @@ empresas.forEach(empresa => {
 
 //Crear listado de lugares
 
-const volar = (coord) => {
-    const zoom = map.getMaxZoom();
-    map.flyTo(coord,14)
+const volar = (lugar) => {
+
+    const zoom = (lugar.nombre == 'Todos')?8:14;
+    map.flyTo(lugar.coordenadas, zoom)
 }
 
-const definirAlert = ([latitud,longitud]) => {
+const definirAlert = ([latitud, longitud]) => {
     alert.classList.remove('hidden');
     alert.innerText = `Coordenadas:
         Latitud: ${latitud},
@@ -114,7 +115,7 @@ const crearListado = () => {
         li.addEventListener('click', () => {
             limpiarItems();
             li.classList.add('active');
-            volar(lugar.coordenadas);
+            volar(lugar);
             definirAlert(lugar.coordenadas);
         })
     })
