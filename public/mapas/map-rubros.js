@@ -50,34 +50,20 @@ L.control.layers(baseLayers, groupedOverlays, options).addTo(map);
 
 // Obtener datos de las empresas
 
-
-const getDatos = async (url) => {
-    let response = await fetch(url);
-    let data = await response.json()
-    return data;
-}
-
-const mapaRubros = async (url) => {
-    getDatos(url).then(
-
-        empresas => {
-
-            categoria_id = -1
-
-            empresas.forEach(function callback(empresa, index) {
-
-                console.log(`${index}: ${empresa.categoria_id}`);
-
-            });
-
-
-
-        });
-}
-
+var arrEmpresas = []
 let url = APP_URL + '/mapas/empresas/rubros/get';
-mapaRubros(url);
 
+$.ajax({
+    url: url,
+    type: "GET",
+    dataType: "json",
+    success: function(data) {
+        console.log(data);
+    },
+    error: function(data) {
+        console.log("Revisar");
+    }
+});
 
 
 
