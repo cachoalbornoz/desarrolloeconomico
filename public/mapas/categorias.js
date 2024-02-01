@@ -1,0 +1,1 @@
+let categorias = [{"id":1,"categoria":"INDUSTRIA"},{"id":2,"categoria":"COMERCIO"},{"id":3,"categoria":"SERVICIOS"},{"id":4,"categoria":"CONSTRUCCION"},{"id":5,"categoria":"MINERIA"},{"id":6,"categoria":"AGROPECUARIO"},{"id":7,"categoria":"AGROINDUSTRIA"}];

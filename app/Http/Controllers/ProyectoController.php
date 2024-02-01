@@ -31,7 +31,7 @@ class ProyectoController extends Controller
     {
         if ($request->ajax()) {
             if (Auth::user()->hasRole(['superadmin', 'admin'])) {
-                $proyecto = Proyecto::all();
+                $proyecto = Proyecto::orderBy('denominacion')->get();
             } else {
                 $user     = Auth::user();
                 $proyecto = Proyecto::where('titular', '=', $user->id)->get();
@@ -40,19 +40,20 @@ class ProyectoController extends Controller
             if ($proyecto) {
                 return Datatables::of($proyecto)
                     ->addIndexColumn()
-                    ->editColumn('denominacion', function ($proyecto) {
-                        $titulo = ($proyecto->denominacion) ? mb_substr($proyecto->denominacion, 0, 15) : 'PROYECTO';
-
-                        if (Auth::user()->hasRole(['user'])) {
-                            return ($proyecto->canEdit()) ? '<a href= "' . route('proyecto.edit', $proyecto->id) . '">' . $titulo . '</a>' : $titulo;
-                        }
-                        return '<a href= "' . route('proyecto.edit', $proyecto->id) . '">' . $titulo . '</a>';
-                    })
                     ->editColumn('titular', function ($proyecto) {
-                        return ($proyecto->Titular) ? substr($proyecto->Titular->NombreCompleto, 0, 35) : 'Titular';
+                        return ($proyecto->Titular) ? substr($proyecto->Titular->NombreCompleto, 0, 20) : 'Titular';
                     })
                     ->editColumn('empresa', function ($proyecto) {
-                        return ($proyecto->Empresa) ? substr($proyecto->Empresa->razon_social, 0, 35) : 'Empresa';
+                        $empresa = ($proyecto->Empresa) ? substr($proyecto->Empresa->razon_social, 0, 20) : 'Empresa';
+
+                        if (Auth::user()->hasRole(['user'])) {
+                            return ($proyecto->canEdit()) ? '<a href= "' . route('proyecto.edit', $proyecto->id) . '">' . $empresa . '</a>' : $empresa;
+                        }
+                        return '<a href= "' . route('proyecto.edit', $proyecto->id) . '">' . $empresa . '</a>';
+                    })             
+                    
+                    ->editColumn('localidad', function ($proyecto) {
+                        return ($proyecto->Empresa and $proyecto->Empresa->Ciudad) ? substr($proyecto->Empresa->Ciudad->Departamento->nombre, 0, 30) : 'ciudad';
                     })
                     ->editColumn('estado', function ($proyecto) {
                         return $proyecto->Estado->icono . ' ' . $proyecto->Estado->estado;

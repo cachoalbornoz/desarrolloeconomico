@@ -33,10 +33,9 @@
                         <table class="table table-bordered table-hover table-sm" style="font-size: smaller" id="proyecto">
                             <thead>
                                 <tr>
-                                    <th>Denominación</th>
                                     <th>Titular</th>
                                     <th>Empresa</th>
-                                    <th>Asociados</th>
+                                    <th>Localidad</th>
                                     <th>Estado Proyecto</th>
                                     <th>Estado Planillas</th>
                                     <th>
@@ -74,7 +73,9 @@
                 ],
                 dom: '<"wrapper"Brflitp>',
                 buttons: ['copy', 'excel', 'pdf', 'colvis'],
-                order: [[1, "asc"]],
+                order: [
+                    [0, "asc"]
+                ],
                 stateSave: true,
                 processing: true,
                 serverSide: true,
@@ -82,64 +83,41 @@
                     "url": "{{ url('public/DataTables/spanish.json') }}"
                 },
                 ajax: "{{ route('proyecto.index') }}",
-                columns: [
-                    {
-                        data: 'denominacion',
-                        name: 'denominacion',
-                        orderable: true,
-                        searchable: true
-                    },
-                    {
+                columns: [{
                         data: 'titular',
-                        name: 'titular',
                         orderable: true,
                         searchable: true
                     },
                     {
                         data: 'empresa',
-                        name: 'empresa',
-                        orderable: true,
                         searchable: true
                     },
                     {
-                        data: 'integrantes',
-                        name: 'integrantes',
-                        orderable: false,
-                        searchable: false,
-                        class: "text-center"
+                        data: 'localidad',
+                        searchable: true,
                     },
                     {
                         data: 'estado',
-                        name: 'estado',
-                        orderable: false,
                         searchable: true,
                         class: "text-center"
                     },
                     {
                         data: 'estadoplanilla',
-                        name: 'estadoplanilla',
-                        orderable: false,
                         searchable: false,
                         class: "text-center"
                     },
                     {
                         data: 'enviar',
-                        name: 'enviar',
-                        orderable: false,
                         searchable: false,
                         class: "text-center"
                     },
                     {
                         data: 'print',
-                        name: 'print',
-                        orderable: false,
                         searchable: false,
                         class: "text-center"
                     },
                     {
                         data: 'borrar',
-                        name: 'borrar',
-                        orderable: false,
                         searchable: false,
                         class: "text-center"
                     },

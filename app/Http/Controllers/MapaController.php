@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+use App\Models\TipoCategoria;
 use Illuminate\Http\Request;
 
 class MapaController extends Controller{
@@ -10,6 +11,7 @@ class MapaController extends Controller{
     public function mapaRubros(Request $request)
     {	
         $this->getRubrosFile();
+        $this->getCategoriasFile();
         return view('admin.mapas.rubros');
     }
 
@@ -21,8 +23,7 @@ class MapaController extends Controller{
             ->orderBy('tipo_categoria.id')
             ->get();        
 
-        return response()->json($empresas);
-        
+        return response()->json($empresas);        
     }
 
     private function getRubrosFile()
@@ -38,6 +39,17 @@ class MapaController extends Controller{
         $contenido = "let empresas = " . $empresas . ";";
         fputs($handle, $contenido);
         fclose($handle);
+    }
+
+    private function getCategoriasFile(){
+
+        $categorias = TipoCategoria::all();
+        $filename = "public/mapas/categorias.js";
+        $handle = fopen($filename, 'w+');
+        $contenido = "let categorias = " . $categorias . ";";
+        fputs($handle, $contenido);
+        fclose($handle);
+
     }
 
 }

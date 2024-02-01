@@ -21,6 +21,7 @@
 
     <script src="{{ asset('/public/mapas/departamentos.js') }}"></script>
     <script src="{{ asset('/public/mapas/empresas.js') }}"></script>
+    <script src="{{ asset('/public/mapas/categorias.js') }}"></script>
     <script src="{{ asset('/public/mapas/map-rubros.js') }}"></script>
 
 @endsection
