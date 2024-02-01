@@ -25,16 +25,17 @@ info.onAdd = function (map) {
 
 // Agregar el metodo que actualiza el control segun el puntero vaya pasando
 info.update = function (props) {
-    this._div.innerHTML = '<h6>Mapa - Categorias productivas</h6>';
-    let path = APP_URL + "/public/mapas/libreria/isologoER_Gob.png"
-    this._div.innerHTML += '<img src=' + path + ' style="width:10%;" alt="Ministerio">';
+    this._div.innerHTML = '<h6>Créditos MyPYME - Categorias productivas</h6>';
+    //let path = APP_URL + "/public/mapas/libreria/isologoER_Gob.png"
+    //this._div.innerHTML += '<img class=" img-thumbnail" src=' + path + ' alt="Ministerio">';
+    this._div.innerHTML += '<h4>Ministerio de Desarrollo Económico - Entre Ríos</h4>';
 };
 info.addTo(map);
 
 
 //Crear listado de lugares
 const volar = (lugar) => {
-    const zoom = (lugar.nombre == 'Todos') ? 8 : 14;
+    const zoom = (lugar.nombre == 'Todos') ? 8 : 12;
     map.flyTo(lugar.coordenadas, zoom)
 }
 
@@ -78,10 +79,14 @@ crearListado();
 
 // Crear el mapa
 
-let politico = L.tileLayer('https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png');
-let streetView = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
+let politico = L.tileLayer('https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png',
+    {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">IGN Argentina - Secretaria Desarrollo Productivo E.R.</a>'
+    });
+let streetView = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap - Secretaria Desarrollo Productivo E.R. </a>'
+    });
 
 var baseLayers = {
     "Politico": politico,
