@@ -11,12 +11,10 @@ const alert = document.querySelector('#alert');
 
 // Agregados al mapa
 new L.control.mousePosition({ position: 'topright' }).addTo(map);
-new L.control.scale({ imperial: false }).addTo(map);
+new L.control.scale({ imperial: true }).addTo(map);
 
 // Cuadro de Informacion
-// Agregar control para ver los datos al pasar el puntero
-
-var info = L.control();
+var info = new L.control({ position: 'bottomleft' });
 
 // Crear un div con una clase info
 info.onAdd = function (map) {
@@ -28,12 +26,10 @@ info.onAdd = function (map) {
 // Agregar el metodo que actualiza el control segun el puntero vaya pasando
 info.update = function (props) {
     this._div.innerHTML = '<h6>Mapa - Categorias productivas</h6>';
+    let path = APP_URL + "/public/mapas/libreria/isologoER_Gob.png"
+    this._div.innerHTML += '<img src=' + path + ' style="width:10%;" alt="Ministerio">';
 };
 info.addTo(map);
-
-// Dibujar marcadores de las empresas
-const colores = ["#000000", "#F2C357", "#FF0000", "#04B404", "#FE642E", "#FFFF00", "#FF00BF", "#BDBDBD", "#E6E6E6", "#B40404", "#80FF00", "#00FFFF", "#FA58F4",
-    "#FE2E9A", "#F6D8CE", "#38610B", "#86B404", "#8904B1", "#F5A9E1", "#F5A9A9", "#F3F781", "#E3CEF6"];
 
 
 //Crear listado de lugares
@@ -96,44 +92,54 @@ var overlays = {};
 
 var options = {
     collapsed: false,
-    position: 'bottomright'
+    position: 'topright'
 };
 
 politico.addTo(map);
 
 const layerControl = L.control.layers(baseLayers, overlays, options).addTo(map);
 
+
+// Funcion de Mayuscula primer letra 
+const capitalize = (t) => { return t[0].toUpperCase() + t.substr(1).toLowerCase() };
+
+
+// Definir colores
+const colores = ["#000000", "#6E1906", "#FF0000", "#FE642E", "#04B404", "#948E0A", "#0A1D94", "#BDBDBD", "#E6E6E6", "#B40404", "#80FF00", "#00FFFF", "#FA58F4",
+    "#FE2E9A", "#F6D8CE", "#38610B", "#86B404", "#8904B1", "#F5A9E1", "#F5A9A9", "#F3F781", "#E3CEF6"];
+
 // Definir marcadores por cada categoria - Tipo_Categoria
+let index = 0
 
 categorias.forEach(item => {
 
+    index++
     capaCategoria = L.layerGroup();
-    let index = 0
+
+    let color = colores[index]
 
     empresas.forEach(empresa => {
+
 
         if (empresa.categoria_id == item.id) {
 
             let opciones = {
                 radius: 6,
-                fillColor: colores[index],
-                color: colores[index],
+                fillColor: color,
+                color: color,
                 weight: 1,
                 opacity: 0.8,
                 fillOpacity: 0.8,
             }
 
-            let tooltip = [empresa.razon_social, { sticky: true }]
-
-            L.circleMarker(L.latLng(empresa.latitud, empresa.longitud), opciones).bindTooltip(tooltip).addTo(capaCategoria)
+            L.circleMarker(L.latLng(empresa.latitud, empresa.longitud), opciones).addTo(capaCategoria).bindTooltip(empresa.razon_social, { sticky: true })
         }
     })
 
     // Agregar la nueva capa al grupo overlays
-    layerControl.addOverlay(capaCategoria, item.categoria);
+    let NombreCategoria = "<i class='fa fa-circle fa' aria-hidden='true' style='color:" + color + "'></i> " + capitalize(item.categoria)
 
-    index++
-
+    layerControl.addOverlay(capaCategoria, NombreCategoria);
 })
 
 
